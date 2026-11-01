@@ -229,7 +229,7 @@ const LOGOS = [
 const STRENGTHS = [
   { title: '브랜드에 맞는 디자인을\n먼저 제안해요', desc: '로고만 찍는 굿즈가 아니라, 브랜드 색과 이야기를 담은 도면과 시안으로 완성 모습을 먼저 보여드려요.', src: 'images/web/why1.webp' },
   { title: '샘플로 먼저 보고\n결정하세요', desc: '사진으로는 모르는 색감과 촉감을 실물 샘플로 확인한 뒤 양산해요.', src: 'images/web/why-samples.webp' },
-  { title: '약속한 날짜에\n정확히 도착해요', desc: '생산부터 포장, 배송까지 일정표를 공유하고 진행 상황을 알려드려요.', src: 'images/web/why-packing.webp' },
+  { title: '약속한 날짜에\n정확히 도착해요', desc: '생산부터 포장, 배송까지 일정표를 공유하고 진행 상황을 알려드려요.', src: 'images/web/why-schedule.webp' },
   { title: '자체 공장에서\n직접 만들어요', desc: '직접 운영하는 공장 3곳에서 바로 생산해서, 품질과 일정을 직접 챙깁니다. 디즈니·카카오 제품 제조 자격도 갖추고 있어요.', src: 'images/web/why-factory.webp' },
 ];
 
