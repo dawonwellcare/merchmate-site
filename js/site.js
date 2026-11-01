@@ -572,3 +572,17 @@ if ('IntersectionObserver' in window) {
   a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.6.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg><span>카톡 문의</span>';
   document.body.appendChild(a);
 })();
+
+// ===== 상담 신청 버튼 =====
+// 카톡 문의 버튼 바로 아래에 고정돼요. 누르면 상담 신청 페이지로 이동해요. (상담 신청 페이지에서는 숨겨요)
+(function () {
+  if (document.getElementById('consultFloatBtn')) return;
+  if (/contact\.html$/.test(location.pathname)) return;
+  const a = document.createElement('a');
+  a.id = 'consultFloatBtn';
+  a.className = 'consult-float-btn';
+  a.href = 'contact.html';
+  a.setAttribute('aria-label', '상담 신청하기');
+  a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm3 4v2h10V8H7zm0 3.5v2h7v-2H7z"/></svg><span>상담 신청</span>';
+  document.body.appendChild(a);
+})();
