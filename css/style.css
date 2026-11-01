@@ -704,3 +704,19 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .kakao-chat-btn { right: 14px; bottom: calc(76px + env(safe-area-inset-bottom, 0px)); padding: 12px 16px; font-size: 14px; }
 }
 @media print { .kakao-chat-btn { display: none; } }
+/* ===== 상담 신청 버튼 (카톡 문의 버튼 아래, 오른쪽 아래 고정) ===== */
+.consult-float-btn {
+  position: fixed; right: 24px; bottom: 28px; z-index: 900;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px 20px; border-radius: 999px;
+  background: var(--primary, #1e3a8a); color: #fff;
+  font-size: 15px; font-weight: 700; line-height: 1; text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, .18);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.consult-float-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0, 0, 0, .22); }
+.consult-float-btn:focus-visible { outline: 3px solid #fee500; outline-offset: 3px; }
+@media (max-width: 640px) {
+  .consult-float-btn { right: 14px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); padding: 12px 16px; font-size: 14px; }
+}
+@media print { .consult-float-btn { display: none; } }
