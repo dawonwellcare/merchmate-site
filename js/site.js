@@ -468,7 +468,7 @@ if ($('contactForm')) {
     ${SITE.email ? `<li><span>이메일</span>${SITE.email}</li>` : ''}
     ${SITE.locations.map(l => `<li><span>${l.label}</span>${l.address}</li>`).join('')}`;
   const formStatus = $('formStatus');
-  // Netlify Forms 로 전송해요. (접수 내용은 Netlify 대시보드 > Forms 에서 확인)
+  // Formspree 로 전송해요. (접수 내용은 이메일과 Formspree 대시보드 > Submissions 에서 확인)
   const showStatus = (text, ok) => {
     formStatus.textContent = text;
     formStatus.dataset.state = ok ? 'ok' : 'error';
@@ -482,12 +482,19 @@ if ($('contactForm')) {
     btn.disabled = true;
     btn.textContent = '보내는 중...';
     try {
-      const res = await fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(new FormData(form)).toString(),
-      });
-      if (!res.ok) throw new Error(res.status);
+      const data = new FormData(form);
+      // 스팸 방지용 숨김 칸이 채워져 있으면 봇이므로 보내지 않고 성공처럼 처리해요.
+      if (!data.get('bot-field')) {
+        data.delete('bot-field');
+        data.delete('form-name');
+        data.set('_subject', `[머치메이트 상담 신청] ${data.get('company') || ''} ${data.get('name') || ''}`.trim());
+        const res = await fetch('https://formspree.io/f/meaarkrd', {
+          method: 'POST',
+          headers: { Accept: 'application/json' },
+          body: data,
+        });
+        if (!res.ok) throw new Error(res.status);
+      }
       showStatus('상담 신청이 접수되었어요. 영업일 기준 하루 안에 연락드릴게요.', true);
       form.reset();
     } catch {
