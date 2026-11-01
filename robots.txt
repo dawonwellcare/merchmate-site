@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://merchmate.co.kr/sitemap.xml
+#DaumWebMasterTool:66bfa95bc0fb8bbf3ce1510448df1180424d7e63107468cf2b575389c34f18da:IvLhJkVn51ozGzUxUVcQlQ==
