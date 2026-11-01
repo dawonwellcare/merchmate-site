@@ -108,9 +108,13 @@ $('siteFooter').innerHTML = `
       ${typeof GUIDES !== 'undefined' ? `<p class="footer-guides">${GUIDES.map(g => `<a href="${g.href}">${g.label}</a>`).join('')}</p>` : ''}
       <p class="copyright">© ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</p>
     </div>
-    <ul class="footer-links">
-      ${NAV.map(m => `<li><a href="${m.href}">${m.label}</a></li>`).join('')}
-    </ul>
+    ${SITE.locations && SITE.locations[0] ? `<div class="footer-map">
+      <iframe src="https://www.google.com/maps?q=${encodeURIComponent(SITE.locations[0].address.replace(/\s*\(\d+\)\s*$/, '').replace(/,\s*[A-Za-z0-9가-힣]+동\s*$/, ''))}&hl=ko&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="${SITE.name} ${SITE.locations[0].label} 위치 지도"></iframe>
+      <div class="footer-map-links">
+        <a href="https://map.naver.com/p/search/${encodeURIComponent(SITE.locations[0].address.replace(/\s*\(\d+\)\s*$/, '').replace(/,\s*[A-Za-z0-9가-힣]+동\s*$/, ''))}" target="_blank" rel="noopener">네이버지도에서 보기</a>
+        <a href="https://map.kakao.com/?q=${encodeURIComponent(SITE.locations[0].address.replace(/\s*\(\d+\)\s*$/, '').replace(/,\s*[A-Za-z0-9가-힣]+동\s*$/, ''))}" target="_blank" rel="noopener">카카오맵에서 보기</a>
+      </div>
+    </div>` : ''}
   </div>`;
 
 // ===== 다크모드 (브라우저가 저장을 막아도 홈페이지는 정상으로 보이게) =====
