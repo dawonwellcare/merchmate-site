@@ -720,3 +720,11 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
   .consult-float-btn { right: 14px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); padding: 12px 16px; font-size: 14px; }
 }
 @media print { .consult-float-btn { display: none; } }
+/* ===== 푸터 지도 (OFFICE 1) ===== */
+.footer { padding-bottom: 140px; }
+.footer-inner > div:first-child { flex: 1 1 480px; }
+.footer-map { flex: 0 0 420px; max-width: 100%; }
+.footer-map iframe { width: 100%; height: 250px; border: 0; border-radius: 14px; display: block; background: #2b4aa0; }
+.footer-map-links { display: flex; gap: 18px; margin-top: 10px; font-size: 13px; font-weight: 700; }
+.footer-map-links a:hover { color: #fff; }
+@media (max-width: 760px) { .footer-map { flex: 1 1 100%; } .footer-map iframe { height: 220px; } }
