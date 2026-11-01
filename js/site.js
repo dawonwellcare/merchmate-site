@@ -224,7 +224,7 @@ if ($('heroClients')) {
 // 숫자는 처음부터 최종값으로 보이고, 화면에 들어오는 순간 한 번만 0부터 올라가요
 if ($('stats')) {
   $('stats').innerHTML = STATS
-    .map(s => `<li><strong><span class="stat-num" data-num="${s.num}">${s.num}</span>${s.unit}</strong><span>${s.label}</span></li>`)
+    .map(s => `<li><strong><span class="stat-num" data-num="${s.num}">${s.num}</span><em class="stat-unit">${s.unit}</em></strong><span>${s.label}</span></li>`)
     .join('');
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (!reduceMotion && 'IntersectionObserver' in window) {
@@ -589,4 +589,29 @@ if ('IntersectionObserver' in window) {
   a.setAttribute('aria-label', '상담 신청하기');
   a.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm3 4v2h10V8H7zm0 3.5v2h7v-2H7z"/></svg><span>상담 신청</span>';
   document.body.appendChild(a);
+})();
+
+// ===== 부드러운 등장 효과 =====
+// 스크롤해서 화면에 들어오면 제목·카드가 아래에서 살짝 올라와요. (움직임을 줄이는 설정을 쓰는 분께는 적용하지 않아요)
+(function () {
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const SEL = '.section-en, .section-title, .section-desc, .work-card, .why-item, .stats li, #paths > *';
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    e.target.classList.add('in');
+    io.unobserve(e.target);
+  }), { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  const seen = new WeakSet();
+  const scan = () => document.querySelectorAll(SEL).forEach(el => {
+    if (seen.has(el)) return;
+    seen.add(el);
+    const r = el.getBoundingClientRect();
+    if (r.top < window.innerHeight && r.bottom > 0) return; // 처음 화면에 보이는 것은 그대로 둬요
+    if (el.classList.contains('work-card')) el.style.transitionDelay = ([...el.parentNode.children].indexOf(el) % 3) * 120 + 'ms';
+    el.classList.add('reveal');
+    io.observe(el);
+  });
+  scan();
+  new MutationObserver(scan).observe(document.body, { childList: true, subtree: true });
 })();
