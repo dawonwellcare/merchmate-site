@@ -239,7 +239,7 @@ const STRENGTHS = [
 const DEV_PHOTOS = [
   { title: '기획 · 디자인', src: 'images/web/factory-ribbons.webp', alt: '공장 선반에 색깔별로 정리된 리본과 끈 부자재' },
   { title: '재단 · 생산', src: 'images/web/video-sewing.webp', video: 'images/web/video-sewing.mp4', alt: '재봉틀로 보라색 원단을 박는 작업 영상' },
-  { title: '포장 · 납품', src: 'images/web/factory-worktable.webp', alt: '완성품을 모아 둔 작업대와 포장 상자' },
+  { title: '포장 · 납품', src: 'images/web/dev-ship.webp', alt: '포장한 박스를 팔레트에 쌓아 트럭에 싣는 출고 모습' },
 ];
 
 // ===== 제작 방법: 기획·개발 / 생산·관리 (icon 은 js/site.js 의 ICONS 중 하나) =====
