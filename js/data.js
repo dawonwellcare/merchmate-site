@@ -227,10 +227,10 @@ const LOGOS = [
 
 // ===== 강점 (사진 한 장에 장점 하나씩) =====
 const STRENGTHS = [
-  { title: '브랜드에 맞는 디자인을\n먼저 제안해요', desc: '로고만 찍는 굿즈가 아니라, 브랜드 색과 이야기를 담은 도면과 시안으로 완성 모습을 먼저 보여드려요.', src: 'images/web/why-1-design.webp' },
-  { title: '샘플로 먼저 보고\n결정하세요', desc: '사진으로는 모르는 색감과 촉감을 실물 샘플로 확인한 뒤 양산해요.', src: 'images/web/why-2-sample.webp' },
-  { title: '택부터 포장까지\n맞춰드려요', desc: '택, 라벨, 개별 포장 방법을 함께 정하고 원하시는 곳까지 포장해서 보내 드려요.', src: 'images/web/why-3-pack.webp' },
-  { title: '자체 공장에서\n직접 만들어요', desc: '직접 운영하는 공장 3곳에서 바로 생산해서, 품질과 일정을 직접 챙깁니다. 디즈니·카카오 제품 제조 자격도 갖추고 있어요.', src: 'images/web/why-4-factory.webp' },
+  { title: '디자인 시안을 먼저 확인', desc: '도면과 시안으로 완성 모습을 먼저 보여드려요.', src: 'images/web/why-new-1.webp', alt: '도면과 완성품을 나란히 놓은 사진' },
+  { title: '실물 샘플 확인 후 양산', desc: '색감과 촉감을 실물 샘플로 확인한 뒤 양산해요.', src: 'images/web/why-new-2.webp', alt: '진열대에 놓인 샘플 인형들' },
+  { title: '택·라벨·포장까지 맞춤', desc: '택, 라벨, 개별 포장을 함께 정하고 원하는 곳까지 보내드려요.', src: 'images/web/why-new-3.webp', alt: '포장한 박스를 트럭에 싣는 출고 모습' },
+  { title: '직접 운영하는 생산 현장', desc: '공장 3곳에서 품질과 일정을 직접 챙겨요.', src: 'images/web/why-new-4.webp', alt: '작업자들이 인형을 만드는 공장 작업장' },
 ];
 
 // ===== 제작 방법: 과정 사진 3장 (기획 → 생산 → 납품) =====

@@ -292,7 +292,7 @@ if ($('whyList')) {
   $('whyList').innerHTML = STRENGTHS
     .map((s, i) => `
       <article class="why-item">
-        <div class="why-photo ph">${photo(s.src, '사진')}</div>
+        <div class="why-photo ph">${photo(s.src, s.alt || '사진')}</div>
         <div class="why-text">
           <span class="why-no">${String(i + 1).padStart(2, '0')}</span>
           <h3>${s.title.replace('\n', '<br>')}</h3>
