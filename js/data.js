@@ -130,9 +130,9 @@ const HERO_SLIDES = [
     studio: 'images/web/hero-studio-highhow.webp', studioAlt: '보라색 티셔츠를 입은 강원랜드 하이하우 인형의 앞·옆·뒤 모습',
     cutout: 'images/web/hero-cut-highhow.webp', cutoutAlt: '계절 옷을 입은 강원랜드 하이하우 인형 다섯 개', bg: '#f6eedf', wide: true,
     src: 'images/web/hero.webp', alt: '차량 시트 위의 블랭킷 슬리브',
-    eyebrow: '30년 봉제 제조, 머치메이트',
-    title: '생각을 제품으로,\n기획부터 납품까지 [한 번에.]',
-    sub: '디자인 시안부터 샘플·양산·납품까지, 자체 공장에서 직접 챙깁니다.',
+    eyebrow: '1987년부터 이어온 봉제 제조 노하우',
+    title: '당신의 아이디어를\n[완성도 높은 제품으로.]',
+    sub: '캐릭터 인형부터 키링·쿠션·파우치까지. 기획, 디자인, 샘플, 양산, 품질 관리를 거쳐 납품까지. 머치메이트는 OEM·ODM 전문 제조 파트너입니다.',
   },
   {
     studio: 'images/web/hero-studio-tino.webp', studioAlt: '야구 점퍼를 입은 한국공학대학교 마스코트 티노 인형의 앞·옆·뒤 모습',
@@ -425,7 +425,7 @@ const WORKS = [
 // ===== 숫자로 보는 회사 (첫 화면, 화면에 보이면 0부터 올라가요) =====
 // 제작 사례·고객사 수는 위 목록 개수로 자동 계산돼요
 const STATS = [
-  { num: 30, unit: '년+', label: '봉제 제조 경력' },
+  { num: 1987, unit: '년부터', label: '이어온 봉제 제조' },
   { num: 3, unit: '곳', label: '직접 운영하는 공장' },
   { num: WORKS.length, unit: '+', label: '제작 사례' },
   { num: LOGOS.length, unit: '곳+', label: '함께한 고객사' },
