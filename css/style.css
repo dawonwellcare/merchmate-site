@@ -892,3 +892,23 @@ button, input, textarea, select { font-family: inherit; }
   .production .section-desc { margin-bottom: 36px; }
   .prod-more { margin-top: 36px; }
 }
+
+/* ===== 제작 일정 안내 (2026-11-02) ===== */
+.lead-times { margin-top: 72px; }
+.lead-times-page { margin-top: 0; }
+.lead-title { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 28px; }
+.lead-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.lead-grid li { display: flex; flex-direction: column; gap: 6px; padding: 32px 28px; background: var(--card); border: 1px solid var(--border); border-radius: 16px; }
+.lead-label { color: var(--accent); font-weight: 600; font-size: 15px; }
+.lead-num { font-family: 'Anton', var(--font-ko); font-weight: 400; font-size: clamp(48px, 5vw, 64px); line-height: 1.1; letter-spacing: 0; color: var(--primary); }
+[data-theme="dark"] .lead-num { color: #fff; }
+.lead-num em { font-style: normal; font-family: var(--font-ko); font-weight: 600; font-size: 20px; letter-spacing: -0.02em; margin-left: 8px; color: var(--text); }
+.lead-desc { color: var(--text-sub); font-size: 15px; }
+.lead-note { text-align: center; margin-top: 22px; color: var(--text-sub); font-size: 14px; }
+@media (max-width: 900px) {
+  .lead-times { margin-top: 56px; }
+  .lead-grid { grid-template-columns: 1fr; gap: 12px; }
+  .lead-grid li { padding: 22px 22px; }
+  .lead-num { font-size: 44px; }
+  .lead-note { font-size: 13px; }
+}
