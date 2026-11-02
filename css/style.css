@@ -845,3 +845,34 @@ button, input, textarea, select { font-family: inherit; }
   .cap-list p, .make-card p { font-size: 14px; }
   .hero-clients, .contact-info span, .footer, .partner-card span, .product-photos figcaption, .footer-map-links, .work-client { font-size: 13px; }
 }
+
+/* ===== 머치메이트가 선택받는 이유: 2열 그리드 (2026-11-02) ===== */
+.why { padding: 120px 0 130px; }
+.why .section-title { margin-bottom: 72px; }
+#whyList { display: grid; grid-template-columns: repeat(2, 1fr); gap: 72px 48px; }
+.why-item { display: flex; flex-direction: column; align-items: stretch; gap: 28px; padding: 0; }
+.why-item:nth-child(even) .why-photo { order: 0; }
+.why-photo { aspect-ratio: 4 / 3; border-radius: 18px; overflow: hidden; background: #f1eee8; }
+.why-photo img { width: 100%; height: 100%; object-fit: cover; }
+.why-text { display: grid; grid-template-columns: auto 1fr; column-gap: 22px; align-items: start; }
+.why-text .why-no { grid-row: 1 / span 2; font-family: 'Anton', var(--font-ko); font-weight: 400; font-size: 68px; line-height: .86; letter-spacing: 0; color: var(--accent); }
+.why-text h3 { grid-column: 2; font-size: clamp(24px, 2.2vw, 28px); font-weight: 700; line-height: 1.3; letter-spacing: -0.02em; margin: 0 0 8px; }
+.why-text p { grid-column: 2; font-size: 16px; line-height: 1.6; color: var(--text-sub); }
+@media (max-width: 900px) {
+  .why { padding: 80px 0 90px; }
+  .why .section-title { margin-bottom: 44px; }
+  #whyList { grid-template-columns: 1fr; gap: 44px; }
+  .why-item { gap: 20px; }
+  .why-text .why-no { font-size: 52px; }
+  .why-text h3 { font-size: 22px; }
+  .why-text p { font-size: 15px; }
+}
+@media (max-width: 640px) {
+  #whyList { grid-template-columns: repeat(2, 1fr); gap: 36px 14px; }
+  .why-item { gap: 14px; }
+  .why-text { grid-template-columns: 1fr; }
+  .why-text .why-no, .why-text h3, .why-text p { grid-column: 1; grid-row: auto; }
+  .why-text .why-no { font-size: 38px; margin-bottom: 6px; }
+  .why-text h3 { font-size: 17px; margin-bottom: 6px; }
+  .why-text p { font-size: 14px; }
+}
