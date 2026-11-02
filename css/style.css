@@ -759,3 +759,89 @@ a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px soli
 .reveal.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 @media print { .reveal { opacity: 1; transform: none; } }
+
+/* ===== 폰트·글자 크기 정돈 (2026-11-02): Freesentation(한글·본문) + Anton(영문 큰 제목·번호·숫자) =====
+   굵기: 슬로건·섹션 제목 700 / 소제목·제품명·버튼 600 / 메뉴 500 / 본문·안내문 400
+   Anton은 400 한 가지만 있어서 항상 font-weight: 400 으로 둬요. 되돌릴 때는 이 블록 전체와 HTML의 폰트 링크를 지우세요. */
+@font-face { font-family: 'Freesentation'; font-weight: 400; font-style: normal; font-display: swap; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-4Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Freesentation'; font-weight: 500; font-style: normal; font-display: swap; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-5Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Freesentation'; font-weight: 600; font-style: normal; font-display: swap; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-6SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Freesentation'; font-weight: 700; font-style: normal; font-display: swap; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2404@1.0/Freesentation-7Bold.woff2') format('woff2'); }
+:root { --font-ko: 'Freesentation', 'Pretendard Variable', Pretendard, -apple-system, sans-serif; --font-display: 'Anton', 'Freesentation', 'Pretendard Variable', sans-serif; }
+body { font-family: var(--font-ko); font-size: 17px; font-weight: 400; }
+button, input, textarea, select { font-family: inherit; }
+
+/* 영문 큰 제목 · 번호 · 숫자 = Anton 400 */
+.section-en, .page-en, .path-tag, .product-no, .timeline-year, .about-year, .step-no, .why-no, .stats strong, .partner-head .section-en, .guide-article .g-no {
+  font-family: 'Anton', var(--font-ko); font-weight: 400;
+}
+.section-en { letter-spacing: 0.18em; }
+.page-en, [data-page="business"] .section-en { font-weight: 400; letter-spacing: 0.01em; }
+.stats strong { letter-spacing: 0; }
+.stats .stat-unit { font-family: var(--font-ko); font-weight: 600; }
+.step-no, .why-no { letter-spacing: 0.06em; }
+.quality-list .step-no { font-weight: 400; }
+
+/* 한글 메인 슬로건 700 (PC 36~44px / 모바일 28~32px) */
+.hero .hero-title, .hero-studio .hero-title, .hero-cutout .hero-title {
+  font-family: var(--font-ko); font-weight: 700; letter-spacing: -0.02em; line-height: 1.22;
+  font-size: clamp(36px, 3.4vw, 44px);
+}
+.hero-sub { font-size: clamp(18px, 1.4vw, 19px); }
+.eyebrow { font-weight: 600; }
+
+/* 한글 섹션 제목 700 (크기는 그대로) */
+.section-title, .why-text h3, .about-heading, .biz-title, .cta-inner h2, .product-text h2, .contact-heading, .about-title { font-weight: 700; }
+.about-heading, .biz-title, .contact-heading, .about-title { letter-spacing: -0.03em; }
+[data-page="business"] .section-title, .page-hero h1 { font-weight: 600; }
+
+/* 한글 소제목 · 제품명 · 카테고리 600 */
+.path-card h3, .timeline h3, .biz-card h3, .steps h3, .principles h3, .cap-list h4, .make-card h3,
+.quality-list h3, .media-pair figcaption strong, .faq summary, .path-q, .partner-card strong, .work-client, .filters button { font-weight: 600; }
+.material-card h3 { font-weight: 600; }
+.material-card:nth-child(1) h3 { font-weight: 700; }
+.work-info h3 { font-weight: 600; font-size: clamp(19px, 1.6vw, 20px); }
+.product-en, .product-items-label, .biz-tag, .make-card span, .material-card figcaption span { font-weight: 600; font-size: 13px; }
+
+/* 메뉴 500 (PC 16px) */
+.nav-item > a { font-weight: 500; font-size: 16px; }
+.sub-menu a { font-weight: 500; }
+.sub-tabs a { font-weight: 500; }
+
+/* 버튼 · 문의 버튼 600 (PC 15~16px) */
+.btn, .kakao-chat-btn, .consult-float-btn, .contact-form button { font-weight: 600; }
+.btn-lg { font-size: 16px; }
+.btn { font-size: 15px; }
+
+/* 본문 설명 400 (PC 16~17px) */
+.why-text p, .about-body, .product-desc, .cta-inner p, .contact-text p, .quality-text > p:not(.section-en), .about-lead, .section-desc { font-weight: 400; }
+.work-meta, .steps p, .principles p, .quality-list p, .material-card p, .media-pair figcaption { font-size: 16px; font-weight: 400; }
+.cap-list p, .make-card p { font-size: 15px; font-weight: 400; }
+.path-desc, .faq details p, .page-hero p:last-child, .timeline p, .biz-card p { font-weight: 400; }
+
+/* 작은 안내 문구 400 (PC 13~14px) */
+.hero-clients, .contact-info span, .footer { font-size: 14px; font-weight: 400; }
+.partner-card span, .product-photos figcaption, .footer-map-links, .work-client { font-size: 13px; }
+.product-photos figcaption { font-weight: 500; }
+.footer-links { font-weight: 600; }
+.footer-map-links { font-weight: 600; }
+.hero-clients strong { font-weight: 600; }
+
+/* ----- 모바일 (900px 이하): 슬로건 28~32 / 설명 15~16 / 본문 15 / 메뉴 15 / 제품명 17~18 / 버튼 14~15 / 안내문 13 ----- */
+@media (max-width: 900px) {
+  body { font-size: 15px; }
+  .hero .hero-title, .hero-studio .hero-title, .hero-cutout .hero-title { font-size: clamp(28px, 7.4vw, 32px); line-height: 1.25; }
+  .hero-sub, .hero-cutout .hero-sub { font-size: clamp(15px, 4.1vw, 16px); }
+  .nav-item > a { font-size: 15px; }
+  .sub-menu a { font-size: 14px; }
+  .sub-tabs a { font-size: 14px; }
+  .btn { font-size: 14px; }
+  .btn-lg { font-size: 15px; }
+  .work-info h3 { font-size: clamp(17px, 4.6vw, 18px); }
+  .why-text p, .about-body, .product-desc, .cta-inner p, .contact-text p, .quality-text > p:not(.section-en), .about-lead,
+  .section-desc, .path-desc, .faq details p, .page-hero p:last-child, .work-meta, .steps p, .principles p, .quality-list p,
+  .media-pair figcaption, [data-page="business"] .section-desc { font-size: 15px; }
+  .material-card:nth-child(1) p { font-size: 15px; }
+  .cap-list p, .make-card p { font-size: 14px; }
+  .hero-clients, .contact-info span, .footer, .partner-card span, .product-photos figcaption, .footer-map-links, .work-client { font-size: 13px; }
+}
