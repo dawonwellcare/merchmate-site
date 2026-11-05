@@ -70,6 +70,7 @@ const NAV = [
   {
     label: '제작 방법', href: 'business.html', page: 'business',
     sub: [
+      { label: '제작 가이드', href: 'guide.html', icon: 'list' },
       { label: '개발 · 제조', href: 'business.html', icon: 'pencil' },
       { label: 'OEM · ODM', href: 'oem.html', icon: 'factory' },
       { label: '캐릭터 IP', href: 'license.html', icon: 'star' },
@@ -439,4 +440,5 @@ const GUIDES = [
   { label: '인형 키링 제작', href: 'doll-keyring.html' },
   { label: '대학교 굿즈 인형 제작', href: 'university-goods.html' },
   { label: '기업 마스코트 인형 제작', href: 'mascot-doll.html' },
+  { label: '제작 가이드 모음', href: 'guide.html' },
 ];
