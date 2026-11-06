@@ -80,7 +80,8 @@ $('siteHeader').innerHTML = `
   const file = location.pathname.split('/').pop() || 'index.html';
   const img = HERO_PHOTOS[file] || HERO_PHOTOS.DEFAULT;
   hero.classList.add('v2-photo');
-  hero.style.setProperty('--hero-img', `url('images/web/${img}')`);
+  // 주소 맨 앞에 / 를 붙여야 css 폴더 기준이 아니라 사이트 기준으로 사진을 찾아요
+  hero.style.setProperty('--hero-img', `url('${new URL('images/web/' + img, document.baseURI).href}')`);
   // 세로로 긴 사진(손 작업 사진)은 위쪽이 잘 보이게 맞춰요
   if (/v2-w[2-5]\.jpg$/.test(img)) hero.style.setProperty('--hero-pos', 'center 30%');
 })();
