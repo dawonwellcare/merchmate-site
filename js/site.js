@@ -55,6 +55,36 @@ $('siteHeader').innerHTML = `
     </div>
   </div>`;
 
+// ===== (2026-11-06) 페이지 맨 위 띠에 사진 넣기 (위오처럼 사진 + 가운데 흰 글자) =====
+// 페이지(파일 이름)마다 쓸 사진을 고를 수 있어요. 목록에 없는 페이지는 DEFAULT 사진을 써요.
+(function () {
+  const hero = document.querySelector('.page-hero');
+  if (!hero) return;
+  const HERO_PHOTOS = {
+    'about.html': 'v2-w1.jpg',          // 원단을 자르는 손
+    'portfolio.html': 'v2-banner-c.jpg', // 리본 상자를 건네는 손
+    'products.html': 'v2-banner-b2.jpg', // 실패·가위·줄자 정물
+    'business.html': 'v2-w2.jpg',       // 바늘로 꾸매는 손
+    'oem.html': 'v2-w2.jpg',
+    'license.html': 'v2-w4.jpg',        // 색 견본을 맞추는 손
+    'quality.html': 'v2-banner-b3.jpg', // 코랄 실패와 바늘
+    'faq.html': 'v2-w6.jpg',            // 메모하는 손
+    'contact.html': 'v2-w6.jpg',
+    'plush-doll.html': 'v2-w2.jpg',
+    'character-doll.html': 'v2-w4.jpg',
+    'doll-keyring.html': 'v2-w3.jpg',   // 키링 고리를 다는 손
+    'university-goods.html': 'v2-banner-c.jpg',
+    'mascot-doll.html': 'v2-w5.jpg',
+    DEFAULT: 'v2-w1.jpg',
+  };
+  const file = location.pathname.split('/').pop() || 'index.html';
+  const img = HERO_PHOTOS[file] || HERO_PHOTOS.DEFAULT;
+  hero.classList.add('v2-photo');
+  hero.style.setProperty('--hero-img', `url('images/web/${img}')`);
+  // 세로로 긴 사진(손 작업 사진)은 위쪽이 잘 보이게 맞춰요
+  if (/v2-w[2-5]\.jpg$/.test(img)) hero.style.setProperty('--hero-pos', 'center 30%');
+})();
+
 // 휴대폰 메뉴 열고 닫기
 const nav = $('nav');
 const menuToggle = $('menuToggle');
@@ -98,7 +128,19 @@ if ($('subTabs')) {
 }
 
 // ===== 맨 아래 회사 정보 =====
+// (2026-11-06) 새 메인과 같은 모양의 하단. 예전 하단으로 되돌리려면 이 블록을 지우고 아래 V1 블록의 if (false) 를 지우세요.
+$('siteFooter').className = 'footer v2-ft';
 $('siteFooter').innerHTML = `
+  <div class="v2-wrap">
+    <div>
+      <div class="v2-call">상담전화<b>${SITE.phone}</b></div>
+      <div class="v2-info">상호명 : ${SITE.name}<i>|</i>대표 : ${SITE.ceo}<i>|</i>사업자등록번호 : ${SITE.bizNo}<br>이메일 : ${SITE.email}<br>${SITE.locations.map(l => `${l.label} : ${l.address}`).join('<br>')}</div>
+      ${typeof GUIDES !== 'undefined' ? `<p class="v2-kw">${GUIDES.map(g => `<a href="${g.href}">${g.label}</a>`).join('')}</p>` : ''}
+    </div>
+    <div class="v2-map"><iframe loading="lazy" title="${SITE.name} ${SITE.locations[0].label} 위치 지도" src="https://maps.google.com/maps?q=${encodeURIComponent(SITE.locations[0].address.replace(/\s*\(\d+\)\s*$/, '').replace(/,\s*[A-Za-z0-9가-힣]+동\s*$/, ''))}&z=15&output=embed"></iframe></div>
+    <div class="v2-bot"><span>© ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</span><nav class="v2-fl">${NAV.filter(m => !m.cta).map(m => `<a href="${m.href}">${m.label}</a>`).join('')}<a href="contact.html">상담 신청</a></nav></div>
+  </div>`;
+if (false) $('siteFooter').innerHTML = `
   <div class="container footer-inner">
     <div>
       <a href="index.html" class="logo"><img src="images/logo/merchmate-white.svg" alt="${SITE.name} MERCHMATE" width="171" height="45"></a>
@@ -121,7 +163,9 @@ $('siteFooter').innerHTML = `
 const themeToggle = $('themeToggle');
 const readTheme = () => { try { return localStorage.getItem('theme'); } catch { return null; } };
 const saveTheme = value => { try { localStorage.setItem('theme', value); } catch {} };
-if (readTheme() === 'dark') {
+// (2026-11-06) 새 디자인에는 다크모드가 없어서 항상 밝은 화면으로 보여요.
+document.documentElement.dataset.theme = 'light';
+if (false && readTheme() === 'dark') {
   document.documentElement.dataset.theme = 'dark';
   themeToggle.textContent = '☀️';
 }
@@ -562,8 +606,26 @@ if ('IntersectionObserver' in window) {
 }
 
 
+// ===== (2026-11-06) 오른쪽 아이콘 메뉴 (새 메인과 같은 모양) =====
+// PC에서는 오른쪽 세로 아이콘 메뉴, 휴대폰에서는 예전처럼 오른쪽 아래 카톡·상담 버튼이 보여요.
+(function () {
+  if (document.getElementById('v2Quick')) return;
+  const q = document.createElement('aside');
+  q.id = 'v2Quick';
+  q.className = 'v2-quick';
+  const ic = d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
+  q.innerHTML = [
+    ['about.html', '회사 소개', '<path d="M3 21V8l6-4v17M9 21V10l6-2v13M15 21V11h6v10M2 21h20"/>'],
+    ['portfolio.html', '제작 사례', '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'],
+    ['faq.html', '자주 묻는 질문', '<path d="M6 3h9l4 4v14H6zM15 3v4h4M9 13h6M9 17h4"/>'],
+    ['contact.html', '상담 신청', '<path d="M4 5h16v11H9l-5 4z"/>'],
+    ['https://pf.kakao.com/_TFUWX/chat', '카카오톡 문의', '<path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9L6.5 20l3.6-2.3c.6.1 1.2.1 1.9.1 5 0 9-3.1 9-6.9S17 4 12 4z"/>'],
+  ].map(([h, t, d]) => `<a href="${h}" title="${t}" aria-label="${t}"${h.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${ic(d)}</a>`).join('');
+  document.body.appendChild(q);
+})();
+
 // ===== 카톡 문의 버튼 =====
-// 모든 페이지 오른쪽 아래에 고정돼요. 누르면 카카오톡 채널 채팅이 새 탭으로 열려요.
+// 모든 페이지 오른쪽 아래에 고정돼요. 누르면 카카오톡 채널 채팅이 새 탭으로 열려요. (2026-11-06부터 PC에서는 숨김)
 (function () {
   if (document.getElementById('kakaoChatBtn')) return;
   const a = document.createElement('a');
