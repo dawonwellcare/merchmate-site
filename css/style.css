@@ -912,3 +912,104 @@ button, input, textarea, select { font-family: inherit; }
   .lead-num { font-size: 44px; }
   .lead-note { font-size: 13px; }
 }
+
+
+/* =====================================================================
+   (2026-11-06) 1단계: 새 메인 페이지와 어울리게 공통 부분 맞추기
+   - 글꼴 Pretendard, 제목 네이비(#16213e), 포인트 코랄(#ff7a59)
+   - 위쪽 메뉴 / 하단 / 오른쪽 아이콘 메뉴
+   되돌리려면 이 블록 전체를 지우고 js/site.js 를 백업본으로 바꾸세요.
+   ===================================================================== */
+:root, :root:not([data-theme="dark"]) {
+  --primary: #16213e; --heading: #16213e; --accent: #ff7a59;
+  --font-ko: 'Pretendard Variable', Pretendard, -apple-system, sans-serif;
+  --font-display: 'Pretendard Variable', Pretendard, sans-serif;
+}
+body { font-family: var(--font-ko); word-break: keep-all; overflow-wrap: break-word; }
+.section-en, .page-en, .path-tag, .product-no, .timeline-year, .about-year, .step-no, .why-no, .stats strong, .partner-head .section-en, .guide-article .g-no {
+  font-family: 'Pretendard Variable', Pretendard, sans-serif; font-weight: 800;
+}
+.section-en, .page-en { letter-spacing: .2em; color: var(--accent); }
+.page-en { font-size: 14px; }
+.page-hero h1 { font-size: clamp(36px, 3.4vw, 52px); font-weight: 800; letter-spacing: -.03em; color: #16213e; margin-top: 10px; }
+.page-hero p { font-size: 18px; }
+.btn-primary { background: linear-gradient(90deg, #f0613e, #ff7a59); border-color: transparent; color: #fff; }
+.btn-primary:hover { background: #16213e; }
+
+/* --- 위쪽 메뉴: 높이 100px, 흰 바탕, 아래 얇은 선 --- */
+.header { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,.96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(22,33,62,.12); box-shadow: none; }
+.header .header-inner { height: 100px; max-width: none; padding: 0 60px; justify-content: flex-start; }
+.header .logo img { height: 38px; width: auto; }
+.header .logo-dark { display: none !important; }
+.header .nav { margin-left: 54px; }
+.header .nav-list { gap: 40px; }
+.header .nav-item > a { font-size: 17px; font-weight: 700; color: #16213e; padding: 38px 0; }
+.header .nav-item > a:hover, .header .nav-item.active > a { color: #ff7a59; }
+.header .sub-menu { border-radius: 16px; border: 1px solid #eee7dd; box-shadow: 0 16px 36px rgba(22,33,62,.10); padding: 10px; }
+.header .sub-menu a { border-radius: 10px; font-size: 15px; font-weight: 600; }
+.header .sub-menu a:hover { background: #f8f4ee; color: #ff7a59; }
+.header .header-actions { margin-left: auto; gap: 30px; }
+.header .theme-toggle { display: none !important; }
+.header .header-actions .btn-primary { border-radius: 999px; padding: 11px 40px; font-size: 14px; font-weight: 600; white-space: nowrap; }
+.header .menu-toggle { font-size: 26px; line-height: 1; color: #16213e; background: none; border: 0; }
+@media (min-width: 901px) { .header .menu-toggle { display: none; } }
+.header .nav-item > a, .header .header-actions a { white-space: nowrap; }
+@media (max-width: 1280px) { .header .nav-list { gap: 24px; } .header .nav { margin-left: 34px; } .header .nav-item > a { font-size: 16px; } .header .header-inner { padding: 0 36px; } }
+@media (max-width: 900px) {
+  .header .header-inner { height: 72px; padding: 0 20px; }
+  .header .logo img { height: 32px; }
+  .header .header-actions { gap: 16px; }
+  .header .header-actions .btn-primary { padding: 9px 18px; font-size: 13px; }
+  .header .nav { margin-left: 0; }
+  .header .nav.open { top: 72px; }
+}
+
+/* --- 오른쪽 아이콘 메뉴 (PC) --- */
+.v2-quick { position: fixed; right: 0; top: 400px; z-index: 90; background: #16213e; width: 80px; }
+.v2-quick a { height: 80px; display: flex; align-items: center; justify-content: center; }
+.v2-quick svg { width: 30px; height: 30px; stroke: #fff; fill: none; stroke-width: 1.4; }
+.v2-quick a:hover { background: #ff7a59; }
+@media (min-width: 901px) { .kakao-chat-btn, .consult-float-btn { display: none !important; } }
+@media (max-width: 900px) { .v2-quick { display: none; } }
+
+/* --- 하단: 크림 바탕, 상담전화 크게, 지도 오른쪽 --- */
+.footer.v2-ft { background: #f6f3ee; padding: 70px 0 50px; color: #6f6a63; font-size: 14px; line-height: 1.9; }
+.v2-ft .v2-wrap { width: min(1240px, 90vw); margin: 0 auto; display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; }
+.v2-ft .v2-call { font-size: 16px; color: #16213e; }
+.v2-ft .v2-call b { font-size: 22px; margin-left: 6px; }
+.v2-ft .v2-info { margin-top: 18px; }
+.v2-ft .v2-info i { font-style: normal; margin: 0 8px; color: #cfc6b8; }
+.v2-ft .v2-kw { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.v2-ft .v2-kw a { color: #8a847c; text-decoration: underline; text-underline-offset: 3px; }
+.v2-ft .v2-map { border-radius: 18px; overflow: hidden; height: 210px; border: 1px solid #e7e0d6; }
+.v2-ft .v2-map iframe { width: 100%; height: 100%; border: 0; }
+.v2-ft .v2-bot { grid-column: 1 / -1; margin-top: 20px; padding-top: 24px; border-top: 1px solid #e7e0d6; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.v2-ft .v2-fl { display: flex; gap: 22px; flex-wrap: wrap; }
+.v2-ft .v2-fl a { color: #16213e; font-weight: 600; }
+@media (max-width: 900px) { .v2-ft .v2-wrap { grid-template-columns: 1fr; } .v2-ft .v2-bot { flex-direction: column; align-items: flex-start; } }
+
+/* --- (2026-11-06) 페이지 아래 주황 띠 → 메인과 같은 코랄 박스 + 오른쪽 사진 --- */
+.cta-band { background: #fff; color: #fff; padding: 110px 0 120px; }
+.cta-band .cta-inner { position: relative; overflow: hidden; border-radius: 34px; min-height: 400px; padding: 70px 52% 70px 70px;
+  background: linear-gradient(120deg, #ff8a6a, #ff7a59 45%, #f0613e); align-items: flex-start; text-align: left; justify-content: center; gap: 16px; }
+.cta-band .cta-inner::after { content: ""; position: absolute; top: 26px; right: 26px; bottom: 26px; width: 46%; border-radius: 24px;
+  background: url('../images/web/v2-w6.jpg') center / cover no-repeat; }
+.cta-band .cta-inner h2 { font-size: clamp(30px, 3vw, 44px); font-weight: 800; letter-spacing: -.03em; line-height: 1.25; }
+.cta-band .cta-inner p { font-size: 18px; line-height: 1.7; opacity: .92; }
+.cta-band .cta-inner .btn { margin-top: 18px; background: #fff; color: #f0613e; border: 0; border-radius: 999px; padding: 15px 36px; font-weight: 700; }
+.cta-band .cta-inner .btn:hover { background: #16213e; color: #fff; }
+@media (max-width: 900px) {
+  .cta-band { padding: 70px 0 80px; }
+  .cta-band .cta-inner { padding: 44px 28px 300px; min-height: 0; }
+  .cta-band .cta-inner::after { top: auto; left: 20px; right: 20px; bottom: 20px; width: auto; height: 240px; }
+}
+
+/* --- (2026-11-06) 페이지 맨 위 띠: 사진 + 가운데 흰 글자 (위오 서브페이지 느낌) --- */
+.page-hero.v2-photo { position: relative; min-height: 380px; padding: 70px 0; display: flex; align-items: center; text-align: center; color: #fff;
+  background: linear-gradient(rgba(22,33,62,.42), rgba(22,33,62,.42)), var(--hero-img) var(--hero-pos, center) / cover no-repeat; }
+.page-hero.v2-photo .container { width: 100%; }
+.page-hero.v2-photo .page-en { color: #fff; opacity: .85; font-size: 14px; letter-spacing: .25em; }
+.page-hero.v2-photo h1 { color: #fff; margin-top: 12px; font-size: clamp(34px, 3.2vw, 48px); font-weight: 800; text-shadow: 0 2px 14px rgba(0,0,0,.18); }
+.page-hero.v2-photo h1 .page-sub { color: rgba(255,255,255,.85); font-weight: 600; }
+.page-hero.v2-photo p:last-child { color: #fff; opacity: .95; font-size: 19px; line-height: 1.7; margin: 16px auto 0; max-width: 46em; text-shadow: 0 1px 10px rgba(0,0,0,.2); }
+@media (max-width: 900px) { .page-hero.v2-photo { min-height: 280px; padding: 50px 0; } .page-hero.v2-photo p:last-child { font-size: 16px; } }
