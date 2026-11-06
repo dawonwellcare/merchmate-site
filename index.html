@@ -22,517 +22,408 @@
 <link rel="icon" href="images/logo/favicon-32.png" sizes="32x32">
 <link rel="apple-touch-icon" href="images/logo/apple-touch-icon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap">
-  <link rel="stylesheet" href="css/style.css">
+
+<style>
+:root{--navy:#16213e;--bar:#16213e;--coral:#ff7a59;--coral-d:#f0613e;--cream:#f8f4ee}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Pretendard Variable',Pretendard,sans-serif;background:#fff;color:var(--navy);overflow-x:hidden;word-break:keep-all;overflow-wrap:break-word}
+a{color:inherit;text-decoration:none}
+
+/* 헤더 (대동기어 구조: 높이 100px, 투명 + 아래 얇은 선) */
+.hd{position:fixed;inset:0 0 auto 0;height:100px;z-index:50;border-bottom:1px solid rgba(22,33,62,.12);transition:background .3s,color .4s,border-color .4s;color:var(--navy)}
+.hd-in{height:100%;display:flex;align-items:center;padding:0 60px}
+.hd .logo{position:relative;height:38px;width:150px}
+.hd .logo img{position:absolute;inset:0;height:38px;transition:opacity .4s}
+.hd .logo .w{opacity:0}
+.gnb{display:flex;gap:40px;margin-left:54px;font-size:17px;font-weight:700}
+.gnb a,.pill{white-space:nowrap}
+@media (max-width:1280px){.gnb{gap:24px;margin-left:34px;font-size:16px}.hd-in{padding:0 36px}}
+.hd-r{margin-left:auto;display:flex;align-items:center;gap:30px}
+.pill{background:linear-gradient(90deg,var(--coral-d),var(--coral));color:#fff;font-size:14px;font-weight:600;padding:11px 40px;border-radius:999px}
+.burger{width:28px;height:20px;position:relative}
+.burger:before,.burger:after,.burger i{content:"";position:absolute;right:0;height:2px;background:currentColor}
+.burger:before{top:0;width:28px}.burger i{top:9px;width:20px}.burger:after{bottom:0;width:28px}
+/* 어두운 사진(B)일 때 헤더를 흰색으로 */
+body.dark .hd{color:#fff;border-color:rgba(255,255,255,.25)}
+body.dark .hd .logo .n{opacity:0} body.dark .hd .logo .w{opacity:1}
+.hd.on{background:rgba(255,255,255,.95);color:var(--navy)!important;border-color:rgba(22,33,62,.12)!important}
+.hd.on .logo .n{opacity:1!important}.hd.on .logo .w{opacity:0!important}
+
+/* 오른쪽 퀵 메뉴 (대동기어 구조) */
+.quick{position:fixed;right:0;top:400px;z-index:60;background:var(--bar);width:80px}
+.quick a{height:80px;display:flex;align-items:center;justify-content:center}
+.quick svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.4}
+.quick a:hover{background:var(--coral)}
+
+/* 첫 화면 배너 (위오 구성: 영상 1 + 사진 2, 왼쪽 큰 영문 + 한글 한 줄, 아래 탭) */
+.visual{position:relative;height:100vh;min-height:720px;overflow:hidden;background:var(--cream)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;pointer-events:none}
+.slide.act{opacity:1;pointer-events:auto}
+.slide video,.slide .img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.slide .img{background-size:cover;background-position:center;transform:scale(1.08);transition:transform 7s ease-out}
+.slide.act .img{transform:scale(1)}
+/* SINCE 1987 칸: 사진 3장이 3초씩 바뀜 */
+.slide .img.sub{opacity:0;transition:opacity 1s ease,transform 4s ease-out;transform:scale(1.06)}
+.slide .img.sub.on{opacity:1;transform:scale(1)}
+.slide:after{transition:background .8s}
+.copy,.copy .en,.copy .ko{transition:color .8s}
+/* 글자가 잘 읽히도록 왼쪽만 살짝 밝게/어둡게 */
+.slide.light:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(248,244,238,.82) 0%,rgba(248,244,238,.45) 34%,rgba(248,244,238,0) 58%)}
+.slide.dark:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,16,34,.55) 0%,rgba(10,16,34,.25) 38%,rgba(10,16,34,0) 60%)}
+.copy{position:absolute;left:60px;top:44%;transform:translateY(-50%);z-index:3;max-width:760px}
+.copy .en{font-size:clamp(46px,4.6vw,72px);font-weight:800;letter-spacing:-.02em;line-height:1.05}
+.copy .en em{font-style:normal;color:var(--coral)}
+.copy .ko{margin-top:18px;font-size:clamp(20px,1.9vw,28px);font-weight:600;letter-spacing:-.02em}
+.slide.dark .copy{color:#fff}
+.slide .copy{opacity:0;transform:translateY(-40%);transition:opacity .9s .4s,transform .9s .4s}
+.slide.act .copy{opacity:1;transform:translateY(-50%)}
+.tabs{position:absolute;left:60px;bottom:90px;z-index:5;display:flex;gap:46px}
+.tabs button{position:relative;border:0;background:none;font:700 18px 'Pretendard Variable',sans-serif;color:rgba(22,33,62,.45);cursor:pointer;padding-bottom:16px;letter-spacing:.02em}
+.tabs button.on{color:var(--navy)}
+.tabs button i{position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--coral)}
+.tabs button.on i{animation:prog var(--dur,6s) linear forwards}
+@keyframes prog{to{width:100%}}
+body.dark .tabs button{color:rgba(255,255,255,.55)} body.dark .tabs button.on{color:#fff}
+.scroll{position:absolute;left:50%;bottom:34px;transform:translateX(-50%);z-index:5;font-size:12px;letter-spacing:.25em;color:rgba(22,33,62,.5)}
+body.dark .scroll{color:rgba(255,255,255,.7)}
+
+/* ===== 배너 아래 공통 ===== */
+.wrap{width:min(1240px,90vw);margin:0 auto}
+.eyebrow{font-size:14px;font-weight:800;letter-spacing:.22em;color:var(--coral)}
+.h2{margin-top:14px;font-size:clamp(32px,3.2vw,48px);font-weight:800;letter-spacing:-.03em;line-height:1.25;color:var(--navy)}
+.h2 em{font-style:normal;color:var(--coral);white-space:nowrap}
+.more{display:inline-flex;align-items:center;gap:10px;font-weight:700;color:var(--navy);border-bottom:2px solid var(--coral);padding-bottom:6px}
+
+/* 1. 회사 소개: 사진 왼쪽 + 글 오른쪽 + 숫자 3개 */
+.about{padding:150px 0 140px;background:#fff}
+.about .wrap{display:grid;grid-template-columns:1.08fr 1fr;gap:80px;align-items:center}
+.about .pic{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/3}
+.about .pic img{width:100%;height:100%;object-fit:cover;display:block}
+.about .pic .badge{position:absolute;left:24px;bottom:24px;background:rgba(255,255,255,.92);border-radius:16px;padding:14px 20px;font-weight:700;font-size:15px;color:var(--navy)}
+.about .pic .badge b{color:var(--coral)}
+.about p.lead{margin-top:26px;font-size:18px;line-height:1.85;color:#5d5a55}
+.nums{margin-top:40px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ebe5dc}
+.nums div{padding:24px 0 0}
+.nums b{display:block;font-size:40px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.nums b small{font-size:18px;margin-left:2px;color:var(--coral)}
+.nums span{display:block;margin-top:6px;font-size:15px;color:#7b766f}
+.about .more{margin-top:36px}
+
+/* 2. 사업 분야: 넓어지는 세로 카드 4장 */
+.biz{padding:130px 0 150px;background:var(--cream)}
+.biz .top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.biz .top p{max-width:420px;font-size:17px;line-height:1.75;color:#6f6a63}
+.cards4{margin-top:56px;display:flex;gap:16px;height:560px}
+.c4{position:relative;flex:1;border-radius:26px;overflow:hidden;cursor:pointer;transition:flex .7s cubic-bezier(.2,.8,.2,1)}
+.c4.on{flex:2.6}
+.c4 img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform 1.2s}
+.c4:hover img{transform:scale(1.04)}
+.c4:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,33,62,0) 40%,rgba(22,33,62,.78) 100%)}
+.c4 .t{position:absolute;left:30px;right:30px;bottom:30px;z-index:2;color:#fff}
+.c4 .no{font-size:14px;font-weight:800;letter-spacing:.15em;color:var(--coral)}
+.c4 h3{margin-top:8px;font-size:26px;font-weight:800;letter-spacing:-.02em;white-space:nowrap}
+.c4 .d{max-height:0;opacity:0;overflow:hidden;transition:max-height .7s,opacity .5s}
+.c4.on .d{max-height:200px;opacity:1}
+.c4 .d p{margin-top:12px;font-size:16px;line-height:1.7;color:rgba(255,255,255,.9);max-width:420px}
+.c4 .d a{display:inline-block;margin-top:18px;font-weight:700;font-size:15px;border-bottom:2px solid var(--coral);padding-bottom:4px}
+
+/* 3. 포트폴리오: 분류 버튼 + 둥근 카드 3칸 */
+.pf{padding:140px 0 150px;background:#fff}
+.pf .top{text-align:center}
+.chips{margin-top:36px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.chips button{border:1px solid #e3ddd3;background:#fff;border-radius:999px;padding:11px 24px;font:700 15px 'Pretendard Variable',sans-serif;color:#6f6a63;cursor:pointer}
+.chips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.grid{margin-top:50px;display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.wk{border-radius:22px;overflow:hidden;background:#faf8f5;transition:transform .3s,box-shadow .3s}
+.wk:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(22,33,62,.10)}
+.wk .ph{aspect-ratio:4/3;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.wk .ph img{width:100%;height:100%;object-fit:contain;padding:14px}
+.wk .in{padding:20px 22px 24px;display:flex;gap:14px;align-items:center}
+.wk .lg{width:54px;height:54px;flex:none;border-radius:14px;background:#fff;border:1px solid #eee7dd;display:flex;align-items:center;justify-content:center;padding:8px}
+.wk .lg img{max-width:100%;max-height:100%;object-fit:contain}
+.wk .lg span{font-size:11px;font-weight:800;color:var(--navy);text-align:center;line-height:1.2}
+.wk small{display:block;font-size:13px;font-weight:700;color:var(--coral)}
+.wk b{display:block;margin-top:3px;font-size:18px;font-weight:800;color:var(--navy);letter-spacing:-.02em}
+.pf .btm{margin-top:56px;text-align:center}
+.btn-line{display:inline-block;border:1.5px solid var(--navy);border-radius:999px;padding:15px 44px;font-weight:700;color:var(--navy)}
+.btn-line:hover{background:var(--navy);color:#fff}
+
+
+/* 3-1. 파트너: 로고가 양쪽으로 흐르는 띠 2줄 */
+.ptn{padding:120px 0 130px;background:var(--cream);overflow:hidden}
+.ptn .top{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.ptn .top p{max-width:420px;font-size:17px;line-height:1.75;color:#6f6a63}
+.ptn .top p b{color:var(--coral)}
+.mq{margin-top:56px;display:grid;gap:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mrow{display:flex;width:max-content;gap:18px;animation:mq 60s linear infinite}
+.mrow.rev{animation-direction:reverse;animation-duration:70s}
+.mq:hover .mrow{animation-play-state:paused}
+@keyframes mq{to{transform:translateX(-50%)}}
+.lt{width:200px;height:96px;flex:none;border-radius:20px;background:#fff;border:1px solid #eee7dd;display:flex;align-items:center;justify-content:center;padding:18px 26px;transition:box-shadow .3s,transform .3s}
+.lt img{max-width:100%;max-height:46px;object-fit:contain;filter:grayscale(1);opacity:.7;transition:filter .3s,opacity .3s}
+.lt:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(22,33,62,.08)}
+.lt:hover img{filter:none;opacity:1}
+.lt span{font-size:15px;font-weight:800;color:#8a847c;text-align:center;line-height:1.3}
+.ptn .types{margin-top:40px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;font-size:15px;color:#8a847c}
+.ptn .types b{color:var(--navy);margin-left:6px}
+@media (max-width:900px){.ptn .top{flex-direction:column;align-items:flex-start}.lt{width:150px;height:76px;padding:14px 18px}}
+
+/* 4. 문의: 코랄 띠 + 오른쪽 둥근 사진 */
+.cta{padding:110px 0 130px;background:#fff}
+.cta .box{position:relative;border-radius:34px;background:linear-gradient(120deg,#ff8a6a,#ff7a59 45%,#f0613e);display:grid;grid-template-columns:1.05fr 1fr;align-items:center;overflow:hidden;min-height:420px}
+.cta .tx{padding:64px 0 64px 70px;color:#fff}
+.cta .tx .eyebrow{color:#fff;opacity:.85}
+.cta h2{margin-top:14px;font-size:clamp(32px,3.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.25}
+.cta p{margin-top:16px;font-size:18px;line-height:1.7;opacity:.92}
+.cta .bt{margin-top:34px;display:flex;gap:12px;flex-wrap:wrap}
+.cta .bt a{border-radius:999px;padding:15px 34px;font-weight:700;font-size:16px}
+.cta .bt .w{background:#fff;color:var(--coral-d)}
+.cta .bt .o{border:1.5px solid rgba(255,255,255,.85);color:#fff}
+.cta .ph{height:100%;padding:28px 28px 28px 0}
+.cta .ph img{width:100%;height:100%;min-height:364px;object-fit:cover;border-radius:24px;display:block}
+
+/* 5. 하단 */
+.ft{background:#f6f3ee;padding:70px 0 50px;color:#6f6a63;font-size:14px;line-height:1.9}
+.ft .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:50px}
+.ft .call{font-size:16px;color:var(--navy)}
+.ft .call b{font-size:22px;margin-left:6px}
+.ft .info{margin-top:18px}
+.ft .info i{font-style:normal;margin:0 8px;color:#cfc6b8}
+.ft .map{border-radius:18px;overflow:hidden;height:210px;border:1px solid #e7e0d6}
+.ft .map iframe{width:100%;height:100%;border:0}
+.ft .bot{grid-column:1/-1;margin-top:20px;padding-top:24px;border-top:1px solid #e7e0d6;display:flex;justify-content:space-between;align-items:center}
+.ft .bot img{height:32px}
+
+@media (max-width:900px){
+  .about .wrap,.cta .box,.ft .wrap{grid-template-columns:1fr}
+  .about{padding:90px 0}.about .wrap{gap:40px}
+  .biz .top{flex-direction:column;align-items:flex-start}
+  .cards4{flex-direction:column;height:auto}.c4{height:120px;flex:none}.c4.on{height:420px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}.wk .in{padding:14px}.wk .lg{display:none}.wk b{font-size:15px}
+  .cta .tx{padding:44px 28px 10px}.cta .ph{padding:20px}
+}
+
+@media (max-width:900px){
+  .gnb,.quick{display:none}.hd{height:72px}.hd-in{padding:0 20px}.pill{padding:9px 18px;font-size:13px}
+  .copy{left:24px;right:24px;top:38%}
+  .slide.light:after{background:linear-gradient(180deg,rgba(248,244,238,.85) 0%,rgba(248,244,238,.4) 45%,rgba(248,244,238,0) 70%)}
+  .slide.dark:after{background:linear-gradient(180deg,rgba(10,16,34,.6) 0%,rgba(10,16,34,.2) 50%,rgba(10,16,34,0) 75%)}
+  .tabs{left:24px;gap:22px;bottom:70px}.tabs button{font-size:14px}
+}
+
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
+.mnav{position:fixed;inset:0;z-index:200;background:#fff;display:flex;flex-direction:column;padding:90px 30px 40px;gap:6px;transform:translateX(100%);transition:transform .35s}
+.mnav.on{transform:none}
+.mnav a{font-size:22px;font-weight:800;color:var(--navy);padding:14px 0;border-bottom:1px solid #eee7dd}
+.mnav a.mc,.mnav a.mk{margin-top:14px;border:0;text-align:center;border-radius:999px;font-size:17px;padding:15px}
+.mnav a.mc{background:var(--coral);color:#fff}.mnav a.mk{background:#fee500;color:#3c1e1e;margin-top:6px}
+.mx{position:absolute;right:22px;top:18px;border:0;background:none;font-size:40px;color:var(--navy);cursor:pointer;line-height:1}
+.faq{padding:130px 0;background:#fff}
+.faq .wrap{display:grid;grid-template-columns:.8fr 1.6fr;gap:70px;align-items:start}
+.faq .fq-l p{margin-top:18px;color:#6f6a63;font-size:17px}.faq .fq-l .more{margin-top:28px}
+.faq details{border-bottom:1px solid #ebe5dc;padding:24px 4px}
+.faq details:first-child{border-top:2px solid var(--navy)}
+.faq summary{list-style:none;cursor:pointer;font-size:19px;font-weight:700;color:var(--navy);display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:after{content:"+";color:var(--coral);font-size:26px;line-height:1;font-weight:400}
+.faq details[open] summary:after{content:"−"}
+.faq details p{margin-top:14px;font-size:16px;line-height:1.8;color:#6f6a63}
+.ft .kw{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 18px}.ft .kw a{color:#8a847c;text-decoration:underline;text-underline-offset:3px}
+.ft .fl{display:flex;gap:22px;flex-wrap:wrap}.ft .fl a{color:var(--navy);font-weight:600}
+.cta{padding-top:0}
+@media (max-width:900px){.faq{padding:80px 0}.faq .wrap{grid-template-columns:1fr;gap:30px}.ft .bot{flex-direction:column;align-items:flex-start;gap:14px}}
+</style>
 </head>
-<body data-page="home">
+<body>
+<h1 class="sr-only">머치메이트 | 봉제인형·캐릭터 굿즈 OEM·ODM 제작</h1>
+<div class="mnav" id="mnav"><button class="mx" id="mclose" aria-label="메뉴 닫기">×</button><a href="portfolio.html">제작 사례</a><a href="products.html">제작 품목</a><a href="business.html">제작 방법</a><a href="about.html">회사 소개</a><a href="faq.html">자주 묻는 질문</a><a class="mc" href="contact.html">상담 신청</a><a class="mk" href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener">카카오톡 문의</a></div>
 
-  <!-- 메뉴: js/site.js 에서 자동 생성 (메뉴 이름은 js/data.js 의 NAV) -->
-  <header class="header" id="siteHeader">
-  <div class="container header-inner">
-    <a href="index.html" class="logo" aria-label="머치메이트 홈">
-      <img class="logo-light" src="images/logo/merchmate.svg" alt="머치메이트 MERCHMATE" width="190" height="50">
-      <img class="logo-dark" src="images/logo/merchmate-white.svg" alt="" width="190" height="50">
-    </a>
-    <nav class="nav" id="nav" aria-label="주 메뉴">
-      <ul class="nav-list">
-        
-          <li class="nav-item has-sub">
-            <a href="portfolio.html">제작 사례</a>
-            <ul class="sub-menu"><li><a href="portfolio.html">전체 보기</a></li><li><a href="portfolio.html#character">캐릭터·봉제</a></li><li><a href="portfolio.html#bag">가방·파우치</a></li><li><a href="portfolio.html#baby">유아·차량</a></li><li><a href="portfolio.html#living">리빙·웰니스</a></li><li><a href="portfolio.html#pet">반려동물</a></li></ul>
-          </li>
-          <li class="nav-item has-sub">
-            <a href="products.html">제작 품목</a>
-            <ul class="sub-menu"><li><a href="products.html#character">캐릭터·봉제</a></li><li><a href="products.html#bag">가방·파우치</a></li><li><a href="products.html#baby">유아·차량</a></li><li><a href="products.html#living">리빙·웰니스</a></li><li><a href="products.html#pet">반려동물</a></li></ul>
-          </li>
-          <li class="nav-item has-sub">
-            <a href="business.html">제작 방법</a>
-            <ul class="sub-menu"><li><a href="business.html">개발 · 제조</a></li><li><a href="oem.html">OEM · ODM</a></li><li><a href="license.html">캐릭터 IP</a></li><li><a href="quality.html">품질 관리</a></li><li><a href="faq.html">자주 묻는 질문</a></li></ul>
-          </li>
-          <li class="nav-item has-sub">
-            <a href="about.html">회사 소개</a>
-            <ul class="sub-menu"><li><a href="about.html#intro">회사 소개</a></li><li><a href="about.html#history">연혁</a></li><li><a href="about.html#factory">공장 소개</a></li><li><a href="about.html#partners">고객사</a></li></ul>
-          </li>
-          <li class="nav-item nav-cta">
-            <a href="contact.html">상담 신청</a>
-            
-          </li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="다크모드 전환">🌙</button>
-      <a href="contact.html" class="btn btn-primary">상담 신청</a>
-      <button class="menu-toggle" id="menuToggle" type="button" aria-label="메뉴 열기" aria-expanded="false">☰</button>
-    </div>
-  </div></header>
+<header class="hd" id="hd"><div class="hd-in">
+  <a class="logo" href="index.html"><img class="n" src="images/logo/merchmate.svg" alt="머치메이트"><img class="w" src="images/logo/merchmate-white.svg" alt=""></a>
+  <nav class="gnb"><a href="portfolio.html">제작 사례</a><a href="products.html">제작 품목</a><a href="business.html">제작 방법</a><a href="about.html">회사 소개</a></nav>
+  <div class="hd-r"><a class="pill" href="contact.html">상담 신청</a><button class="burger" id="burger" aria-label="메뉴 열기"><i></i></button></div>
+</div></header>
 
-  <main>
-    <!-- 검색엔진용 대표 제목 (화면에는 안 보여요) -->
-    <h1 class="sr-only">머치메이트 - 봉제인형·캐릭터 굿즈 OEM·ODM 제작 전문</h1>
-    <!-- 첫 화면: 화면을 꽉 채우는 사진 슬라이드 (사진과 문구는 js/data.js 의 HERO_SLIDES) -->
-    <section class="hero hero-cutout hero-studio" aria-roledescription="carousel" aria-label="머치메이트 소개">
-      <div class="hero-slides" id="heroSlides">
-        <div class="hero-slide active" role="group" aria-roledescription="slide" aria-label="1 / 5" style="--slide-bg: #f6eedf">
-          <div class="hero-product"><img src="images/web/hero-studio-highhow.webp" alt="보라색 티셔츠를 입은 강원랜드 하이하우 인형의 앞·옆·뒤 모습"></div>
-          <div class="container hero-content">
-            <p class="eyebrow">1987년부터 이어온 봉제 제조 노하우</p>
-            <h2 class="hero-title">당신의 아이디어를<br><em>완성도 높은 제품으로.</em></h2>
-            <p class="hero-sub">캐릭터 인형부터 키링·쿠션·파우치까지. 기획, 디자인, 샘플, 양산, 품질 관리를 거쳐 납품까지. 머치메이트는 OEM·ODM 전문 제조 파트너입니다.</p>
-            <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary btn-lg">무료 상담 신청</a>
-              <a href="portfolio.html" class="btn btn-outline-light btn-lg">제작 사례 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 / 5" inert="" style="--slide-bg: #e2edfa">
-          <div class="hero-product"><img src="images/web/hero-studio-tino.webp" alt="야구 점퍼를 입은 한국공학대학교 마스코트 티노 인형의 앞·옆·뒤 모습" loading="lazy"></div>
-          <div class="container hero-content">
-            <p class="eyebrow">대학교 · 기관 마스코트</p>
-            <h2 class="hero-title">학교의 얼굴을<br><em>인형으로</em> 만들어요</h2>
-            <p class="hero-sub">동덕여대, 삼육대, 한국공학대 같은 학교와 기관의 마스코트 인형을 만들었습니다.</p>
-            <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary btn-lg">무료 상담 신청</a>
-              <a href="portfolio.html" class="btn btn-outline-light btn-lg">제작 사례 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 / 5" inert="" style="--slide-bg: #fbe9ee">
-          <div class="hero-product"><img src="images/web/hero-studio-findout.webp" alt="귤을 안은 고양이 후드 인형의 앞·옆·뒤 모습" loading="lazy"></div>
-          <div class="container hero-content">
-            <p class="eyebrow">캐릭터 인형 · 키링</p>
-            <h2 class="hero-title">캐릭터의 표정까지<br><em>살려 내는</em> 공장</h2>
-            <p class="hero-sub">디즈니·카카오 제품 제조 자격을 갖춘 생산 라인에서 만듭니다.</p>
-            <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary btn-lg">무료 상담 신청</a>
-              <a href="portfolio.html" class="btn btn-outline-light btn-lg">제작 사례 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="4 / 5" inert="" style="--slide-bg: #efe8f7">
-          <div class="hero-product"><img src="images/web/hero-studio-mirror.webp" alt="토끼·곰·강아지 인형이 달린 차량용 후방 거울 세 가지" loading="lazy"></div>
-          <div class="container hero-content">
-            <p class="eyebrow">유아 · 차량용품</p>
-            <h2 class="hero-title">아이와 함께하는 물건,<br><em>1987년부터</em> 만들어 왔어요</h2>
-            <p class="hero-sub">유모차 장난감, 차량용 거울, 안전벨트 인형까지 유아 브랜드와 함께 만들었습니다.</p>
-            <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary btn-lg">무료 상담 신청</a>
-              <a href="portfolio.html" class="btn btn-outline-light btn-lg">제작 사례 보기</a>
-            </div>
-          </div>
-        </div>
-        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="5 / 5" inert="" style="--slide-bg: #e6eee8">
-          <div class="hero-product"><img src="images/web/hero-studio-pouch.webp" alt="스펀지밥 파인애플 집 모양 에어팟 파우치" loading="lazy"></div>
-          <div class="container hero-content">
-            <p class="eyebrow">브랜드 굿즈 · 리빙</p>
-            <h2 class="hero-title">브랜드 굿즈부터<br><em>생활용품</em>까지</h2>
-            <p class="hero-sub">무릎담요, 에코백, 파우치처럼 매일 쓰는 패브릭 제품을 브랜드에 맞춰 만듭니다.</p>
-            <div class="hero-actions">
-              <a href="contact.html" class="btn btn-primary btn-lg">무료 상담 신청</a>
-              <a href="portfolio.html" class="btn btn-outline-light btn-lg">제작 사례 보기</a>
-            </div>
-          </div>
-        </div></div>
-      <div class="container hero-bottom">
-        <div class="hero-controls">
-          <div class="hero-dots" id="heroDots"><button type="button" aria-label="1번째 사진 보기" aria-current="true"></button><button type="button" aria-label="2번째 사진 보기"></button><button type="button" aria-label="3번째 사진 보기"></button><button type="button" aria-label="4번째 사진 보기"></button><button type="button" aria-label="5번째 사진 보기"></button></div>
-          <button type="button" class="hero-pause" id="heroPause" aria-label="슬라이드 멈춤">❚❚</button>
-        </div>
-        <!-- 고객사 이름은 js/data.js 의 LOGOS 앞쪽 4곳이 자동으로 들어가요 -->
-        <p class="hero-clients" id="heroClients"><strong>강원랜드 · 농심 · 블랙야크 · 메르세데스-벤츠</strong> 등 39곳과 함께 만들었습니다</p>
-      </div>
-    </section>
+<aside class="quick">
+  <a href="about.html" title="회사 소개"><svg viewBox="0 0 24 24"><path d="M3 21V8l6-4v17M9 21V10l6-2v13M15 21V11h6v10M2 21h20"/></svg></a>
+  <a href="portfolio.html" title="제작 사례"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></a>
+  <a href="faq.html" title="자주 묻는 질문"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 13h6M9 17h4"/></svg></a>
+  <a href="contact.html" title="상담 신청"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></a>
+  <a href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener" title="카카오톡 문의"><svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9L6.5 20l3.6-2.3c.6.1 1.2.1 1.9.1 5 0 9-3.1 9-6.9S17 4 12 4z"/></svg></a>
+</aside>
 
-    <!-- 1. 대표 제작 사례 (고객사 이름이 있는 사례가 자동으로 들어가요) -->
-    <section class="section">
-      <div class="container">
-        <p class="section-en">PORTFOLIO</p>
-        <h2 class="section-title">고객사와 함께 만든 제품</h2>
-        <p class="section-desc">직접 기획하고 만들어 납품한 결과물입니다.</p>
-        <div class="work-grid" id="workPreview">
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-highhow-season.webp" alt="하이하우 시즌 인형" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">강원랜드</span>
-      <h3>하이하우 시즌 인형</h3>
-      <p class="work-meta">계절 옷을 입힌 마스코트 인형 5종</p>
-    </div>
-  </article>
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-benz-ecobag.webp" alt="에코백" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">메르세데스-벤츠</span>
-      <h3>에코백</h3>
-      <p class="work-meta">EQ 로고 프린트 에코백</p>
-    </div>
-  </article>
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-fedora-coolseat.webp" alt="유아 쿨시트" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">페도라</span>
-      <h3>유아 쿨시트</h3>
-      <p class="work-meta">유모차 · 카시트용 쿨시트</p>
-    </div>
-  </article>
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-nongshim.webp" alt="너구리 옷 인형 키링" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">농심</span>
-      <h3>너구리 옷 인형 키링</h3>
-      <p class="work-meta">너구리 옷을 입힌 인형 키링 6종</p>
-    </div>
-  </article>
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-hanwha-golf.webp" alt="골프 항공 커버" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">한화생명</span>
-      <h3>골프 항공 커버</h3>
-      <p class="work-meta">골프백 항공 커버 · 수납 파우치</p>
-    </div>
-  </article>
-  <article class="work-card">
-    <div class="work-photo ph"><img src="images/web/client-aone-mirror.webp" alt="강아지 차량 후방거울" loading="lazy"></div>
-    <div class="work-info">
-      <span class="work-client">에이원</span>
-      <h3>강아지 차량 후방거울</h3>
-      <p class="work-meta">강아지 얼굴 봉제 커버 후방거울</p>
-    </div>
-  </article></div>
-        <div class="work-more-wrap">
-          <a href="portfolio.html" class="btn btn-ghost btn-lg">제작 사례 전체 보기 →</a>
-        </div>
-      </div>
-    </section>
+<section class="visual" id="visual">
+  <div class="slide light act" data-dur="10">
+    <video id="vA" autoplay preload="auto" src="images/web/v2-banner-a.mp4" poster="images/web/v2-banner-a.jpg" muted playsinline></video>
+    <div class="copy"><div class="en">FROM IDEA<br>TO <em>PRODUCT</em></div><p class="ko">그림 한 장이 제품이 되기까지, 머치메이트가 함께합니다</p></div>
+  </div>
+  <div class="slide light" data-dur="6" id="slideB">
+    <div class="img sub on" data-tone="light" style="background-image:url(images/web/v2-banner-b2.jpg)"></div>
+    <div class="img sub" data-tone="light" style="background-image:url(images/web/v2-banner-b3.jpg)"></div>
+    <div class="copy"><div class="en">SINCE <em>1987</em></div><p class="ko">1987년부터 이어온 봉제 제조 노하우</p></div>
+  </div>
+  <div class="slide light" data-dur="6">
+    <div class="img" style="background-image:url(images/web/v2-banner-c.jpg);background-position:65% center"></div>
+    <div class="copy"><div class="en">FOR YOUR<br><em>BRAND</em></div><p class="ko">브랜드가 사람에게 닿는 순간을 만듭니다</p></div>
+  </div>
+  <div class="tabs" id="tabs"><button class="on">IDEA<i></i></button><button>SINCE 1987<i></i></button><button>BRAND<i></i></button></div>
+  <div class="scroll">SCROLL</div>
+</section>
 
-    <!-- 고객사 로고 카드 (이름은 js/data.js 의 LOGOS) -->
-    <section class="section section-alt">
-      <div class="container partner-head">
-        <p class="section-en">PARTNER</p>
-        <h2 class="section-title">머치메이트와 함께한 파트너</h2>
-        <p class="section-desc">대학교와 공공기관, 기업, 유아 브랜드까지 다양한 곳과 함께 만들었어요.</p>
-      </div>
-      <div class="partner-flow" id="partnerFlow">
-      <div class="partner-row">
-        <ul class="partner-track"><li class="partner-set"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/kangwonland.png" alt="강원랜드" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nongshim.svg" alt="농심" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/blackyak.svg" alt="블랙야크" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mercedes-benz.svg" alt="메르세데스-벤츠" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hanwha-life.svg" alt="한화생명" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/duksung.png" alt="덕성여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/dongduk.png" alt="동덕여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/swu.jpg" alt="서울여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sahmyook.png" alt="삼육대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwon-univ.png" alt="강원대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwonland.png" alt="강원랜드" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nongshim.svg" alt="농심" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/blackyak.svg" alt="블랙야크" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mercedes-benz.svg" alt="메르세데스-벤츠" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hanwha-life.svg" alt="한화생명" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/duksung.png" alt="덕성여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/dongduk.png" alt="동덕여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/swu.jpg" alt="서울여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sahmyook.png" alt="삼육대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwon-univ.png" alt="강원대학교" loading="lazy"></li></ul></li><li class="partner-set" aria-hidden="true"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/kangwonland.png" alt="강원랜드" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nongshim.svg" alt="농심" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/blackyak.svg" alt="블랙야크" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mercedes-benz.svg" alt="메르세데스-벤츠" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hanwha-life.svg" alt="한화생명" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/duksung.png" alt="덕성여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/dongduk.png" alt="동덕여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/swu.jpg" alt="서울여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sahmyook.png" alt="삼육대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwon-univ.png" alt="강원대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwonland.png" alt="강원랜드" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nongshim.svg" alt="농심" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/blackyak.svg" alt="블랙야크" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mercedes-benz.svg" alt="메르세데스-벤츠" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hanwha-life.svg" alt="한화생명" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/duksung.png" alt="덕성여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/dongduk.png" alt="동덕여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/swu.jpg" alt="서울여자대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sahmyook.png" alt="삼육대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/kangwon-univ.png" alt="강원대학교" loading="lazy"></li></ul></li></ul>
-      </div>
-      <div class="partner-row reverse">
-        <ul class="partner-track"><li class="partner-set"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/tukorea.svg" alt="한국공학대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cufs.svg" alt="사이버한국외국어대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sangsan.png" alt="상산고등학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nie.png" alt="국립생태원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/paju.svg" alt="파주시" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/daegu-junggu.png" alt="대구 중구청" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yeongdeok-library.png" alt="영덕도서관" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hl-group.png" alt="HL그룹" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/buma.png" alt="범아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mtkorea.png" alt="엠티코리아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/tukorea.svg" alt="한국공학대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cufs.svg" alt="사이버한국외국어대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sangsan.png" alt="상산고등학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nie.png" alt="국립생태원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/paju.svg" alt="파주시" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/daegu-junggu.png" alt="대구 중구청" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yeongdeok-library.png" alt="영덕도서관" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hl-group.png" alt="HL그룹" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/buma.png" alt="범아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mtkorea.png" alt="엠티코리아" loading="lazy"></li></ul></li><li class="partner-set" aria-hidden="true"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/tukorea.svg" alt="한국공학대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cufs.svg" alt="사이버한국외국어대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sangsan.png" alt="상산고등학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nie.png" alt="국립생태원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/paju.svg" alt="파주시" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/daegu-junggu.png" alt="대구 중구청" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yeongdeok-library.png" alt="영덕도서관" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hl-group.png" alt="HL그룹" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/buma.png" alt="범아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mtkorea.png" alt="엠티코리아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/tukorea.svg" alt="한국공학대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cufs.svg" alt="사이버한국외국어대학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/sangsan.png" alt="상산고등학교" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/nie.png" alt="국립생태원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/paju.svg" alt="파주시" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/daegu-junggu.png" alt="대구 중구청" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yeongdeok-library.png" alt="영덕도서관" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hl-group.png" alt="HL그룹" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/buma.png" alt="범아" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mtkorea.png" alt="엠티코리아" loading="lazy"></li></ul></li></ul>
-      </div>
-      <div class="partner-row">
-        <ul class="partner-track"><li class="partner-set"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/market-universe.png" alt="마켓유니버스" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yein.png" alt="예인미술" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/woori-space.jpg" alt="우리공간연구소" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/goody.png" alt="굿디" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hansol-gift.jpg" alt="한솔기프트" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/inglesina.svg" alt="잉글레시나" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/merrybon.png" alt="메리본" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/aone.png" alt="에이원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mbaby.png" alt="엠베이비" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/fedora.png" alt="페도라" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/market-universe.png" alt="마켓유니버스" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yein.png" alt="예인미술" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/woori-space.jpg" alt="우리공간연구소" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/goody.png" alt="굿디" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hansol-gift.jpg" alt="한솔기프트" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/inglesina.svg" alt="잉글레시나" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/merrybon.png" alt="메리본" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/aone.png" alt="에이원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mbaby.png" alt="엠베이비" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/fedora.png" alt="페도라" loading="lazy"></li></ul></li><li class="partner-set" aria-hidden="true"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/market-universe.png" alt="마켓유니버스" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yein.png" alt="예인미술" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/woori-space.jpg" alt="우리공간연구소" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/goody.png" alt="굿디" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hansol-gift.jpg" alt="한솔기프트" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/inglesina.svg" alt="잉글레시나" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/merrybon.png" alt="메리본" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/aone.png" alt="에이원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mbaby.png" alt="엠베이비" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/fedora.png" alt="페도라" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/market-universe.png" alt="마켓유니버스" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/yein.png" alt="예인미술" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/woori-space.jpg" alt="우리공간연구소" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/goody.png" alt="굿디" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/hansol-gift.jpg" alt="한솔기프트" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/inglesina.svg" alt="잉글레시나" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/merrybon.png" alt="메리본" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/aone.png" alt="에이원" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/mbaby.png" alt="엠베이비" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/fedora.png" alt="페도라" loading="lazy"></li></ul></li></ul>
-      </div>
-      <div class="partner-row reverse">
-        <ul class="partner-track"><li class="partner-set"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/simone.png" alt="시모네" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pickmong.png" alt="피크몽" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/funathome.jpg" alt="펀앳홈" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/coldwarm.svg" alt="콜드웜" loading="lazy"></li>
-    <li class="partner-card"><strong>파인드아웃</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/kumhong.png" alt="금홍" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pompolarr-pet.png" alt="폼포라 펫" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cooing.png" alt="쿠잉" loading="lazy"></li>
-    <li class="partner-card"><strong>푸딩</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/simone.png" alt="시모네" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pickmong.png" alt="피크몽" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/funathome.jpg" alt="펀앳홈" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/coldwarm.svg" alt="콜드웜" loading="lazy"></li>
-    <li class="partner-card"><strong>파인드아웃</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/kumhong.png" alt="금홍" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pompolarr-pet.png" alt="폼포라 펫" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cooing.png" alt="쿠잉" loading="lazy"></li>
-    <li class="partner-card"><strong>푸딩</strong><span>브랜드</span></li></ul></li><li class="partner-set" aria-hidden="true"><ul>
-    <li class="partner-card has-logo"><img src="images/logos/simone.png" alt="시모네" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pickmong.png" alt="피크몽" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/funathome.jpg" alt="펀앳홈" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/coldwarm.svg" alt="콜드웜" loading="lazy"></li>
-    <li class="partner-card"><strong>파인드아웃</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/kumhong.png" alt="금홍" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pompolarr-pet.png" alt="폼포라 펫" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cooing.png" alt="쿠잉" loading="lazy"></li>
-    <li class="partner-card"><strong>푸딩</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/simone.png" alt="시모네" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pickmong.png" alt="피크몽" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/funathome.jpg" alt="펀앳홈" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/coldwarm.svg" alt="콜드웜" loading="lazy"></li>
-    <li class="partner-card"><strong>파인드아웃</strong><span>브랜드</span></li>
-    <li class="partner-card has-logo"><img src="images/logos/kumhong.png" alt="금홍" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/pompolarr-pet.png" alt="폼포라 펫" loading="lazy"></li>
-    <li class="partner-card has-logo"><img src="images/logos/cooing.png" alt="쿠잉" loading="lazy"></li>
-    <li class="partner-card"><strong>푸딩</strong><span>브랜드</span></li></ul></li></ul>
-      </div></div>
-    </section>
-
-    <!-- 2. 숫자로 보는 머치메이트 (숫자는 js/data.js 의 STATS) -->
-    <section class="stats-band">
-      <div class="container">
-        <ul class="stats" id="stats"><li><strong><span class="stat-num" data-num="1987">1987</span>년부터</strong><span>이어온 봉제 제조</span></li><li><strong><span class="stat-num" data-num="3">3</span>곳</strong><span>직접 운영하는 공장</span></li><li><strong><span class="stat-num" data-num="117">117</span>+</strong><span>제작 사례</span></li><li><strong><span class="stat-num" data-num="39">39</span>곳+</strong><span>함께한 고객사</span></li></ul>
-      </div>
-    </section>
-
-    <!-- 3. 두 갈래 안내 (내용은 js/data.js 의 PATHS) -->
-    <section class="section">
-      <div class="container">
-        <p class="section-en">OEM · ODM</p>
-        <h2 class="section-title">어디서부터 시작할지 고르세요</h2>
-        <p class="section-desc">준비된 만큼만 알려주세요. 나머지는 저희가 채워 드려요.</p>
-        <div class="paths" id="paths">
-      <article class="path-card">
-        <p class="path-q">디자인이 이미 있으신가요?</p>
-        <span class="path-tag">OEM</span>
-        <h3>정해진 디자인 그대로<br>우리 공장에서 만들어요</h3>
-        <p class="path-desc">도면·시안·샘플이 준비된 브랜드라면, 사양 그대로 생산해서 고객사 브랜드로 납품해요.</p>
-        <ol class="path-flow"><li><b>1</b>사양 확인</li><li><b>2</b>샘플</li><li><b>3</b>양산</li><li><b>4</b>검수·납품</li></ol>
-      </article>
-      <article class="path-card">
-        <p class="path-q">아이디어만 있으신가요?</p>
-        <span class="path-tag">ODM</span>
-        <h3>기획과 디자인부터<br>함께 만들어요</h3>
-        <p class="path-desc">"이런 걸 만들고 싶어요" 한마디면 충분해요. 도면과 시안, 샘플까지 함께 만들어 제품을 완성해요.</p>
-        <ol class="path-flow"><li><b>1</b>상담</li><li><b>2</b>디자인 시안</li><li><b>3</b>샘플</li><li><b>4</b>양산</li><li><b>5</b>납품</li></ol>
-      </article></div>
-        <div class="work-more-wrap">
-          <a href="business.html" class="btn btn-ghost btn-lg">제작 방법 자세히 보기 →</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- 4. 강점 (내용은 js/data.js 의 STRENGTHS) -->
-    <section class="why section-alt">
-      <div class="container">
-        <p class="section-en">WHY MERCHMATE</p>
-        <h2 class="section-title">머치메이트가 선택받는 이유</h2>
-        <div id="whyList">
-      <article class="why-item">
-        <div class="why-photo ph"><img src="images/web/why-new-1.webp" alt="도면과 완성품을 나란히 놓은 사진" loading="lazy"></div>
-        <div class="why-text">
-          <span class="why-no">01</span>
-          <h3>디자인 시안을 먼저 확인</h3>
-          <p>도면과 시안으로 완성 모습을 먼저 보여드려요.</p>
-        </div>
-      </article>
-      <article class="why-item">
-        <div class="why-photo ph"><img src="images/web/why-new-2.webp" alt="진열대에 놓인 샘플 인형들" loading="lazy"></div>
-        <div class="why-text">
-          <span class="why-no">02</span>
-          <h3>실물 샘플 확인 후 양산</h3>
-          <p>색감과 촉감을 실물 샘플로 확인한 뒤 양산해요.</p>
-        </div>
-      </article>
-      <article class="why-item">
-        <div class="why-photo ph"><img src="images/web/why-new-3.webp" alt="포장한 박스를 트럭에 싣는 출고 모습" loading="lazy"></div>
-        <div class="why-text">
-          <span class="why-no">03</span>
-          <h3>택·라벨·포장까지 맞춤</h3>
-          <p>택, 라벨, 개별 포장을 함께 정하고 원하는 곳까지 보내드려요.</p>
-        </div>
-      </article>
-      <article class="why-item">
-        <div class="why-photo ph"><img src="images/web/why-new-4.webp" alt="작업자들이 인형을 만드는 공장 작업장" loading="lazy"></div>
-        <div class="why-text">
-          <span class="why-no">04</span>
-          <h3>직접 운영하는 생산 현장</h3>
-          <p>공장 3곳에서 품질과 일정을 직접 챙겨요.</p>
-        </div>
-      </article></div>
-      </div>
-    </section>
-
-    <!-- 생산 현장 (사진·영상) -->
-    <section class="section production" id="production">
-      <div class="container">
-        <p class="section-en">PRODUCTION</p>
-        <h2 class="section-title">머치메이트의 생산 현장</h2>
-        <p class="section-desc">재단부터 봉제, 마무리까지 작업 현장을 있는 그대로 보여드려요.</p>
-        <div class="prod-grid">
-          <figure class="prod-item prod-video"><video class="auto-video" data-src="images/web/prod-cut.mp4" poster="images/web/prod-cut.webp" muted loop playsinline preload="none" aria-label="작업자가 레이저 재단기에서 원단 패턴을 떼어내는 모습"></video><figcaption>재단 작업</figcaption></figure>
-          <figure class="prod-item prod-video"><video class="auto-video" data-src="images/web/prod-floor.mp4" poster="images/web/prod-floor.webp" muted loop playsinline preload="none" aria-label="작업자들이 인형을 만드는 대형 작업장 전경"></video><figcaption>봉제·마무리 작업장</figcaption></figure>
-          <figure class="prod-item prod-photo"><img src="images/web/prod-1.webp" alt="작업자가 재봉틀로 봉제하는 모습" loading="lazy"><figcaption>봉제</figcaption></figure>
-          <figure class="prod-item prod-photo"><img src="images/web/prod-2.webp" alt="프레스 기계로 부자재를 작업하는 모습" loading="lazy"><figcaption>부자재 작업</figcaption></figure>
-          <figure class="prod-item prod-photo"><img src="images/web/prod-3.webp" alt="작업자가 완성 인형을 마무리하는 모습" loading="lazy"><figcaption>마무리 작업</figcaption></figure>
-          <figure class="prod-item prod-photo"><img src="images/web/prod-4.webp" alt="레이저 재단기가 원단을 자르는 모습" loading="lazy"><figcaption>레이저 재단기</figcaption></figure>
-        </div>
-        <div class="prod-more"><a class="btn btn-ghost" href="business.html">제작 방법 자세히 보기</a></div>
-      </div>
-    </section>
-
-    <!-- 5. 제작 과정 (내용은 js/data.js 의 STEPS) -->
-    <section class="section">
-      <div class="container">
-        <p class="section-en">PROCESS</p>
-        <h2 class="section-title">이렇게 진행돼요</h2>
-        <p class="section-desc">문의 한 번이면, 나머지는 저희가 챙깁니다.</p>
-        <ol class="steps" id="steps"><li><span class="step-no">01</span><h3>상담</h3><p>용도, 수량, 예산, 납기를 듣고 맞는 품목을 제안해요.</p></li><li><span class="step-no">02</span><h3>디자인 시안</h3><p>브랜드에 맞춘 도면과 시안을 만들어 함께 다듬어요.</p></li><li><span class="step-no">03</span><h3>샘플 확인</h3><p>실물 샘플로 색상과 품질을 먼저 확인해요.</p></li><li><span class="step-no">04</span><h3>양산</h3><p>검수 기준에 맞춰 일정대로 생산해요.</p></li><li><span class="step-no">05</span><h3>포장·납품</h3><p>원하는 곳까지 포장해서 보내드려요.</p></li></ol>
-        <div class="lead-times">
-          <h3 class="lead-title">제작 일정 안내</h3>
-          <ul class="lead-grid">
-            <li><span class="lead-label">샘플 제작</span><strong class="lead-num">2<em>주 정도</em></strong><span class="lead-desc">처음 제작 시, 샘플 의뢰 후 받기까지</span></li>
-            <li><span class="lead-label">양산</span><strong class="lead-num">50<em>일 전후</em></strong><span class="lead-desc">샘플을 확인하고 확정한 뒤</span></li>
-            <li><span class="lead-label">리오더</span><strong class="lead-num">40<em>일 전후</em></strong><span class="lead-desc">같은 제품을 다시 주문할 때</span></li>
-          </ul>
-          <p class="lead-note">제품 사양에 따라 차이가 있을 수 있어요. 긴급 제작은 추가 비용이 있으니 상담 때 말씀해 주세요.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- 6. 자주 묻는 질문 (내용은 js/data.js 의 FAQS) -->
-    <section class="section section-alt">
-      <div class="container">
-        <p class="section-en">FAQ</p>
-        <h2 class="section-title">자주 묻는 질문</h2>
-        <p class="section-desc">궁금한 질문을 누르면 답이 펼쳐져요.</p>
-        <div class="faq" id="faqList"><details><summary><span>Q.</span>디자인이 없어도 만들 수 있나요?</summary><p>네. 용도와 분위기만 알려주시면 도면과 디자인 시안을 먼저 만들어 보여드려요. 마음에 들 때까지 함께 다듬은 뒤 샘플을 만들어요.</p></details><details><summary><span>Q.</span>최소 주문 수량이 있나요?</summary><p>품목과 소재에 따라 달라요. 생각하신 수량을 알려주시면 그 수량에 맞는 제작 방법과 견적을 안내해 드려요.</p></details><details><summary><span>Q.</span>양산 전에 실물을 볼 수 있나요?</summary><p>네. 사진으로는 알 수 없는 색감과 촉감을 실물 샘플로 확인하신 뒤에 양산을 시작해요.</p></details><details><summary><span>Q.</span>제작 기간은 얼마나 걸리나요?</summary><p>처음 제작하시는 제품은 샘플 의뢰 후 샘플을 받기까지 2주 정도 걸려요. 샘플을 확인하고 확정하시면 양산에는 50일 전후가 걸리고, 같은 제품을 다시 주문하시는 리오더는 40일 전후예요. 제품 사양에 따라 차이가 있을 수 있어요. 긴급 제작은 추가 비용이 있으니 상담 때 희망 납기일을 알려 주세요. 일정표를 만들어 공유해 드려요.</p></details><details><summary><span>Q.</span>캐릭터 라이선스 제품도 만들 수 있나요?</summary><p>네. 디즈니, 카카오 제품을 제조할 수 있는 자격을 갖추고 있어요. 캐릭터의 표정과 비율까지 살려서 만들어요.</p></details><details><summary><span>Q.</span>목록에 없는 제품도 되나요?</summary><p>네. 봉제로 만들 수 있는 제품이라면 상담을 통해 새로 개발할 수 있어요. 참고 사진이 있으면 함께 보내주세요.</p></details><details><summary><span>Q.</span>공장은 어디에 있나요?</summary><p>중국 산둥성 청양에 1곳, 동평에 2곳, 모두 3곳의 공장을 직접 운영해요. 중간 업체 없이 바로 생산해서 품질과 일정을 직접 챙겨요.</p></details></div>
-      </div>
-    </section>
-
-    <!-- 상담 신청 안내 -->
-    <section class="cta-band">
-      <div class="container cta-inner">
-        <h2>어떤 제품을 만들고 싶으세요?</h2>
-        <p>아직 정해진 게 없어도 괜찮아요. 용도와 수량만 알려주시면 하루 안에 제안드릴게요.</p>
-        <a href="contact.html" class="btn btn-light btn-lg">상담 신청하기</a>
-      </div>
-    </section>
-  </main>
-
-  <!-- 맨 아래 회사 정보: js/site.js 에서 자동 생성 (내용은 js/data.js 의 SITE) -->
-  <footer class="footer" id="siteFooter">
-  <div class="container footer-inner">
+<!-- 1. 회사 소개 -->
+<section class="about">
+  <div class="wrap">
+    <div class="pic"><img src="images/web/v2-w1.jpg" alt="원단을 패턴대로 자르는 손"><div class="badge"><b>1987</b>년부터 봉제 한 길</div></div>
     <div>
-      <a href="index.html" class="logo"><img src="images/logo/merchmate-white.svg" alt="머치메이트 MERCHMATE" width="171" height="45"></a>
-      <p>상호명 : 머치메이트 | 대표 : 성유진 | 사업자등록번호 : 131-65-00773</p>
-      <p>전화 : 031-944-5338 | 이메일 : merchmate@naver.com</p>
-      <p>OFFICE 1 : 경기도 파주시 교하로 891-1, A동 (10880)</p><p>OFFICE 2 : 경기도 고양시 일산동구 정발산로 11, 5층 501-84호(장항동, 일호골든타워)</p><p>FACTORY : 2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao City, China</p>
-      <p class="footer-guides"><a href="plush-doll.html">봉제인형 제작</a><a href="character-doll.html">캐릭터 인형 제작</a><a href="doll-keyring.html">인형 키링 제작</a><a href="university-goods.html">대학교 굿즈 인형 제작</a><a href="mascot-doll.html">기업 마스코트 인형 제작</a></p>
-      <p class="copyright">© 2026 머치메이트. All rights reserved.</p>
+      <div class="eyebrow">ABOUT MERCHMATE</div>
+      <h2 class="h2">아이디어를 <em>완성도 높은 제품</em>으로,<br>머치메이트와 함께</h2>
+      <p class="lead">캐릭터 인형부터 키링·쿠션·파우치까지.<br>기획과 디자인, 샘플, 양산, 품질 관리를 거쳐 납품까지<br>머치메이트가 처음부터 끝까지 함께합니다.</p>
+      <div class="nums">
+        <div><b>1987<small>년</small></b><span>부터 이어온 봉제 제조</span></div>
+        <div><b>3<small>곳</small></b><span>직접 운영하는 공장</span></div>
+        <div><b>39<small>곳+</small></b><span>함께한 고객사</span></div>
+      </div>
+      <a class="more" href="about.html">회사 소개 보기 →</a>
     </div>
-    <ul class="footer-links">
-      <li><a href="portfolio.html">제작 사례</a></li><li><a href="products.html">제작 품목</a></li><li><a href="business.html">제작 방법</a></li><li><a href="about.html">회사 소개</a></li><li><a href="contact.html">상담 신청</a></li>
-    </ul>
-  </div></footer>
+  </div>
+</section>
 
-  <script src="js/data.js"></script>
-  <script src="js/site.js"></script>
+<!-- 2. 사업 분야 -->
+<section class="biz">
+  <div class="wrap">
+    <div class="top">
+      <div><div class="eyebrow">BUSINESS</div><h2 class="h2">머치메이트가 <em>만드는 것</em></h2></div>
+      <p>브랜드의 캠릭터와 로고를 만지고 쓸 수 있는 제품으로. 필요한 분야를 눌러 보세요.</p>
+    </div>
+    <div class="cards4" id="cards4">
+      <div class="c4 on"><img src="images/web/v2-w2.jpg" alt=""><div class="t"><div class="no">01</div><h3>인형 제작</h3><div class="d"><p>마스코트와 캐릭터 인형을 도면과 샘플로 먼저 확인하고, 표정과 비율까지 그대로 살려 만들어요.</p><a href="character-doll.html">더 알아보기 →</a></div></div></div>
+      <div class="c4"><img src="images/web/v2-w3.jpg" alt=""><div class="t"><div class="no">02</div><h3>굿즈 제작</h3><div class="d"><p>인형 키링, 파우치, 에코백, 쿠션까지. 브랜드에 맞는 소재와 모양으로 매일 쓰는 굿즈를 만들어요.</p><a href="products.html">더 알아보기 →</a></div></div></div>
+      <div class="c4"><img src="images/web/v2-w4.jpg" alt=""><div class="t"><div class="no">03</div><h3>캐릭터 IP</h3><div class="d"><p>디즈니·카카오 제품을 만들 수 있는 자격을 갖추고, 캐릭터 가이드에 맞춰 색과 표정까지 맞춰 만들어요.</p><a href="license.html">더 알아보기 →</a></div></div></div>
+      <div class="c4"><img src="images/web/v2-w5.jpg" alt=""><div class="t"><div class="no">04</div><h3>유아·생활용품</h3><div class="d"><p>1987년 유아용품 제조에서 시작한 경험으로, 아이 피부에 닿는 제품을 부드러운 소재로 꼼꼼하게 만들어요.</p><a href="products.html#baby">더 알아보기 →</a></div></div></div>
+    </div>
+  </div>
+</section>
 
+<!-- 3. 포트폴리오 -->
+<section class="pf">
+  <div class="wrap">
+    <div class="top"><div class="eyebrow">PORTFOLIO</div><h2 class="h2">고객사와 <em>함께 만든</em> 제품</h2></div>
+    <div class="chips" id="chips"><button class="on" data-c="">전체</button><button data-c="캐릭터·봉제">캐릭터·봉제</button><button data-c="가방·파우치">가방·파우치</button><button data-c="유아·차량">유아·차량</button><button data-c="리빙·웰니스">리빙·웰니스</button></div>
+    <div class="grid" id="grid"></div>
+    <div class="btm"><a class="btn-line" href="portfolio.html">제작 사례 전체 보기</a></div>
+  </div>
+</section>
 
-</body></html>
+<!-- 3-1. 파트너 -->
+<section class="ptn">
+  <div class="wrap">
+    <div class="top">
+      <div><div class="eyebrow">PARTNER</div><h2 class="h2">머치메이트와 <em>함께한 파트너</em></h2></div>
+      <p>대학교와 공공기관, 기업, 유아 브랜드까지<br><b id="ptnCount">39곳</b>과 함께 만들었어요.</p>
+    </div>
+  </div>
+  <div class="mq"><div class="mrow" id="mrow1"></div><div class="mrow rev" id="mrow2"></div></div>
+  <div class="wrap"><div class="types" id="ptnTypes"></div></div>
+</section>
+
+<!-- 3-2. 자주 묻는 질문 -->
+<section class="faq">
+  <div class="wrap">
+    <div class="fq-l"><div class="eyebrow">FAQ</div><h2 class="h2">자주 묻는<br><em>질문</em></h2><p>더 궁금한 점은 편하게 물어봐 주세요.</p><a class="more" href="faq.html">질문 전체 보기 →</a></div>
+    <div class="fq-r"><details open><summary>디자인이 없어도 만들 수 있나요?</summary><p>네. 용도와 분위기만 알려주시면 도면과 디자인 시안을 먼저 만들어 보여드려요. 마음에 들 때까지 함께 다듬은 뒤 샘플을 만들어요.</p></details><details><summary>최소 주문 수량이 있나요?</summary><p>품목과 소재에 따라 달라요. 생각하신 수량을 알려주시면 그 수량에 맞는 제작 방법과 견적을 안내해 드려요.</p></details><details><summary>양산 전에 실물을 볼 수 있나요?</summary><p>네. 사진으로는 알 수 없는 색감과 촉감을 실물 샘플로 확인하신 뒤에 양산을 시작해요.</p></details><details><summary>제작 기간은 얼마나 걸리나요?</summary><p>처음 제작하시는 제품은 샘플 의뢰 후 샘플을 받기까지 2주 정도 걸려요. 샘플을 확인하고 확정하시면 양산에는 50일 전후가 걸리고, 같은 제품을 다시 주문하시는 리오더는 40일 전후예요. 제품 사양에 따라 차이가 있을 수 있어요. 긴급 제작은 추가 비용이 있으니 상담 때 희망 납기일을 알려 주세요. 일정표를 만들어 공유해 드려요.</p></details><details><summary>캐릭터 라이선스 제품도 만들 수 있나요?</summary><p>네. 디즈니, 카카오 제품을 제조할 수 있는 자격을 갖추고 있어요. 캐릭터의 표정과 비율까지 살려서 만들어요.</p></details><details><summary>목록에 없는 제품도 되나요?</summary><p>네. 봉제로 만들 수 있는 제품이라면 상담을 통해 새로 개발할 수 있어요. 참고 사진이 있으면 함께 보내주세요.</p></details><details><summary>공장은 어디에 있나요?</summary><p>중국 산둥성 청양에 1곳, 동평에 2곳, 모두 3곳의 공장을 직접 운영해요. 중간 업체 없이 바로 생산해서 품질과 일정을 직접 챙겨요.</p></details></div>
+  </div>
+</section>
+
+<!-- 4. 문의 -->
+<section class="cta">
+  <div class="wrap">
+    <div class="box">
+      <div class="tx">
+        <div class="eyebrow">CONTACT US</div>
+        <h2>어떤 제품을<br>만들고 싶으세요?</h2>
+        <p>그림 한 장, 참고 사진 한 장이면 충분해요.<br>간단한 내용을 보내 주시면 확인하고 연락드릴게요.</p>
+        <div class="bt"><a class="w" href="contact.html">상담 신청</a><a class="o" href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener">카카오톡 문의</a></div>
+      </div>
+      <div class="ph"><img src="images/web/v2-w6.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. 하단 -->
+<footer class="ft">
+  <div class="wrap">
+    <div>
+      <div class="call">상담전화<b>031-944-5338</b></div>
+      <div class="info">상호명 : 머치메이트<i>|</i>대표 : 성유진<i>|</i>사업자등록번호 : 131-65-00773<br>이메일 : merchmate@naver.com<br>OFFICE 1 : 경기도 파주시 교하로 891-1, A동 (10880)<br>OFFICE 2 : 경기도 고양시 일산동구 정발산로 11, 5층 501-84호(장항동, 일호골든타워)<br>FACTORY : 2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao City, China</div>
+      <p class="kw"><a href="plush-doll.html">봉제인형 제작</a><a href="character-doll.html">캐릭터 인형 제작</a><a href="doll-keyring.html">인형 키링 제작</a><a href="university-goods.html">대학교 굿즈 인형 제작</a><a href="mascot-doll.html">기업 마스코트 인형 제작</a></p>
+    </div>
+    <div class="map"><iframe loading="lazy" title="머치메이트 OFFICE 1 위치" src="https://maps.google.com/maps?q=%EA%B2%BD%EA%B8%B0%EB%8F%84%20%ED%8C%8C%EC%A3%BC%EC%8B%9C%20%EA%B5%90%ED%95%98%EB%A1%9C%20891-1&z=15&output=embed"></iframe></div>
+    <div class="bot"><span>© 2026 머치메이트. All rights reserved.</span><nav class="fl"><a href="portfolio.html">제작 사례</a><a href="products.html">제작 품목</a><a href="business.html">제작 방법</a><a href="about.html">회사 소개</a><a href="contact.html">상담 신청</a></nav></div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('burger').onclick=()=>document.getElementById('mnav').classList.add('on');
+document.getElementById('mclose').onclick=()=>document.getElementById('mnav').classList.remove('on');
+document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('on')));
+/* 사업 분야 카드: 누르거나 마우스를 올리면 넓어짐 */
+const C4=[...document.querySelectorAll('.c4')];C4.forEach(c=>{const f=()=>{C4.forEach(x=>x.classList.remove('on'));c.classList.add('on');};c.addEventListener('mouseenter',f);c.addEventListener('click',f);});
+/* 포트폴리오 */
+const U='';
+const LOGO={'강원랜드':'images/logos/kangwonland.png','농심':'images/logos/nongshim.svg','블랙야크':'images/logos/blackyak.svg','메르세데스-벤츠':'images/logos/mercedes-benz.svg','한화생명':'images/logos/hanwha-life.svg','덕성여자대학교':'images/logos/duksung.png','한국공학대학교':'images/logos/tukorea.svg','파주시':'images/logos/paju.svg','우리공간연구소':'images/logos/woori-space.jpg','페도라':'images/logos/fedora.png','에이원':'images/logos/aone.png','잉글레시나':'images/logos/inglesina.svg','시모네':'images/logos/simone.png','금홍':'images/logos/kumhong.png','범아':'images/logos/buma.png','삼육대학교':'images/logos/sahmyook.png'};
+const WORKS=[
+ ['강원랜드','하이하우 시즌 인형','캐릭터·봉제','client-highhow-season'],
+ ['메르세데스-벤츠','에코백','가방·파우치','client-benz-ecobag'],
+ ['페도라','유아 쿨시트','유아·차량','client-fedora-coolseat'],
+ ['농심','너구리 옷 인형 키링','캐릭터·봉제','client-nongshim'],
+ ['한화생명','골프 항공 커버','가방·파우치','client-hanwha-golf'],
+ ['메르세데스-벤츠','쿠션 무릎담요','리빙·웰니스','client-benz-blanket'],
+ ['블랙야크','책가방 세트 인형','캐릭터·봉제','client-blackyak-set'],
+ ['에이원','강아지 차량 후방거울','유아·차량','client-aone-mirror'],
+ ['덕성여자대학교','덕새 학사복 인형','캐릭터·봉제','client-duksung'],
+ ['우리공간연구소','스펀지밥 파인애플 파우치','가방·파우치','client-spongebob-pouch'],
+ ['금홍','토끼 얼굴 냉감 쿠션','리빙·웰니스','client-geumhong-cool'],
+ ['파주시','파랑이 인형','캐릭터·봉제','client-paju'],
+ ['잉글레시나','안전벨트 인형','유아·차량','car-beltdoll'],
+ ['한국공학대학교','티노 키링','캐릭터·봉제','client-tino-keyring'],
+ ['범아','쿠션 커버','리빙·웰니스','biz-cushion'],
+ ['시모네','딸랑이 세트','유아·차량','baby-simone']];
+const grid=document.getElementById('grid');
+function draw(c){grid.innerHTML=WORKS.filter(w=>!c||w[2]===c).slice(0,9).map(w=>`<a class="wk" href="portfolio.html"><div class="ph"><img src="${U}images/web/${w[3]}.webp" alt="${w[1]}"></div><div class="in"><div class="lg">${LOGO[w[0]]?`<img src="${U}${LOGO[w[0]]}" alt="${w[0]}">`:`<span>${w[0]}</span>`}</div><div><small>${w[0]}</small><b>${w[1]}</b></div></div></a>`).join('');}
+document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw(b.dataset.c);});
+draw('');
+/* 파트너 로고 */
+const PL={'강원랜드':'kangwonland.png','농심':'nongshim.svg','블랙야크':'blackyak.svg','메르세데스-벤츠':'mercedes-benz.svg','한화생명':'hanwha-life.svg','덕성여자대학교':'duksung.png','동덕여자대학교':'dongduk.png','서울여자대학교':'swu.jpg','삼육대학교':'sahmyook.png','강원대학교':'kangwon-univ.png','한국공학대학교':'tukorea.svg','사이버한국외국어대학교':'cufs.svg','상산고등학교':'sangsan.png','국립생태원':'nie.png','파주시':'paju.svg','대구 중구청':'daegu-junggu.png','영덕도서관':'yeongdeok-library.png','HL그룹':'hl-group.png','범아':'buma.png','엠티코리아':'mtkorea.png','마켓유니버스':'market-universe.png','예인미술':'yein.png','우리공간연구소':'woori-space.jpg','굿디':'goody.png','한솔기프트':'hansol-gift.jpg','잉글레시나':'inglesina.svg','메리본':'merrybon.png','에이원':'aone.png','엠베이비':'mbaby.png','페도라':'fedora.png','시모네':'simone.png','피크몽':'pickmong.png','펀앳홈':'funathome.jpg','콜드웜':'coldwarm.svg','파인드아웃':'','금홍':'kumhong.png','폼포라 펫':'pompolarr-pet.png','쿠잉':'cooing.png','푸딩':''};
+const PT={'기업':['강원랜드','농심','블랙야크','메르세데스-벤츠','한화생명','HL그룹','범아','엠티코리아','마켓유니버스','예인미술','우리공간연구소'],'대학교·학교':['덕성여자대학교','동덕여자대학교','서울여자대학교','삼육대학교','강원대학교','한국공학대학교','사이버한국외국어대학교','상산고등학교'],'공공기관':['국립생태원','파주시','대구 중구청','영덕도서관'],'유아 브랜드':['잉글레시나','메리본','에이원','엠베이비','페도라'],'브랜드·판촉':['굿디','한솔기프트','시모네','피크몽','펀앳홈','콜드웜','파인드아웃','금홍','폼포라 펫','쿠잉','푸딩']};
+const PN=Object.keys(PL);
+const tile=n=>'<div class="lt" title="'+n+'">'+(PL[n]?'<img src="'+U+'images/logos/'+PL[n]+'" alt="'+n+'">':'<span>'+n+'</span>')+'</div>';
+const r1=PN.filter((_,i)=>i%2===0),r2=PN.filter((_,i)=>i%2===1);
+document.getElementById('mrow1').innerHTML=(r1.map(tile).join('')).repeat(2);
+document.getElementById('mrow2').innerHTML=(r2.map(tile).join('')).repeat(2);
+document.getElementById('ptnCount').textContent=PN.length+'곳';
+document.getElementById('ptnTypes').innerHTML=Object.entries(PT).map(([k,v])=>'<span>'+k+'<b>'+v.length+'</b></span>').join('');
+
+const hd=document.getElementById('hd');addEventListener('scroll',()=>hd.classList.toggle('on',scrollY>40));
+const S=[...document.querySelectorAll('.slide')],B=[...document.querySelectorAll('#tabs button')],vA=document.getElementById('vA');
+let cur=0,timer;
+var go=function(i){
+  S[cur].classList.remove('act');B[cur].classList.remove('on');
+  cur=i;S[cur].classList.add('act');
+  const d=+S[cur].dataset.dur;B[cur].style.setProperty('--dur',d+'s');
+  B.forEach(b=>{const n=b.querySelector('i');n.style.animation='none';void n.offsetWidth;n.style.animation='';});
+  B[cur].classList.add('on');
+  document.body.classList.toggle('dark',S[cur].classList.contains('dark'));
+  if(cur===0){vA.currentTime=0;vA.play().catch(()=>{});}else{vA.pause();}
+  clearTimeout(timer);timer=setTimeout(()=>go((cur+1)%S.length),d*1000);
+};
+B.forEach((b,i)=>b.onclick=()=>go(i));
+/* SINCE 1987 칸 안에서 3장 넘기기 */
+const SB=document.getElementById('slideB'),subs=[...SB.querySelectorAll('.sub')];let si=0,st;
+function showSub(i){subs.forEach(s=>s.classList.remove('on'));si=i;subs[i].classList.add('on');const t=subs[i].dataset.tone;SB.classList.toggle('dark',t==='dark');SB.classList.toggle('light',t==='light');if(S[cur]===SB)document.body.classList.toggle('dark',t==='dark');}
+const _go=go;go=function(i){clearInterval(st);_go(i);if(S[i]===SB){showSub(0);st=setInterval(()=>{if(si<subs.length-1)showSub(si+1);},3000);}};
+go(0);
+</script>
+
+</body>
+</html>
