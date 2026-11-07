@@ -1376,3 +1376,14 @@ body.pf2-lock{overflow:hidden}
  .bd-row{grid-template-columns:1fr}
 }
 .bd-box .lock{width:22px;height:22px;margin-right:8px;vertical-align:-3px}
+
+/* 11/07 품질 관리: 왼쪽 네모 4개와 오른쪽 사진 2장의 위아래 선 맞춤 */
+.ab-q-body{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(4,auto);gap:18px 40px}
+.ab-q-body .ab-q-list,.ab-q-body .ab-q-media{display:contents}
+.ab-q-body .ab-q-list li{grid-column:1;margin:0;align-items:center;min-height:150px;padding:26px 30px}
+.ab-q-body .ab-q-media figure{grid-column:2;position:relative;min-height:0}
+.ab-q-body .ab-q-media figure:first-child{grid-row:1 / span 2}
+.ab-q-body .ab-q-media figure:last-child{grid-row:3 / span 2}
+.ab-q-body .ab-q-media video,.ab-q-body .ab-q-media img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto;object-fit:cover}
+.ab-q-body .ab-q-media figcaption{position:absolute;left:0;right:0;bottom:0;padding:60px 24px 20px;background:linear-gradient(180deg,rgba(22,33,62,0),rgba(22,33,62,.5) 45%,rgba(22,33,62,.82));color:#fff;font-size:15px;font-weight:600}
+@media (max-width:1100px){.ab-q-body{grid-template-columns:1fr;grid-template-rows:none;gap:14px}.ab-q-body .ab-q-list li{min-height:0}.ab-q-body .ab-q-list li,.ab-q-body .ab-q-media figure,.ab-q-body .ab-q-media figure:first-child,.ab-q-body .ab-q-media figure:last-child{grid-column:1;grid-row:auto}.ab-q-body .ab-q-media figure{margin-top:10px;aspect-ratio:16/10}}
