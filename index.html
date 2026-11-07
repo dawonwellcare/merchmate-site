@@ -207,11 +207,12 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 
 /* 11/07 토이미라클형: 가운데 큰 영어 제목 + 튀어나오는 효과 */
 .sec-hd{text-align:center}
-.big-en{font-size:clamp(46px,5.4vw,80px);font-weight:900;letter-spacing:-.01em;line-height:1.05;color:var(--coral);text-shadow:3px 4px 0 var(--navy),0 18px 30px rgba(22,33,62,.18)}
+.sec-eb{font-size:14px;font-weight:800;letter-spacing:.3em;color:var(--coral)}
+.big-en{margin-top:14px;font-size:clamp(38px,4.2vw,60px);font-weight:700;letter-spacing:-.03em;line-height:1.1;color:var(--navy)}
+.big-en i{font-style:normal;color:var(--coral)}
 .sec-hd p{margin-top:22px;font-size:17px;line-height:1.7;color:#6f6a63}
-.pop{opacity:0;transform:translateY(46px) scale(.86)}
-.pop.on{animation:popIn .9s cubic-bezier(.2,1.4,.4,1) forwards}
-@keyframes popIn{0%{opacity:0;transform:translateY(46px) scale(.86)}60%{opacity:1;transform:translateY(-8px) scale(1.04)}100%{opacity:1;transform:none}}
+.pop{opacity:0;transform:translateY(24px)}
+.pop.on{opacity:1;transform:none;transition:opacity .8s ease,transform .8s ease}
 .pfq{margin-top:56px}
 .pt{width:280px;height:280px;flex:none;border-radius:18px;overflow:hidden;background:#f4f3f0}
 .pt img{width:100%;height:100%;object-fit:cover;display:block}
@@ -219,7 +220,7 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 .ptn .lt:hover{box-shadow:none}
 .ptn .lt img{max-height:52px;mix-blend-mode:multiply}
 .ptn .mq,.ptn .mrow{background:var(--cream)}
-@media (max-width:900px){.pt{width:180px;height:180px;border-radius:14px}.big-en{text-shadow:2px 3px 0 var(--navy),0 12px 20px rgba(22,33,62,.16)}.sec-hd p{font-size:15px}}
+@media (max-width:900px){.pt{width:180px;height:180px;border-radius:14px}.big-en{font-size:34px}.sec-hd p{font-size:15px}}
 /* 오른쪽 아래 고정 버튼: 카톡 문의 + 상담 신청 (리뉴얼 전과 같은 모양) */
 .fl-btn{position:fixed;right:24px;z-index:900;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
 .fl-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.22)}
@@ -319,7 +320,8 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 <section class="biz">
   <div class="wrap">
     <div class="sec-hd">
-      <h2 class="big-en pop">WHAT WE MAKE</h2>
+      <div class="sec-eb pop">BUSINESS</div>
+      <h2 class="big-en pop">What we make<i>.</i></h2>
       <p>인형부터 굿즈까지, 머치메이트가 직접 만듭니다.</p>
     </div>
     <div class="cards4" id="cards4">
@@ -335,7 +337,8 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 <section class="pf">
   <div class="wrap">
     <div class="sec-hd">
-      <h2 class="big-en pop">PORTFOLIO</h2>
+      <div class="sec-eb pop">WORKS</div>
+      <h2 class="big-en pop">Portfolio<i>.</i></h2>
     </div>
   </div>
   <div class="mq pfq"><div class="mrow" id="pr1"></div><div class="mrow rev" id="pr2"></div></div>
@@ -348,7 +351,8 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 <section class="ptn">
   <div class="wrap">
     <div class="sec-hd">
-      <h2 class="big-en pop">PARTNERS WITH MERCHMATE</h2>
+      <div class="sec-eb pop">CLIENTS</div>
+      <h2 class="big-en pop">Partners with Merchmate<i>.</i></h2>
     </div>
   </div>
   <div class="mq"><div class="mrow" id="mrow1"></div><div class="mrow rev" id="mrow2"></div><div class="mrow r3" id="mrow3"></div><div class="mrow rev r4" id="mrow4"></div></div>
