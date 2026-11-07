@@ -51,10 +51,6 @@ body.dark .hd .logo .n{opacity:0} body.dark .hd .logo .w{opacity:1}
 .hd.on .logo .n{opacity:1!important}.hd.on .logo .w{opacity:0!important}
 
 /* 오른쪽 퀵 메뉴 (대동기어 구조) */
-.quick{position:fixed;right:0;top:400px;z-index:60;background:var(--bar);width:80px}
-.quick a{height:80px;display:flex;align-items:center;justify-content:center}
-.quick svg{width:30px;height:30px;stroke:#fff;fill:none;stroke-width:1.4}
-.quick a:hover{background:var(--coral)}
 
 /* 첫 화면 배너 (위오 구성: 영상 1 + 사진 2, 왼쪽 큰 영문 + 한글 한 줄, 아래 탭) */
 .visual{position:relative;height:100vh;min-height:720px;overflow:hidden;background:var(--cream)}
@@ -224,6 +220,12 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 .ptn .lt img{max-height:52px;mix-blend-mode:multiply}
 .ptn .mq,.ptn .mrow{background:var(--cream)}
 @media (max-width:900px){.pt{width:180px;height:180px;border-radius:14px}.big-en{text-shadow:2px 3px 0 var(--navy),0 12px 20px rgba(22,33,62,.16)}.sec-hd p{font-size:15px}}
+/* 오른쪽 아래 고정 버튼: 카톡 문의 + 상담 신청 (리뉴얼 전과 같은 모양) */
+.fl-btn{position:fixed;right:24px;z-index:900;display:inline-flex;align-items:center;gap:8px;padding:12px 18px;border-radius:999px;font-size:14px;font-weight:700;line-height:1;box-shadow:0 6px 18px rgba(0,0,0,.18);transition:transform .15s,box-shadow .15s}
+.fl-btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(0,0,0,.22)}
+.fl-kakao{bottom:84px;background:#fee500;color:#191919}
+.fl-consult{bottom:28px;background:var(--navy);color:#fff}
+@media (max-width:640px){.fl-btn{right:14px}.fl-kakao{bottom:calc(76px + env(safe-area-inset-bottom,0px))}.fl-consult{bottom:calc(20px + env(safe-area-inset-bottom,0px))}}
 @media (max-width:900px){
   .about .wrap,.cta .box,.ft .wrap{grid-template-columns:1fr}
   .about{padding:90px 0}.about .wrap{gap:40px}
@@ -243,6 +245,7 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 
 .sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
+@media (min-width:901px){button.burger{display:none}}
 .mnav{position:fixed;inset:0;z-index:200;background:#fff;display:flex;flex-direction:column;padding:90px 30px 40px;gap:6px;transform:translateX(100%);transition:transform .35s}
 .mnav.on{transform:none}
 .mnav a{font-size:22px;font-weight:800;color:var(--navy);padding:14px 0;border-bottom:1px solid #eee7dd}
@@ -275,13 +278,6 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
   <div class="hd-r"><a class="pill" href="contact.html">상담 신청</a><button class="burger" id="burger" aria-label="메뉴 열기"><i></i></button></div>
 </div></header>
 
-<aside class="quick">
-  <a href="about.html" title="회사 소개"><svg viewBox="0 0 24 24"><path d="M3 21V8l6-4v17M9 21V10l6-2v13M15 21V11h6v10M2 21h20"/></svg></a>
-  <a href="portfolio.html" title="제작 사례"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg></a>
-  <a href="faq.html" title="자주 묻는 질문"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM15 3v4h4M9 13h6M9 17h4"/></svg></a>
-  <a href="contact.html" title="상담 신청"><svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/></svg></a>
-  <a href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener" title="카카오톡 문의"><svg viewBox="0 0 24 24"><path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9L6.5 20l3.6-2.3c.6.1 1.2.1 1.9.1 5 0 9-3.1 9-6.9S17 4 12 4z"/></svg></a>
-</aside>
 
 <section class="visual" id="visual">
   <div class="slide light act" data-dur="10">
@@ -394,6 +390,8 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
   </div>
 </footer>
 
+<a class="fl-btn fl-kakao" href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener" aria-label="카카오톡으로 문의하기 (새 창)"><svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20"><path fill="currentColor" d="M12 3C6.5 3 2 6.6 2 11c0 2.8 1.8 5.3 4.6 6.7l-1 3.6c-.1.3.3.6.6.4l4.2-2.8c.5.1 1 .1 1.6.1 5.5 0 10-3.6 10-8S17.5 3 12 3z"/></svg><span>카톡 문의</span></a>
+<a class="fl-btn fl-consult" href="contact.html" aria-label="상담 신청하기"><svg viewBox="0 0 24 24" aria-hidden="true" width="18" height="18"><path fill="currentColor" d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm3 4v2h10V8H7zm0 3.5v2h7v-2H7z"/></svg><span>상담 신청</span></a>
 <script>
 document.getElementById('burger').onclick=()=>document.getElementById('mnav').classList.add('on');
 document.getElementById('mclose').onclick=()=>document.getElementById('mnav').classList.remove('on');
