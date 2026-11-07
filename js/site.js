@@ -399,7 +399,7 @@ if ($('makeList')) {
 }
 
 // ===== 제작 방법: 품질·납기 관리 =====
-if ($('quality')) {
+if ($('qualityList')) {
   $('qualityList').innerHTML = QUALITY
     .map((q, i) => `<li><span class="step-no">${String(i + 1).padStart(2, '0')}</span><div><h3>${q.title}</h3><p>${q.desc}</p></div></li>`)
     .join('');
