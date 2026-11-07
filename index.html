@@ -131,6 +131,19 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 /* 3. 포트폴리오: 분류 버튼 + 둥근 카드 3칸 */
 .pf{padding:140px 0 150px;background:#fff}
 .pf .top{text-align:center}
+.pf-top{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+.pf-top .chips{margin-top:0;justify-content:flex-end}
+.bento{margin-top:44px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:250px;gap:18px;transition:opacity .18s}
+.bento.fade{opacity:0}
+.bt{position:relative;display:block;border-radius:22px;overflow:hidden;background:#f4f3f0}
+.bt.big{grid-column:span 2;grid-row:span 2}
+.bt img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s}
+.bt:hover img{transform:scale(1.05)}
+.bt .cap{position:absolute;left:14px;bottom:14px;right:14px;display:inline-flex;flex-direction:column;align-items:flex-start}
+.bt .cap small,.bt .cap b{background:rgba(255,255,255,.93);color:var(--navy)}
+.bt .cap small{font-size:12px;font-weight:700;color:var(--coral);padding:6px 11px 2px;border-radius:10px 10px 0 0}
+.bt .cap b{font-size:15px;font-weight:800;padding:2px 11px 7px;border-radius:0 10px 10px 10px}
+.bt.big .cap b{font-size:20px}
 .chips{margin-top:36px;display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
 .chips button{border:1px solid #e3ddd3;background:#fff;border-radius:999px;padding:11px 24px;font:700 15px 'Pretendard Variable',sans-serif;color:#6f6a63;cursor:pointer}
 .chips button.on{background:var(--navy);border-color:var(--navy);color:#fff}
@@ -200,7 +213,7 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
   .about{padding:90px 0}.about .wrap{gap:40px}
   .biz .top{flex-direction:column;align-items:flex-start}
   .cards4{flex-direction:column;height:auto}.c4{height:120px;flex:none}.c4.on{height:420px}
-  .grid{grid-template-columns:1fr 1fr;gap:14px}.wk .in{padding:14px}.wk .lg{display:none}.wk b{font-size:15px}
+  .grid{grid-template-columns:1fr 1fr;gap:14px}.bento{grid-template-columns:1fr 1fr;grid-auto-rows:150px;gap:10px}.pf-top .chips{justify-content:flex-start}.bt .cap b{font-size:13px}.bt.big .cap b{font-size:16px}.wk .in{padding:14px}.wk .lg{display:none}.wk b{font-size:15px}
   .cta .tx{padding:44px 28px 10px}.cta .ph{padding:20px}
 }
 
@@ -309,10 +322,12 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 <!-- 3. 포트폴리오 -->
 <section class="pf">
   <div class="wrap">
-    <div class="top"><div class="eyebrow">PORTFOLIO</div><h2 class="h2">고객사와 <em>함께 만든</em> 제품</h2></div>
-    <div class="chips" id="chips"><button class="on" data-c="">전체</button><button data-c="캐릭터·봉제">캐릭터·봉제</button><button data-c="가방·파우치">가방·파우치</button><button data-c="유아·차량">유아·차량</button><button data-c="리빙·웰니스">리빙·웰니스</button></div>
-    <div class="grid" id="grid"></div>
-    <div class="btm"><a class="btn-line" href="portfolio.html">제작 사례 전체 보기</a></div>
+    <div class="pf-top">
+      <div><div class="eyebrow">PORTFOLIO</div><h2 class="h2">고객사와 <em>함께 만든</em> 제품</h2></div>
+      <div class="chips" id="chips"><button class="on" data-g="univ">대학교</button><button data-g="corp">기업·브랜드</button><button data-g="pub">공공기관</button><button data-g="baby">유아·생활</button></div>
+    </div>
+    <div class="bento" id="bento"></div>
+    <div class="btm"><a class="btn-line" href="portfolio.html">PORTFOLIO 전체 보기 →</a></div>
   </div>
 </section>
 
@@ -370,30 +385,17 @@ document.getElementById('mclose').onclick=()=>document.getElementById('mnav').cl
 document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('on')));
 /* 사업 분야 카드: 누르거나 마우스를 올리면 넓어짐 */
 const C4=[...document.querySelectorAll('.c4')];C4.forEach(c=>{const f=()=>{C4.forEach(x=>x.classList.remove('on'));c.classList.add('on');};c.addEventListener('mouseenter',f);c.addEventListener('click',f);});
-/* 포트폴리오 */
-const U='';
-const LOGO={'강원랜드':'images/logos/kangwonland.png','농심':'images/logos/nongshim.svg','블랙야크':'images/logos/blackyak.svg','메르세데스-벤츠':'images/logos/mercedes-benz.svg','한화생명':'images/logos/hanwha-life.svg','덕성여자대학교':'images/logos/duksung.png','한국공학대학교':'images/logos/tukorea.svg','파주시':'images/logos/paju.svg','우리공간연구소':'images/logos/woori-space.jpg','페도라':'images/logos/fedora.png','에이원':'images/logos/aone.png','잉글레시나':'images/logos/inglesina.svg','시모네':'images/logos/simone.png','금홍':'images/logos/kumhong.png','범아':'images/logos/buma.png','삼육대학교':'images/logos/sahmyook.png'};
-const WORKS=[
- ['강원랜드','하이하우 시즌 인형','캐릭터·봉제','client-highhow-season'],
- ['메르세데스-벤츠','에코백','가방·파우치','client-benz-ecobag'],
- ['페도라','유아 쿨시트','유아·차량','client-fedora-coolseat'],
- ['농심','너구리 옷 인형 키링','캐릭터·봉제','client-nongshim'],
- ['한화생명','골프 항공 커버','가방·파우치','client-hanwha-golf'],
- ['메르세데스-벤츠','쿠션 무릎담요','리빙·웰니스','client-benz-blanket'],
- ['블랙야크','책가방 세트 인형','캐릭터·봉제','client-blackyak-set'],
- ['에이원','강아지 차량 후방거울','유아·차량','client-aone-mirror'],
- ['덕성여자대학교','덕새 학사복 인형','캐릭터·봉제','client-duksung'],
- ['우리공간연구소','스펀지밥 파인애플 파우치','가방·파우치','client-spongebob-pouch'],
- ['금홍','토끼 얼굴 냉감 쿠션','리빙·웰니스','client-geumhong-cool'],
- ['파주시','파랑이 인형','캐릭터·봉제','client-paju'],
- ['잉글레시나','안전벨트 인형','유아·차량','car-beltdoll'],
- ['한국공학대학교','티노 키링','캐릭터·봉제','client-tino-keyring'],
- ['범아','쿠션 커버','리빙·웰니스','biz-cushion'],
- ['시모네','딸랑이 세트','유아·차량','baby-simone']];
-const grid=document.getElementById('grid');
-function draw(c){grid.innerHTML=WORKS.filter(w=>!c||w[2]===c).slice(0,9).map(w=>`<a class="wk" href="portfolio.html"><div class="ph"><img src="${U}images/web/${w[3]}.webp" alt="${w[1]}"></div><div class="in"><div class="lg">${LOGO[w[0]]?`<img src="${U}${LOGO[w[0]]}" alt="${w[0]}">`:`<span>${w[0]}</span>`}</div><div><small>${w[0]}</small><b>${w[1]}</b></div></div></a>`).join('');}
-document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw(b.dataset.c);});
-draw('');
+/* 포트폴리오 (11/07): 고객 유형 탭 + 연출 사진 (큰 사진 1장 + 작은 사진 4장) */
+const PFG={
+ univ:[['덕성여자대학교','덕새 학사복 인형','scene-duksung'],['삼육대학교','수야 학사복 인형','scene-sahmyook'],['동덕여자대학교','솜솜이 인형','scene-dongduk'],['한국공학대학교','티노 후드 인형','scene-tino'],['서울여자대학교','캐릭터 인형 키링','scene-swu']],
+ corp:[['강원랜드','하이하우 시즌 인형','scene-highhow-season'],['농심','너구리 옷 인형 키링','scene-nongshim'],['엠티코리아','한복 입은 보숑이','scene-mt-hanbok'],['한화생명','골프 항공 커버','scene-hanwha-golf'],['파인드아웃','볼캡 키링','scene-findout-cap']],
+ pub:[['파주시','파랑이 인형','scene-paju'],['국립생태원','사막여우 · 펭귄 인형','scene-ecorium'],['대구 중구청','백로 키링','scene-junggu'],['영덕도서관','마스코트 키링','scene-yeongdeok-keyring']],
+ baby:[['시모네','딸랑이 세트','scene-simone'],['페도라','유아 쿨시트','scene-fedora-coolseat'],['엠베이비','모빌','scene-mobile'],['에이원','강아지 차량 후방거울','scene-aone-mirror'],['피크몽','내꺼유 노즈워크','scene-peakmong']]};
+const PFL={univ:'portfolio.html#character',corp:'portfolio.html',pub:'portfolio.html#character',baby:'portfolio.html#baby'};
+const bento=document.getElementById('bento');
+function drawPF(g){bento.classList.add('fade');setTimeout(()=>{bento.innerHTML=PFG[g].map((w,i)=>'<a class="bt'+(i?'':' big')+'" href="'+PFL[g]+'"><img src="images/web/'+w[2]+'.jpg" alt="'+w[0]+' '+w[1]+'" loading="lazy"><span class="cap"><small>'+w[0]+'</small><b>'+w[1]+'</b></span></a>').join('');bento.classList.remove('fade');},180);}
+document.querySelectorAll('#chips button').forEach(b=>b.onclick=()=>{document.querySelectorAll('#chips button').forEach(x=>x.classList.remove('on'));b.classList.add('on');drawPF(b.dataset.g);});
+drawPF('univ');
 /* 파트너 로고 */
 const PL={'강원랜드':'kangwonland.png','농심':'nongshim.svg','블랙야크':'blackyak.svg','메르세데스-벤츠':'mercedes-benz.svg','한화생명':'hanwha-life.svg','덕성여자대학교':'duksung.png','동덕여자대학교':'dongduk.png','서울여자대학교':'swu.jpg','삼육대학교':'sahmyook.png','강원대학교':'kangwon-univ.png','한국공학대학교':'tukorea.svg','사이버한국외국어대학교':'cufs.svg','상산고등학교':'sangsan.png','국립생태원':'nie.png','파주시':'paju.svg','대구 중구청':'daegu-junggu.png','영덕도서관':'yeongdeok-library.png','HL그룹':'hl-group.png','범아':'buma.png','엠티코리아':'mtkorea.png','마켓유니버스':'market-universe.png','예인미술':'yein.png','우리공간연구소':'woori-space.jpg','굿디':'goody.png','한솔기프트':'hansol-gift.jpg','잉글레시나':'inglesina.svg','메리본':'merrybon.png','에이원':'aone.png','엠베이비':'mbaby.png','페도라':'fedora.png','시모네':'simone.png','피크몽':'pickmong.png','펀앳홈':'funathome.jpg','콜드웜':'coldwarm.svg','파인드아웃':'','금홍':'kumhong.png','폼포라 펫':'pompolarr-pet.png','쿠잉':'cooing.png','푸딩':''};
 const PT={'기업':['강원랜드','농심','블랙야크','메르세데스-벤츠','한화생명','HL그룹','범아','엠티코리아','마켓유니버스','예인미술','우리공간연구소'],'대학교·학교':['덕성여자대학교','동덕여자대학교','서울여자대학교','삼육대학교','강원대학교','한국공학대학교','사이버한국외국어대학교','상산고등학교'],'공공기관':['국립생태원','파주시','대구 중구청','영덕도서관'],'유아 브랜드':['잉글레시나','메리본','에이원','엠베이비','페도라'],'브랜드·판촉':['굿디','한솔기프트','시모네','피크몽','펀앳홈','콜드웜','파인드아웃','금홍','폼포라 펫','쿠잉','푸딩']};
