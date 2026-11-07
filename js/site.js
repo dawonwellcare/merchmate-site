@@ -652,24 +652,6 @@ if ('IntersectionObserver' in window) {
 }
 
 
-// ===== (2026-11-06) 오른쪽 아이콘 메뉴 (새 메인과 같은 모양) =====
-// PC에서는 오른쪽 세로 아이콘 메뉴, 휴대폰에서는 예전처럼 오른쪽 아래 카톡·상담 버튼이 보여요.
-(function () {
-  if (document.getElementById('v2Quick')) return;
-  const q = document.createElement('aside');
-  q.id = 'v2Quick';
-  q.className = 'v2-quick';
-  const ic = d => `<svg viewBox="0 0 24 24" aria-hidden="true">${d}</svg>`;
-  q.innerHTML = [
-    ['about.html', '회사 소개', '<path d="M3 21V8l6-4v17M9 21V10l6-2v13M15 21V11h6v10M2 21h20"/>'],
-    ['portfolio.html', '제작 사례', '<rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>'],
-    ['faq.html', '자주 묻는 질문', '<path d="M6 3h9l4 4v14H6zM15 3v4h4M9 13h6M9 17h4"/>'],
-    ['contact.html', '상담 신청', '<path d="M4 5h16v11H9l-5 4z"/>'],
-    ['https://pf.kakao.com/_TFUWX/chat', '카카오톡 문의', '<path d="M12 4C7 4 3 7.1 3 11c0 2.5 1.7 4.7 4.2 5.9L6.5 20l3.6-2.3c.6.1 1.2.1 1.9.1 5 0 9-3.1 9-6.9S17 4 12 4z"/>'],
-  ].map(([h, t, d]) => `<a href="${h}" title="${t}" aria-label="${t}"${h.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${ic(d)}</a>`).join('');
-  document.body.appendChild(q);
-})();
-
 // ===== 카톡 문의 버튼 =====
 // 모든 페이지 오른쪽 아래에 고정돼요. 누르면 카카오톡 채널 채팅이 새 탭으로 열려요. (2026-11-06부터 PC에서는 숨김)
 (function () {
