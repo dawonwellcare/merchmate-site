@@ -33,6 +33,8 @@ const icon = name => `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" st
 
 
 // ===== 위쪽 메뉴 =====
+// 지금 페이지가 이 메뉴에 속하는지 (pages: 함께 묶인 페이지들)
+const navOn = m => m.page === currentPage || (m.pages || []).includes(currentPage);
 $('siteHeader').innerHTML = `
   <div class="container header-inner">
     <a href="index.html" class="logo" aria-label="${SITE.name} 홈">
@@ -42,8 +44,8 @@ $('siteHeader').innerHTML = `
     <nav class="nav" id="nav" aria-label="주 메뉴">
       <ul class="nav-list">
         ${NAV.map(m => `
-          <li class="nav-item${m.page === currentPage ? ' active' : ''}${m.sub.length ? ' has-sub' : ''}${m.cta ? ' nav-cta' : ''}">
-            <a href="${m.href}"${m.page === currentPage ? ' aria-current="page"' : ''}>${m.label}</a>
+          <li class="nav-item${navOn(m) ? ' active' : ''}${m.sub.length ? ' has-sub' : ''}${m.cta ? ' nav-cta' : ''}">
+            <a href="${m.href}"${navOn(m) ? ' aria-current="page"' : ''}><span class="nav-en">${m.label}</span>${m.ko ? `<small class="nav-ko">${m.ko}</small>` : ''}</a>
             ${m.sub.length ? `<ul class="sub-menu">${m.sub.map(s => `<li><a href="${s.href}">${s.label}</a></li>`).join('')}</ul>` : ''}
           </li>`).join('')}
       </ul>
@@ -100,7 +102,10 @@ nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
 
 // ===== 페이지 위쪽 세부 메뉴 탭 (제작 품목, 제작 방법, 회사 소개 페이지) =====
 if ($('subTabs')) {
-  const menu = NAV.find(m => m.page === currentPage);
+  // 제작 품목 페이지는 분류(캐릭터·봉제 등) 탭을 보여 줘요
+  const menu = currentPage === 'products'
+    ? { sub: CATEGORIES.map(c => ({ label: c.name, href: `products.html#${c.id}` })) }
+    : NAV.find(navOn);
   $('subTabs').innerHTML = menu.sub
     .map(s => `<a href="${s.href}">${s.icon ? icon(s.icon) : ''}<span>${s.label}</span></a>`)
     .join('');
@@ -139,7 +144,7 @@ $('siteFooter').innerHTML = `
       ${typeof GUIDES !== 'undefined' ? `<p class="v2-kw">${GUIDES.map(g => `<a href="${g.href}">${g.label}</a>`).join('')}</p>` : ''}
     </div>
     <div class="v2-map"><iframe loading="lazy" title="${SITE.name} ${SITE.locations[0].label} 위치 지도" src="https://maps.google.com/maps?q=${encodeURIComponent(SITE.locations[0].address.replace(/\s*\(\d+\)\s*$/, '').replace(/,\s*[A-Za-z0-9가-힣]+동\s*$/, ''))}&z=15&output=embed"></iframe></div>
-    <div class="v2-bot"><span>© ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</span><nav class="v2-fl">${NAV.filter(m => !m.cta).map(m => `<a href="${m.href}">${m.label}</a>`).join('')}<a href="contact.html">상담 신청</a></nav></div>
+    <div class="v2-bot"><span>© ${new Date().getFullYear()} ${SITE.name}. All rights reserved.</span><nav class="v2-fl">${NAV.filter(m => !m.cta).map(m => `<a href="${m.href}">${m.ko || m.label}</a>`).join('')}</nav></div>
   </div>`;
 if (false) $('siteFooter').innerHTML = `
   <div class="container footer-inner">

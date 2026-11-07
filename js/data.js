@@ -25,7 +25,7 @@ const CATEGORIES = [
   {
     id: 'character', name: '캐릭터·봉제', en: 'CHARACTER & PLUSH',
     items: ['인형 · 캐릭터 인형', '안전벨트 인형', '캐릭터 봉제 굿즈'],
-    desc: '캐릭터 IP를 활용한 다양한 봉제제품을 OEM·ODM으로 제작합니다.',
+    desc: '캐릭터 IP를 활용한 다양한 봉제 제품을 OEM·ODM으로 제작합니다.',
     cover: 'images/web/mt-vest.webp',
   },
   {
@@ -43,7 +43,7 @@ const CATEGORIES = [
   {
     id: 'living', name: '리빙·웰니스', en: 'LIVING & WELLNESS',
     items: ['쿠션 · 목베개', '손목대 · 복대', '패브릭 생활용품'],
-    desc: '일상생활의 편안함과 실용성을 생각한 패브릭 봉제제품입니다.',
+    desc: '일상생활의 편안함과 실용성을 생각한 패브릭 봉제 제품입니다.',
     cover: 'images/web/biz-cushion.webp',
   },
   {
@@ -58,27 +58,9 @@ const CATEGORIES = [
 // 손님이 가장 궁금한 '만든 것'을 앞에, '회사 소개'를 뒤에 둡니다.
 // cta: true 인 메뉴는 휴대폰 메뉴에만 보여요 (컴퓨터 화면은 오른쪽 위 '상담 신청' 버튼이 대신해요)
 const NAV = [
+  // (2026-11-07) 메뉴 이름: 영어 + 아래 작은 한글 (label = 영어, ko = 한글)
   {
-    label: '제작 사례', href: 'portfolio.html', page: 'portfolio',
-    sub: [{ label: '전체 보기', href: 'portfolio.html' }]
-      .concat(CATEGORIES.map(c => ({ label: c.name, href: `portfolio.html#${c.id}` }))),
-  },
-  {
-    label: '제작 품목', href: 'products.html', page: 'products',
-    sub: CATEGORIES.map(c => ({ label: c.name, href: `products.html#${c.id}` })),
-  },
-  {
-    label: '제작 방법', href: 'business.html', page: 'business',
-    sub: [
-      { label: '개발 · 제조', href: 'business.html', icon: 'pencil' },
-      { label: 'OEM · ODM', href: 'oem.html', icon: 'factory' },
-      { label: '캐릭터 IP', href: 'license.html', icon: 'star' },
-      { label: '품질 관리', href: 'quality.html', icon: 'check' },
-      { label: '자주 묻는 질문', href: 'faq.html', icon: 'chat' },
-    ],
-  },
-  {
-    label: '회사 소개', href: 'about.html', page: 'about',
+    label: 'ABOUT', ko: '회사소개', href: 'about.html', page: 'about',
     sub: [
       { label: '회사 소개', href: 'about.html#intro' },
       { label: '연혁', href: 'about.html#history' },
@@ -86,7 +68,28 @@ const NAV = [
       { label: '고객사', href: 'about.html#partners' },
     ],
   },
-  { label: '상담 신청', href: 'contact.html', page: 'contact', sub: [], cta: true },
+  {
+    label: 'MAKING', ko: '제작과정', href: 'business.html', page: 'business', pages: ['products'],
+    sub: [
+      { label: '개발 · 제조', href: 'business.html', icon: 'pencil' },
+      { label: 'OEM · ODM', href: 'oem.html', icon: 'factory' },
+      { label: '캐릭터 IP', href: 'license.html', icon: 'star' },
+      { label: '품질 관리', href: 'quality.html', icon: 'check' },
+      { label: '제작 품목', href: 'products.html', icon: 'box' },
+    ],
+  },
+  {
+    label: 'PORTFOLIO', ko: '제작사례', href: 'portfolio.html', page: 'portfolio',
+    sub: [{ label: '전체 보기', href: 'portfolio.html' }]
+      .concat(CATEGORIES.map(c => ({ label: c.name, href: `portfolio.html#${c.id}` }))),
+  },
+  {
+    label: 'INQUIRY', ko: '제작문의', href: 'contact.html', page: 'contact',
+    sub: [
+      { label: '상담 신청', href: 'contact.html', icon: 'chat' },
+      { label: '자주 묻는 질문', href: 'faq.html', icon: 'list' },
+    ],
+  },
 ];
 
 // ===== 두 갈래 안내 (디자인이 있는 고객 / 아이디어만 있는 고객) =====
@@ -108,12 +111,12 @@ const PATHS = [
 // ===== 자주 묻는 질문 (누르면 답이 펼쳐져요) =====
 // ※ 수량·기간 답변은 사장님 확인 후 구체적인 숫자로 바꾸면 더 좋아요
 const FAQS = [
-  { q: '디자인이 없어도 만들 수 있나요?', a: '네. 용도와 분위기만 알려주시면 도면과 디자인 시안을 먼저 만들어 보여드려요. 마음에 들 때까지 함께 다듬은 뒤 샘플을 만들어요.' },
-  { q: '최소 주문 수량이 있나요?', a: '품목과 소재에 따라 달라요. 생각하신 수량을 알려주시면 그 수량에 맞는 제작 방법과 견적을 안내해 드려요.' },
+  { q: '디자인이 없어도 만들 수 있나요?', a: '네. 용도와 분위기만 알려 주시면 도면과 디자인 시안을 먼저 만들어 보여드려요. 마음에 들 때까지 함께 다듬은 뒤 샘플을 만들어요.' },
+  { q: '최소 주문 수량이 있나요?', a: '품목과 소재에 따라 달라요. 생각하신 수량을 알려 주시면 그 수량에 맞는 제작 방법과 견적을 안내해 드려요.' },
   { q: '양산 전에 실물을 볼 수 있나요?', a: '네. 사진으로는 알 수 없는 색감과 촉감을 실물 샘플로 확인하신 뒤에 양산을 시작해요.' },
   { q: '제작 기간은 얼마나 걸리나요?', a: '처음 제작하시는 제품은 샘플 의뢰 후 샘플을 받기까지 2주 정도 걸려요. 샘플을 확인하고 확정하시면 양산에는 50일 전후가 걸리고, 같은 제품을 다시 주문하시는 리오더는 40일 전후예요. 제품 사양에 따라 차이가 있을 수 있어요. 긴급 제작은 추가 비용이 있으니 상담 때 희망 납기일을 알려 주세요. 일정표를 만들어 공유해 드려요.' },
   { q: '캐릭터 라이선스 제품도 만들 수 있나요?', a: '네. 디즈니, 카카오 제품을 제조할 수 있는 자격을 갖추고 있어요. 캐릭터의 표정과 비율까지 살려서 만들어요.' },
-  { q: '목록에 없는 제품도 되나요?', a: '네. 봉제로 만들 수 있는 제품이라면 상담을 통해 새로 개발할 수 있어요. 참고 사진이 있으면 함께 보내주세요.' },
+  { q: '목록에 없는 제품도 되나요?', a: '네. 봉제로 만들 수 있는 제품이라면 상담을 통해 새로 개발할 수 있어요. 참고 사진이 있으면 함께 보내 주세요.' },
   { q: '공장은 어디에 있나요?', a: '중국 산둥성 청양에 1곳, 동평에 2곳, 모두 3곳의 공장을 직접 운영해요. 중간 업체 없이 바로 생산해서 품질과 일정을 직접 챙겨요.' },
 ];
 
@@ -137,7 +140,7 @@ const HERO_SLIDES = [
   {
     studio: 'images/web/hero-studio-tino.webp', studioAlt: '야구 점퍼를 입은 한국공학대학교 마스코트 티노 인형의 앞·옆·뒤 모습',
     cutout: 'images/web/hero-cut-mascots.webp', cutoutAlt: '야구 점퍼와 학사복을 입은 대학교 마스코트 인형 세 개', bg: '#e2edfa',
-    src: 'images/web/why4.webp', alt: '웰시코기 봉제 인형 두 마리',
+    src: 'images/web/why4.webp', alt: '웰시코기 봉제인형 두 마리',
     eyebrow: '대학교 · 기관 마스코트',
     title: '학교의 얼굴을\n[인형으로] 만들어요',
     sub: '동덕여대, 삼육대, 한국공학대 같은 학교와 기관의 마스코트 인형을 만들었습니다.',
@@ -145,7 +148,7 @@ const HERO_SLIDES = [
   {
     studio: 'images/web/hero-studio-findout.webp', studioAlt: '귤을 안은 고양이 후드 인형의 앞·옆·뒤 모습',
     cutout: 'images/web/hero-cut-keyrings.webp', cutoutAlt: '너구리 옷을 입은 인형 키링 여섯 개', bg: '#fbe9ee',
-    src: 'images/web/why4.webp', alt: '웰시코기 봉제 인형 두 마리',
+    src: 'images/web/why4.webp', alt: '웰시코기 봉제인형 두 마리',
     eyebrow: '캐릭터 인형 · 키링',
     title: '캐릭터의 표정까지\n[살려 내는] 공장',
     sub: '디즈니·카카오 제품 제조 자격을 갖춘 생산 라인에서 만듭니다.',
@@ -229,7 +232,7 @@ const LOGOS = [
 const STRENGTHS = [
   { title: '디자인 시안을 먼저 확인', desc: '도면과 시안으로 완성 모습을 먼저 보여드려요.', src: 'images/web/why-new-1.webp', alt: '도면과 완성품을 나란히 놓은 사진' },
   { title: '실물 샘플 확인 후 양산', desc: '색감과 촉감을 실물 샘플로 확인한 뒤 양산해요.', src: 'images/web/why-new-2.webp', alt: '진열대에 놓인 샘플 인형들' },
-  { title: '택·라벨·포장까지 맞춤', desc: '택, 라벨, 개별 포장을 함께 정하고 원하는 곳까지 보내드려요.', src: 'images/web/why-new-3.webp', alt: '포장한 박스를 트럭에 싣는 출고 모습' },
+  { title: '택·라벨·포장까지 맞춤', desc: '택, 라벨, 개별 포장을 함께 정하고 원하는 곳까지 보내 드려요.', src: 'images/web/why-new-3.webp', alt: '포장한 박스를 트럭에 싣는 출고 모습' },
   { title: '직접 운영하는 생산 현장', desc: '공장 3곳에서 품질과 일정을 직접 챙겨요.', src: 'images/web/why-new-4.webp', alt: '작업자들이 인형을 만드는 공장 작업장' },
 ];
 
@@ -269,7 +272,7 @@ const CAPABILITIES = [
 // ===== 제작 방법: 다루는 소재 (사진은 그 소재로 만든 실제 제품, 첫 번째가 가장 크게 보여요) =====
 const MATERIALS = [
   { en: 'LINEN', name: '린넨', desc: '블랭킷, 파우치, 슬리브 같은 리빙 굿즈', src: 'images/web/hero.webp' },
-  { en: 'PLUSH', name: '부드러운 털 원단', desc: '봉제 인형, 쿠션처럼 손에 닿는 제품', src: 'images/web/why4.webp' },
+  { en: 'PLUSH', name: '부드러운 털 원단', desc: '봉제인형, 쿠션처럼 손에 닿는 제품', src: 'images/web/why4.webp' },
   { en: 'DENIM', name: '데님', desc: '개성 있는 인형과 소품', src: 'images/web/doll-denim.webp' },
   { en: 'COTTON · KNIT', name: '면 · 니트', desc: '아기가 만지는 애착 인형, 딸랑이', src: 'images/web/baby-simone.webp' },
   { en: 'PVC', name: 'PVC · 비닐', desc: '속이 보이거나 반짝이는 파우치, 필통', src: 'images/web/doll-pouch.webp' },
@@ -290,7 +293,7 @@ const STEPS = [
   { title: '디자인 시안', desc: '브랜드에 맞춘 도면과 시안을 만들어 함께 다듬어요.' },
   { title: '샘플 확인', desc: '실물 샘플로 색상과 품질을 먼저 확인해요.' },
   { title: '양산', desc: '검수 기준에 맞춰 일정대로 생산해요.' },
-  { title: '포장·납품', desc: '원하는 곳까지 포장해서 보내드려요.' },
+  { title: '포장·납품', desc: '원하는 곳까지 포장해서 보내 드려요.' },
 ];
 
 // ===== 제작 사례 (사진은 images/web 폴더, 분류 안에서 위에 있을수록 먼저 보여요) =====
@@ -320,7 +323,7 @@ const WORKS = [
   { client: '한국공학대학교', title: '티노 키링', category: '캐릭터·봉제', meta: '야구 점퍼를 입힌 마스코트 키링', src: 'images/web/client-tino-keyring.webp' },
   { client: '사이버한국외국어대학교', title: '부엉이 키링', category: '캐릭터·봉제', meta: '야구 점퍼를 입힌 마스코트 키링', src: 'images/web/client-cufs.webp' },
   { client: '상산고등학교', title: '코끼리 인형 키링', category: '캐릭터·봉제', meta: '교복을 입힌 마스코트 키링', src: 'images/web/client-sangsan.webp' },
-  { client: '국립생태원', title: '사막여우 · 펭귄 인형', category: '캐릭터·봉제', meta: '동물 봉제 인형 2종', src: 'images/web/client-ecorium.webp' },
+  { client: '국립생태원', title: '사막여우 · 펭귄 인형', category: '캐릭터·봉제', meta: '동물 봉제인형 2종', src: 'images/web/client-ecorium.webp' },
   { client: '파주시', title: '파랑이 인형', category: '캐릭터·봉제', meta: '목도리를 두른 마스코트 인형', src: 'images/web/client-paju.webp' },
   { client: '대구 중구청', title: '백로 키링', category: '캐릭터·봉제', meta: '멜빵바지를 입힌 마스코트 키링', src: 'images/web/client-junggu.webp' },
   { client: '영덕도서관', title: '마스코트 키링', category: '캐릭터·봉제', meta: '모자를 쓴 얼굴 인형 키링', src: 'images/web/client-yeongdeok-keyring.webp' },
@@ -338,7 +341,7 @@ const WORKS = [
   { client: '금홍', title: '토끼 얼굴 인형', category: '캐릭터·봉제', meta: '털 원단 얼굴 인형 2종', src: 'images/web/client-geumhong-bunny.webp' },
   { client: '금홍', title: '캐릭터 머리띠', category: '캐릭터·봉제', meta: '얼굴 인형을 단 머리띠', src: 'images/web/client-geumhong-hairband.webp' },
   { client: '한국공학대학교', title: '티노 가방 고리 인형', category: '캐릭터·봉제', meta: '가방에 거는 마스코트 인형', src: 'images/web/client-tino-bagcharm.webp' },
-  { client: '봉제 인형', title: '곰 인형 웅이', category: '캐릭터·봉제', meta: '체크 발바닥 대형 곰 인형', src: 'images/web/client-bear-woong.webp' },
+  { client: '공장 샘플', title: '곰 인형 웅이', category: '캐릭터·봉제', meta: '체크 발바닥 대형 곰 인형', src: 'images/web/client-bear-woong.webp' },
   // 공장 샘플
   { client: '공장 샘플', title: '녹음 토끼 인형', category: '캐릭터·봉제', meta: '발바닥 버튼으로 녹음 · 재생', src: 'images/web/sample-voice-bunny.webp' },
   { client: '공장 샘플', title: '월리 목베개', category: '리빙·웰니스', meta: '캐릭터 프린트 U자 목베개', src: 'images/web/sample-neckpillow.webp' },
@@ -347,9 +350,9 @@ const WORKS = [
   { client: '공장 샘플', title: '강아지 옷 곰 인형', category: '캐릭터·봉제', meta: '강아지 옷을 입힌 곰 인형', src: 'images/web/sample-bear-puppy.webp' },
   { client: '공장 샘플', title: '동물 옷 곰 인형 3종', category: '캐릭터·봉제', meta: '리본 · 토끼 · 강아지 옷 곰 인형', src: 'images/web/sample-bear-trio.webp' },
   { client: '공장 샘플', title: '토끼 · 곰 인형 선물 세트', category: '캐릭터·봉제', meta: '상자 포장 인형 세트', src: 'images/web/sample-bear-box.webp' },
-  { client: '공장 샘플', title: '웰시코기 인형', category: '캐릭터·봉제', meta: '봉제 인형 2종', src: 'images/web/why4.webp' },
-  { client: '공장 샘플', title: '데님 동물 인형', category: '캐릭터·봉제', meta: '데님 원단 봉제 인형', src: 'images/web/doll-denim.webp' },
-  { client: '공장 샘플', title: '원피스 강아지 인형', category: '캐릭터·봉제', meta: '옷 입힌 봉제 인형', src: 'images/web/doll-puppy.webp' },
+  { client: '공장 샘플', title: '웰시코기 인형', category: '캐릭터·봉제', meta: '봉제인형 2종', src: 'images/web/why4.webp' },
+  { client: '공장 샘플', title: '데님 동물 인형', category: '캐릭터·봉제', meta: '데님 원단 봉제인형', src: 'images/web/doll-denim.webp' },
+  { client: '공장 샘플', title: '원피스 강아지 인형', category: '캐릭터·봉제', meta: '옷 입힌 봉제인형', src: 'images/web/doll-puppy.webp' },
   { client: '공장 샘플', title: '캐릭터 필통', category: '가방·파우치', meta: '봉제 캐릭터 필통 2종', src: 'images/web/doll-pencilcase.webp' },
   { client: '공장 샘플', title: '캐릭터 지퍼 파우치', category: '가방·파우치', meta: '투명 PVC 파우치', src: 'images/web/doll-pouch.webp' },
   // 애견용품
@@ -418,7 +421,7 @@ const WORKS = [
   { client: '엠티코리아', title: '엎드린 보숑이', category: '캐릭터·봉제', meta: '엎드린 자세 마스코트 인형', src: 'images/web/mt-lying.webp' },
   { client: '폼포라 펫', title: '사각 배변봉투 홀더', category: '반려동물', meta: '산책용 배변봉투 홀더', src: 'images/web/pet-holder-square.webp' },
   { client: '폼포라 펫', title: '강아지 귀 배변봉투 홀더', category: '반려동물', meta: '귀 모양 배변봉투 홀더', src: 'images/web/pet-holder-ears.webp' },
-  { client: '폼포라 펫', title: '원통형 배변봉투 홀더', category: '반려동물', meta: '구급 디자인 홀더', src: 'images/web/pet-holder-firstaid.webp' },
+  { client: '폼포라 펫', title: '원통형 배변봉투 홀더', category: '반려동물', meta: '구급상자 디자인 홀더', src: 'images/web/pet-holder-firstaid.webp' },
   { client: '폼포라 펫', title: '뼈다귀 배변봉투 홀더', category: '반려동물', meta: '뼈다귀 모양 홀더', src: 'images/web/pet-holder-bone.webp' },
 ];
 
