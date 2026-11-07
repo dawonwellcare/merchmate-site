@@ -64,8 +64,10 @@ const NAV = [
     sub: [
       { label: '회사 소개', href: 'about.html#intro' },
       { label: '연혁', href: 'about.html#history' },
-      { label: '공장 소개', href: 'about.html#factory' },
+      { label: '생산 현장', href: 'about.html#factory' },
+      { label: '네트워크', href: 'about.html#network' },
       { label: '고객사', href: 'about.html#partners' },
+      { label: '오시는 길', href: 'about.html#location' },
     ],
   },
   {
