@@ -171,6 +171,8 @@ body.dark .scroll{color:rgba(255,255,255,.7)}
 .mq{margin-top:56px;display:grid;gap:18px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .mrow{display:flex;width:max-content;gap:18px;animation:mq 60s linear infinite}
 .mrow.rev{animation-direction:reverse;animation-duration:70s}
+.mrow.r3{animation-duration:55s}
+.mrow.r4{animation-duration:65s}
 .mq:hover .mrow{animation-play-state:paused}
 @keyframes mq{to{transform:translateX(-50%)}}
 .lt{width:200px;height:96px;flex:none;border-radius:20px;background:#fff;border:1px solid #eee7dd;display:flex;align-items:center;justify-content:center;padding:18px 26px;transition:box-shadow .3s,transform .3s}
@@ -353,7 +355,7 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
       <h2 class="big-en pop">PARTNERS WITH MERCHMATE</h2>
     </div>
   </div>
-  <div class="mq"><div class="mrow" id="mrow1"></div><div class="mrow rev" id="mrow2"></div></div>
+  <div class="mq"><div class="mrow" id="mrow1"></div><div class="mrow rev" id="mrow2"></div><div class="mrow r3" id="mrow3"></div><div class="mrow rev r4" id="mrow4"></div></div>
 </section>
 
 <!-- 3-2. 자주 묻는 질문 -->
@@ -412,9 +414,11 @@ const PL={'강원랜드':'kangwonland.png','농심':'nongshim.svg','블랙야크
 const PT={'기업':['강원랜드','농심','블랙야크','메르세데스-벤츠','한화생명','HL그룹','범아','엠티코리아','마켓유니버스','예인미술','우리공간연구소'],'대학교·학교':['덕성여자대학교','동덕여자대학교','서울여자대학교','삼육대학교','강원대학교','한국공학대학교','사이버한국외국어대학교','상산고등학교'],'공공기관':['국립생태원','파주시','대구 중구청','영덕도서관'],'유아 브랜드':['잉글레시나','메리본','에이원','엠베이비','페도라'],'브랜드·판촉':['굿디','한솔기프트','시모네','피크몽','펀앳홈','콜드웜','파인드아웃','금홍','폼포라 펫','쿠잉','푸딩']};
 const PN=Object.keys(PL);
 const tile=n=>'<div class="lt" title="'+n+'">'+(PL[n]?'<img src="images/logos/'+PL[n]+'" alt="'+n+'">':'<span>'+n+'</span>')+'</div>';
-const r1=PN.filter((_,i)=>i%2===0),r2=PN.filter((_,i)=>i%2===1);
+const r1=PN.filter((_,i)=>i%4===0),r2=PN.filter((_,i)=>i%4===1),r3=PN.filter((_,i)=>i%4===2),r4=PN.filter((_,i)=>i%4===3);
 document.getElementById('mrow1').innerHTML=(r1.map(tile).join('')).repeat(2);
 document.getElementById('mrow2').innerHTML=(r2.map(tile).join('')).repeat(2);
+document.getElementById('mrow3').innerHTML=(r3.map(tile).join('')).repeat(2);
+document.getElementById('mrow4').innerHTML=(r4.map(tile).join('')).repeat(2);
 
 const hd=document.getElementById('hd');addEventListener('scroll',()=>hd.classList.toggle('on',scrollY>40));
 const S=[...document.querySelectorAll('.slide')],B=[...document.querySelectorAll('#tabs button')],vA=document.getElementById('vA');
