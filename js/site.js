@@ -64,7 +64,7 @@ $('siteHeader').innerHTML = `
   if (!hero) return;
   const HERO_PHOTOS = {
     'about.html': 'v2-w1.jpg',          // 원단을 자르는 손
-    'portfolio.html': 'v2-banner-c.jpg', // 리본 상자를 건네는 손
+    'portfolio.html': 'hero-portfolio.jpg', // (11/07) 벚꽃 앞 덕새 인형 (가로로 긴 사진)
     'products.html': 'v2-banner-b2.jpg', // 실패·가위·줄자 정물
     'business.html': 'v2-w2.jpg',       // 바늘로 꾸매는 손
     'oem.html': 'v2-w2.jpg',
@@ -86,6 +86,8 @@ $('siteHeader').innerHTML = `
   hero.style.setProperty('--hero-img', `url('${new URL('images/web/' + img, document.baseURI).href}')`);
   // 세로로 긴 사진(손 작업 사진)은 위쪽이 잘 보이게 맞춰요
   if (/v2-w[2-5]\.jpg$/.test(img)) hero.style.setProperty('--hero-pos', 'center 30%');
+  // 제작 사례 띠 사진은 인형이 아래쪽에 있어서 아래를 보여 줘요
+  if (img === 'hero-portfolio.jpg') hero.style.setProperty('--hero-pos', 'center 82%');
 })();
 
 // 휴대폰 메뉴 열고 닫기
@@ -473,42 +475,80 @@ if ($('productSections')) {
     .join('');
 }
 
-// ===== PORTFOLIO: 분류 버튼 + 더 보기 =====
+// ===== PORTFOLIO (2026-11-07): 위오처럼 사진만 4줄로 쌓고, 한 페이지에 40개씩 =====
+// - 연출 사진(scene)이 있는 사례가 맨 앞에 와요.
+// - 마우스를 올리면 고객사와 제품 이름이 보이고, 누르면 크게 보기 화면이 열려요.
+// - 배경 색을 맞춘 사진(clean)이 있으면 그 사진을 써요.
 if ($('workGrid')) {
-  const workGrid = $('workGrid');
-  const workFilters = $('workFilters');
-  const workMore = $('workMore');
-  const PAGE_SIZE = 9; // 처음에 보여줄 개수, '더 보기'를 누를 때마다 이만큼 더 보여요
-  let currentCategory = '전체';
-  let shownCount = PAGE_SIZE;
+  const box = $('workGrid').closest('.container');
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const PAGE = 40;
+  let cat = '전체', page = 1, current = [];
 
-  const renderWorks = categoryName => {
-    if (categoryName !== currentCategory) shownCount = PAGE_SIZE;
-    currentCategory = categoryName;
-    const list = worksFor(categoryName);
-    workMore.hidden = shownCount >= list.length;
-    workMore.textContent = `더 보기 (${list.length - shownCount}개 더)`;
-    workGrid.innerHTML = list.slice(0, shownCount).map(workCard).join('');
-    workFilters.querySelectorAll('button').forEach(b => {
-      const on = b.dataset.name === categoryName;
-      b.classList.toggle('active', on);
-      b.setAttribute('aria-pressed', on);
-    });
+  box.className = 'pf2-wrap';
+  box.innerHTML = '<div class="pf2-filters" id="pf2Filters"></div><div class="pf2-grid" id="pf2Grid"></div>' +
+    '<nav class="pf2-pager" id="pf2Pager" aria-label="페이지 번호"></nav>';
+  const $f = $('pf2Filters'), $g = $('pf2Grid'), $p = $('pf2Pager');
+
+  const ordered = name => { const b = worksFor(name); return [...b.filter(w => w.scene), ...b.filter(w => !w.scene)]; };
+  const cols = () => innerWidth < 700 ? 2 : innerWidth < 1100 ? 3 : 4;
+  const tile = (w, i) => {
+    const img = w.scene || w.clean || w.src;
+    const cls = w.scene ? ' scene' : w.clean ? ' clean' : '';
+    return '<a href="#" class="pf2-item' + cls + '" data-i="' + i + '"><img src="' + img + '" alt="' + esc(w.client + ' ' + w.title) + '" loading="lazy">' +
+      '<span class="pf2-cap"><small>' + esc(w.client) + '</small><strong>' + esc(w.title) + '</strong></span></a>';
   };
 
-  workFilters.innerHTML = [{ name: '전체' }, ...CATEGORIES]
-    .map(c => `<button type="button" data-name="${c.name}">${c.name}</button>`)
-    .join('');
-  workFilters.querySelectorAll('button').forEach(b => b.addEventListener('click', () => renderWorks(b.dataset.name)));
-  workMore.addEventListener('click', () => {
-    shownCount += PAGE_SIZE;
-    renderWorks(currentCategory);
-  });
+  function render() {
+    $f.innerHTML = [{ name: '전체' }, ...CATEGORIES].map(c =>
+      '<button type="button" data-name="' + c.name + '" class="' + (c.name === cat ? 'active' : '') + '" aria-pressed="' + (c.name === cat) + '">' + c.name + '</button>').join('');
+    current = ordered(cat);
+    const pages = Math.max(1, Math.ceil(current.length / PAGE));
+    page = Math.min(page, pages);
+    const start = (page - 1) * PAGE, slice = current.slice(start, start + PAGE), n = cols();
+    $g.innerHTML = Array.from({ length: n }, (_, c) => '<div class="pf2-col">' + slice.map((w, i) => i % n === c ? tile(w, start + i) : '').join('') + '</div>').join('');
+    $p.hidden = pages < 2;
+    $p.innerHTML = '<button type="button" data-p="' + (page - 1) + '" aria-label="이전 페이지"' + (page === 1 ? ' disabled' : '') + '>‹</button>' +
+      Array.from({ length: pages }, (_, i) => '<button type="button" data-p="' + (i + 1) + '" class="' + (i + 1 === page ? 'on' : '') + '">' + (i + 1) + '</button>').join('') +
+      '<button type="button" data-p="' + (page + 1) + '" aria-label="다음 페이지"' + (page === pages ? ' disabled' : '') + '>›</button>';
+    $g.querySelectorAll('[data-i]').forEach(a => a.addEventListener('click', e => { e.preventDefault(); openLB(+a.dataset.i); }));
+  }
+
+  $f.addEventListener('click', e => { const b = e.target.closest('button'); if (!b) return; cat = b.dataset.name; page = 1; render(); });
+  $p.addEventListener('click', e => { const b = e.target.closest('button'); if (!b || b.disabled) return; page = +b.dataset.p; render(); $f.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+  let lastCols = cols();
+  addEventListener('resize', () => { if (cols() !== lastCols) { lastCols = cols(); render(); } });
+
+  // ----- 크게 보기 (위오 상세 화면처럼: 제목, 큰 사진, 좌우 화살표) -----
+  const lb = document.createElement('div');
+  lb.className = 'pf2-lb'; lb.hidden = true; lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true');
+  const chev = d => '<svg viewBox="0 0 44 110"><path d="' + d + '"/></svg>';
+  lb.innerHTML = '<button type="button" class="x" aria-label="닫기">×</button>' +
+    '<button type="button" class="nav prev" aria-label="이전 사례">' + chev('M42 2 L2 55 L42 108') + '</button>' +
+    '<button type="button" class="nav next" aria-label="다음 사례">' + chev('M2 2 L42 55 L2 108') + '</button><div class="pf2-lb-in"></div>';
+  document.body.appendChild(lb);
+  let idx = 0;
+  function showLB() {
+    const w = current[idx];
+    const main = w.clean ? '<figure class="clean"><img src="' + w.clean + '" alt="' + esc(w.title) + '"></figure>' : '<figure><img src="' + w.src + '" alt="' + esc(w.title) + '"></figure>';
+    lb.querySelector('.pf2-lb-in').innerHTML = '<h2>' + esc(w.title) + '</h2><p class="meta"><b>' + esc(w.client) + '</b>' + esc(w.meta || '') + '</p>' +
+      (w.scene ? '<figure class="scene"><img src="' + w.scene + '" alt="' + esc(w.title) + '"></figure>' : '') + main +
+      '<div class="cta"><a class="btn btn-primary btn-lg" href="contact.html">이런 제품 상담하기</a></div>';
+    lb.scrollTop = 0;
+  }
+  function openLB(i) { idx = i; showLB(); lb.hidden = false; document.body.classList.add('pf2-lock'); lb.querySelector('.x').focus(); }
+  function closeLB() { lb.hidden = true; document.body.classList.remove('pf2-lock'); }
+  const step = d => { idx = (idx + d + current.length) % current.length; showLB(); };
+  lb.querySelector('.x').addEventListener('click', closeLB);
+  lb.querySelector('.prev').addEventListener('click', () => step(-1));
+  lb.querySelector('.next').addEventListener('click', () => step(1));
+  addEventListener('keydown', e => { if (lb.hidden) return; if (e.key === 'Escape') closeLB(); if (e.key === 'ArrowLeft') step(-1); if (e.key === 'ArrowRight') step(1); });
 
   // 주소 뒤의 #pet 같은 이름으로 처음 보여줄 분류를 정해요 (메뉴에서 바로 들어올 때)
   const fromHash = () => categoryById(location.hash.slice(1))?.name || '전체';
-  window.addEventListener('hashchange', () => renderWorks(fromHash()));
-  renderWorks(fromHash());
+  window.addEventListener('hashchange', () => { cat = fromHash(); page = 1; render(); });
+  cat = fromHash();
+  render();
 }
 
 // ===== 상담 신청 폼 =====
