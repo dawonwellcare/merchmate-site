@@ -1025,3 +1025,71 @@ body { font-family: var(--font-ko); word-break: keep-all; overflow-wrap: break-w
   .header .nav-item > a { flex-direction: row; align-items: baseline; gap: 10px; padding: 14px 0; }
   .header .nav-item > a .nav-ko { margin-top: 0; font-size: 13px; }
 }
+
+
+/* ===== (2026-11-07 시안) 제작 사례 페이지 – 위오 참고 ===== */
+.pf2-wrap{max-width:1440px;margin:0 auto;padding:0 20px}
+.pf2-filters{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 60px;margin:10px 0 56px}
+.pf2-filters button{background:none;border:0;font:inherit;font-size:19px;font-weight:500;color:#333;padding:8px 2px;cursor:pointer;position:relative;white-space:nowrap}
+.pf2-filters button:hover{color:#16213e}
+.pf2-filters button.active{font-weight:800;color:#16213e}
+.pf2-filters button.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:#ff7a59}
+.pf2-filters button .n{font-size:13px;font-weight:600;color:#9aa0ad;margin-left:6px}
+.pf2-grid{display:flex;gap:20px;align-items:flex-start}
+.pf2-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:20px}
+.pf2-item{position:relative;display:block;background:#f4f3f0;overflow:hidden;cursor:pointer;color:#fff;text-decoration:none}
+.pf2-item img{display:block;width:100%;height:auto;mix-blend-mode:multiply;transition:transform .5s ease}
+.pf2-item.scene img{mix-blend-mode:normal}
+.pf2-cap{position:absolute;inset:0;background:rgba(20,20,28,.5);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;opacity:0;transition:opacity .3s ease}
+.pf2-cap small{font-size:14px;font-weight:500;opacity:.85;margin-bottom:6px}
+.pf2-cap strong{font-size:22px;font-weight:700;line-height:1.35;word-break:keep-all}
+.pf2-item:hover .pf2-cap,.pf2-item:focus-visible .pf2-cap{opacity:1}
+.pf2-pager{display:flex;justify-content:center;align-items:center;gap:6px;margin:64px 0 10px}
+.pf2-pager button{min-width:40px;height:40px;border:0;background:none;font:inherit;font-size:16px;color:#666;cursor:pointer;border-radius:50%}
+.pf2-pager button.on{background:#16213e;color:#fff;font-weight:700}
+.pf2-pager button:disabled{opacity:.3;cursor:default}
+.pf2-more-wrap{text-align:center;margin-top:48px}
+.pf2-more-wrap[hidden],.pf2-pager[hidden]{display:none}
+@media (min-width:901px){.pf2-wrap{padding:0 110px}}
+/* ----- 크게 보기 (위오 상세 화면처럼) ----- */
+.pf2-lb{position:fixed;inset:0;z-index:2000;background:#fff;overflow-y:auto;padding:70px 20px 80px}
+.pf2-lb[hidden]{display:none}
+.pf2-lb-in{max-width:900px;margin:0 auto;text-align:center}
+.pf2-lb h2{font-size:40px;font-weight:800;color:#111;margin:0 0 10px;word-break:keep-all}
+.pf2-lb .meta{color:#6b7280;font-size:17px;margin:0 0 40px}
+.pf2-lb .meta b{color:#ff7a59;font-weight:700;margin-right:8px}
+.pf2-lb figure{margin:0 0 24px;background:#f1eee8}
+.pf2-lb figure img{display:block;width:100%;height:auto;mix-blend-mode:multiply}
+.pf2-lb figure.scene img{mix-blend-mode:normal}
+.pf2-lb .x{position:fixed;top:22px;right:28px;width:48px;height:48px;border:0;background:none;cursor:pointer;font-size:38px;line-height:1;color:#222}
+.pf2-lb .nav{position:fixed;top:50%;transform:translateY(-50%);width:60px;height:120px;border:0;background:none;cursor:pointer}
+.pf2-lb .nav svg{width:44px;height:110px;stroke:#555;stroke-width:1.5;fill:none}
+.pf2-lb .prev{left:4%}.pf2-lb .next{right:4%}
+.pf2-lb .cta{margin-top:30px}
+body.pf2-lock{overflow:hidden}
+@media (max-width:1100px){.pf2-filters{gap:8px 34px}}
+@media (max-width:700px){
+ .pf2-wrap{padding:0 12px}
+ .pf2-filters{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;gap:22px;margin-bottom:28px;padding:0 4px;scrollbar-width:none}
+ .pf2-filters button{font-size:16px}
+ .pf2-grid,.pf2-col{gap:10px}
+ .pf2-cap strong{font-size:16px}.pf2-cap small{font-size:12px}
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ .pf2-lb{padding:64px 14px 60px}.pf2-lb h2{font-size:26px}.pf2-lb .meta{margin-bottom:24px}
+ .pf2-lb .nav{top:auto;bottom:8px;transform:none;height:56px;background:#fff;border-radius:50%;width:56px}
+ .pf2-lb .nav svg{width:22px;height:44px}
+ .pf2-lb .prev{left:12px}.pf2-lb .next{right:12px}
+ .pf2-lb .x{top:10px;right:10px}
+}
+
+@media (max-width:700px){}
+
+.pf2-item.clean img,.pf2-lb figure.clean img{mix-blend-mode:normal}
+.pf2-lb figure.clean{background:#f4f3f0}
