@@ -969,8 +969,9 @@ body { font-family: var(--font-ko); word-break: keep-all; overflow-wrap: break-w
 .v2-quick a { height: 80px; display: flex; align-items: center; justify-content: center; }
 .v2-quick svg { width: 30px; height: 30px; stroke: #fff; fill: none; stroke-width: 1.4; }
 .v2-quick a:hover { background: #ff7a59; }
-@media (min-width: 901px) { .kakao-chat-btn, .consult-float-btn { display: none !important; } }
-@media (max-width: 900px) { .v2-quick { display: none; } }
+/* 11/07: 세로 아이콘 메뉴 없앰, PC에서도 오른쪽 아래 카톡·상담 버튼 보임 */
+.v2-quick { display: none !important; }
+.consult-float-btn { background: #16213e; }
 
 /* --- 하단: 크림 바탕, 상담전화 크게, 지도 오른쪽 --- */
 .footer.v2-ft { background: #f6f3ee; padding: 70px 0 50px; color: #6f6a63; font-size: 14px; line-height: 1.9; }
