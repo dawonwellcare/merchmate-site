@@ -1013,3 +1013,15 @@ body { font-family: var(--font-ko); word-break: keep-all; overflow-wrap: break-w
 .page-hero.v2-photo h1 .page-sub { color: rgba(255,255,255,.85); font-weight: 600; }
 .page-hero.v2-photo p:last-child { color: #fff; opacity: .95; font-size: 19px; line-height: 1.7; margin: 16px auto 0; max-width: 46em; text-shadow: 0 1px 10px rgba(0,0,0,.2); }
 @media (max-width: 900px) { .page-hero.v2-photo { min-height: 280px; padding: 50px 0; } .page-hero.v2-photo p:last-child { font-size: 16px; } }
+
+
+/* ===== (2026-11-07) 메뉴 이름: 영어 + 아래 작은 한글 ===== */
+.header .nav-item > a { display: flex; flex-direction: column; align-items: center; line-height: 1.05; padding: 30px 0; }
+.header .nav-item > a .nav-en { font-size: 16px; font-weight: 800; letter-spacing: .06em; }
+.header .nav-item > a .nav-ko { font-size: 12px; font-weight: 500; color: #8a90a0; margin-top: 6px; letter-spacing: 0; }
+.header .nav-item > a:hover .nav-ko, .header .nav-item.active > a .nav-ko { color: #ff7a59; }
+@media (max-width: 1280px) { .header .nav-item > a .nav-en { font-size: 15px; } }
+@media (max-width: 900px) {
+  .header .nav-item > a { flex-direction: row; align-items: baseline; gap: 10px; padding: 14px 0; }
+  .header .nav-item > a .nav-ko { margin-top: 0; font-size: 13px; }
+}
