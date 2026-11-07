@@ -389,7 +389,7 @@ if ($('materials')) {
 if ($('makeList')) {
   $('makeList').innerHTML = CATEGORIES
     .map(c => `
-      <a class="make-card" href="products.html#${c.id}">
+      <a class="make-card" href="portfolio.html#${c.id}">
         <div class="ph">${photo(c.cover, c.name)}</div>
         <span>${c.en}</span>
         <h3>${c.name}</h3>
