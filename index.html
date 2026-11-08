@@ -273,6 +273,9 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 /* (11/08) 두 번째 슬라이드: OEM·ODM 이미지, 덮개를 약하게 */
 .slide.light.clear:after{background:linear-gradient(90deg,rgba(248,244,238,.55) 0%,rgba(248,244,238,.2) 32%,rgba(248,244,238,0) 52%)}
 @media (max-width:760px){#slideB .img{background-position:66% center}}
+/* (11/08) 2번 슬라이드 이미지: 3번처럼 천천히 줌아웃 */
+#slideB .img.sub{opacity:1;transform:scale(1.08);transition:transform 7s ease-out}
+#slideB.act .img.sub{transform:scale(1)}
 </style>
 </head>
 <body>
