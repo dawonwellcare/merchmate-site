@@ -150,7 +150,7 @@ const HERO_SLIDES = [
   },
   {
     studio: 'images/web/hero-studio-findout.webp', studioAlt: '귤을 안은 고양이 후드 인형의 앞·옆·뒤 모습',
-    cutout: 'images/web/hero-cut-keyrings.webp', cutoutAlt: '너구리 옷을 입은 인형 키링 여섯 개', bg: '#fbe9ee',
+    cutout: 'images/web/hero-cut-keyrings.webp', cutoutAlt: '곰과 강아지 봉제인형', bg: '#fbe9ee',
     src: 'images/web/why4.webp', alt: '웰시코기 봉제인형 두 마리',
     eyebrow: '캐릭터 인형 · 키링',
     title: '캐릭터의 표정까지\n[살려 내는] 공장',
@@ -179,7 +179,6 @@ const HERO_SLIDES = [
 // 로고 파일이 생기면 LOGO_FILES 에 '이름': '경로' 를 적어 주세요. 로고가 없으면 이름 글자로 보여요.
 const LOGO_FILES = {
   '강원랜드': 'images/logos/kangwonland.png',
-  '농심': 'images/logos/nongshim.svg',
   '블랙야크': 'images/logos/blackyak.svg',
   '메르세데스-벤츠': 'images/logos/mercedes-benz.svg',
   '한화생명': 'images/logos/hanwha-life.svg',
@@ -218,7 +217,7 @@ const LOGO_FILES = {
   // 아직 로고 없음: 파인드아웃, 푸딩
 };
 const LOGOS = [
-  ['강원랜드', '기업'], ['농심', '기업'], ['블랙야크', '기업'], ['메르세데스-벤츠', '기업'],
+  ['강원랜드', '기업'], ['블랙야크', '기업'], ['메르세데스-벤츠', '기업'],
   ['한화생명', '기업'],
   ['덕성여자대학교', '대학교'], ['동덕여자대학교', '대학교'], ['서울여자대학교', '대학교'], ['삼육대학교', '대학교'],
   ['강원대학교', '대학교'], ['한국공학대학교', '대학교'], ['사이버한국외국어대학교', '대학교'], ['상산고등학교', '학교'],
@@ -305,7 +304,6 @@ const WORKS = [
   // 2026-10-13 받은 사진 (원본: images/대학교 인형, images/가방.담요)
   { client: '강원랜드', title: '하이하우 시즌 인형', category: '캐릭터·봉제', meta: '계절 옷을 입힌 마스코트 인형 5종', src: 'images/web/client-highhow-season.webp', scene: 'images/web/scene-highhow-season.jpg' },
   { client: '메르세데스-벤츠', title: '쿠션 무릎담요', category: '리빙·웰니스', meta: '로고 자수 쿠션형 무릎담요', src: 'images/web/client-benz-blanket.webp' },
-  { client: '농심', title: '너구리 옷 인형 키링', category: '캐릭터·봉제', meta: '너구리 옷을 입힌 인형 키링 6종', src: 'images/web/client-nongshim.webp', scene: 'images/web/scene-nongshim.jpg' },
   { client: '메르세데스-벤츠', title: '에코백', category: '가방·파우치', meta: 'EQ 로고 프린트 에코백', src: 'images/web/client-benz-ecobag.webp' },
   { client: '한화생명', title: '골프 항공 커버', category: '가방·파우치', meta: '골프백 항공 커버 · 수납 파우치', src: 'images/web/client-hanwha-golf.webp', scene: 'images/web/scene-hanwha-golf.jpg' },
   { client: '페도라', title: '유아 쿨시트', category: '유아·차량', meta: '유모차 · 카시트용 쿨시트', src: 'images/web/client-fedora-coolseat.webp', scene: 'images/web/scene-fedora-coolseat.jpg' },
