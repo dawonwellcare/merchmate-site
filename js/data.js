@@ -10,7 +10,7 @@ const SITE = {
   ceo: '성유진',
   bizNo: '131-65-00773',
   phone: '031-944-5338', // 비워 두면 화면에 안 나와요
-  email: 'merchmate@naver.com', // 비워 두면 화면에 안 나와요
+  email: 'contact@merchmate.co.kr', // 비워 두면 화면에 안 나와요
   // 사무실·공장 주소 (명함 기준) — 줄을 더하거나 빼면 화면에도 그대로 반영돼요
   locations: [
     { label: 'OFFICE 1', address: '경기도 파주시 교하로 891-1, A동 (10880)' }, // 대표 주소 (실제 사용)
