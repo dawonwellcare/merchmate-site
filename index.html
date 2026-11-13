@@ -298,6 +298,7 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 .cta .ph{display:none}
 @media (max-width:760px){.cta{padding:80px 0}.cta .tx{padding:0 20px}.cta p{font-size:16px}}
 </style>
+<link rel="stylesheet" href="css/catalog.css?v=20261114-1">
 </head>
 <body>
 <h1 class="sr-only">머치메이트 | 봉제인형·캐릭터 굿즈 OEM·ODM 제작</h1>
@@ -370,7 +371,7 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
       <h2 class="big-en pop">Portfolio</h2>
     </div>
   </div>
-  <div class="mq pfq"><div class="mrow" id="pr1"></div><div class="mrow rev" id="pr2"></div></div>
+  <div id="homeCatalog" class="mm-home-rows" aria-label="종류별 제작사례"></div>
   <div class="wrap">
     <div class="btm"><a class="btn-line" href="portfolio.html">PORTFOLIO 전체 보기 →</a></div>
   </div>
@@ -431,12 +432,7 @@ document.getElementById('mclose').onclick=()=>document.getElementById('mnav').cl
 document.querySelectorAll('#mnav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('mnav').classList.remove('on')));
 /* 사업 분야 카드: 누르거나 마우스를 올리면 넓어짐 */
 const C4=[...document.querySelectorAll('.c4')];C4.forEach(c=>{const f=()=>{C4.forEach(x=>x.classList.remove('on'));c.classList.add('on');};c.addEventListener('mouseenter',f);c.addEventListener('click',f);});
-/* 포트폴리오 (11/07 토이미라클형): 연출 사진이 두 줄로 흐름, 클릭 없음 */
-const PFS=[["scene-simone","시모네 딸랑이 세트"],["scene-highhow-season","강원랜드 하이하우 시즌 인형"],["scene-hanwha-golf","한화생명 골프 항공 커버"],["scene-fedora-coolseat","페도라 유아 쿨시트"],["scene-duksung","덕성여자대학교 덕새 학사복 인형"],["scene-dongduk","동덕여자대학교 솜솜이 인형"],["scene-halla-ecobag","HL그룹 에코백"],["scene-swu","서울여자대학교 캐릭터 인형 키링"],["scene-findout-bag","파인드아웃 2way 보스턴백"],["scene-sahmyook","삼육대학교 수야 학사복 인형"],["scene-tino-grad","한국공학대학교 티노 학사복 인형"],["scene-tino","한국공학대학교 티노 후드 인형"],["scene-cufs","사이버한국외국어대학교 부엉이 키링"],["scene-ecorium","국립생태원 사막여우 · 펭귄 인형"],["scene-paju","파주시 파랑이 인형"],["scene-junggu","대구 중구청 백로 키링"],["scene-yeongdeok-keyring","영덕도서관 마스코트 키링"],["scene-findout-cap","파인드아웃 볼캡 키링"],["scene-aone-mirror","에이원 강아지 차량 후방거울"],["scene-geumhong-cool","금홍 토끼 얼굴 냉감 쿠션"],["scene-geumhong-hairband","금홍 캐릭터 머리띠"],["scene-peakmong","피크몽 내꺼유 노즈워크"],["scene-mobile","엠베이비 모빌"],["scene-kickmat","메리본 카시트 킥 매트"],["scene-mt-hanbok","엠티코리아 한복 입은 보숑이"],["scene-pompora-ears","폼포라 펫 강아지 귀 배변봉투 홀더"]];
-const ptile=w=>'<div class="pt"><img src="images/web/pf-th/'+w[0]+'.jpg" alt="'+w[1]+'" loading="lazy"></div>';
-const p1=PFS.filter((_,i)=>i%2===0),p2=PFS.filter((_,i)=>i%2===1);
-document.getElementById('pr1').innerHTML=p1.map(ptile).join('').repeat(2);
-document.getElementById('pr2').innerHTML=p2.map(ptile).join('').repeat(2);
+/* 제품 전시는 js/home-catalog.js에서 종류별로 구성합니다. */
 /* 제목이 보이면 튀어나오듯 등장 */
 const popIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');popIO.unobserve(e.target);}}),{threshold:.4});
 document.querySelectorAll('.pop').forEach(el=>popIO.observe(el));
@@ -472,5 +468,7 @@ const _go=go;go=function(i){clearInterval(st);_go(i);if(S[i]===SB){showSub(0);st
 go(0);
 </script>
 
+<script src="js/catalog-data.js?v=20261114-1"></script>
+<script src="js/home-catalog.js?v=20261114-1"></script>
 </body>
 </html>
