@@ -479,7 +479,7 @@ if ($('productSections')) {
 // - 연출 사진(scene)이 있는 사례가 맨 앞에 와요.
 // - 마우스를 올리면 고객사와 제품 이름이 보이고, 누르면 크게 보기 화면이 열려요.
 // - 배경 색을 맞춘 사진(clean)이 있으면 그 사진을 써요.
-if ($('workGrid')) {
+if ($('workGrid') && !window.MERCH_CATALOG) {
   const box = $('workGrid').closest('.container');
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const PAGE = 40;
