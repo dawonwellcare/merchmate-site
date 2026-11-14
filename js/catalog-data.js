@@ -1,6 +1,6 @@
 /* 목록용 사진은 원본/연출 사진과 별도로 관리합니다. */
 window.MERCH_CATALOG = {
-  "version": "20261114-1",
+  "version": "20261114-2",
   "groups": [
     "봉제인형",
     "키링",
@@ -1368,34 +1368,6 @@ window.MERCH_CATALOG = {
       "thumb": "images/web/blog-armsleeve.webp",
       "edited": false,
       "index": 96
-    },
-    {
-      "id": "W098",
-      "client": "쿠잉",
-      "title": "카시트 커버",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "카시트 보관용 커버",
-      "original": "images/web/blog-seatcover.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/blog-seatcover.webp",
-      "edited": false,
-      "index": 97
-    },
-    {
-      "id": "W099",
-      "client": "쿠잉",
-      "title": "유모차 커버",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "유모차 보관용 커버 2색",
-      "original": "images/web/blog-strollercover.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/blog-strollercover.webp",
-      "edited": false,
-      "index": 98
     },
     {
       "id": "W100",
