@@ -37,3 +37,7 @@
 .mm-ed-hero{grid-row:4}.mm-ed-photo img{height:300px}.mm-ed-hero figcaption{font-size:13px;gap:12px;margin-top:8px;padding-top:10px}.mm-ed-hero figcaption a{font-size:12px}
 .mm-ed-links{grid-row:5;gap:23px;margin:0;font-size:14px}.mm-ed-label{grid-row:6;margin:6px 0 -15px;font-size:12px}.mm-ed-side{grid-row:7;gap:14px}.mm-ed-side img{height:127px}.mm-ed-side figcaption{font-size:12px;margin-top:8px}}
 @media(prefers-reduced-motion:reduce){.mm-ed-photo img{transition:none}}
+
+/* close dropdown after same-page submenu click */
+.nav-item.mm-menu-closed .sub-menu{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
+.mm-home-nav-group.mm-menu-closed>ul{display:none!important}
