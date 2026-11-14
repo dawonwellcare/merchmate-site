@@ -25,6 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/experience.css?v=20261114-flow1">
 </head>
 <body data-page="contact">
 
@@ -47,7 +48,7 @@
           </li>
           <li class="nav-item has-sub">
             <a href="portfolio.html"><span class="nav-en">PORTFOLIO</span><small class="nav-ko">제작사례</small></a>
-            <ul class="sub-menu"><li><a href="portfolio.html">전체 보기</a></li><li><a href="portfolio.html#character">캐릭터·봉제</a></li><li><a href="portfolio.html#bag">가방·파우치</a></li><li><a href="portfolio.html#baby">유아·차량</a></li><li><a href="portfolio.html#living">리빙·웰니스</a></li><li><a href="portfolio.html#pet">반려동물</a></li></ul>
+            <ul class="sub-menu"><li><a href="portfolio.html">봉제·패브릭</a></li><li><a href="portfolio.html#goods">브랜드 굿즈</a></li><li><a href="portfolio.html#package">패키지·세트</a></li></ul>
           </li>
           <li class="nav-item active has-sub">
             <a href="contact.html" aria-current="page"><span class="nav-en">INQUIRY</span><small class="nav-ko">제작문의</small></a>
@@ -80,12 +81,12 @@
           <ul class="contact-info" id="contactInfo">
     <li><span>전화</span>031-944-5338</li>
     <li><span>이메일</span>contact@merchmate.co.kr</li>
-    <li><span>OFFICE 1</span>경기도 파주시 교하로 891-1, A동 (10880)</li><li><span>OFFICE 2</span>경기도 고양시 일산동구 정발산로 11, 5층 501-84호(장항동, 일호골든타워)</li><li><span>FACTORY</span>2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao City, China</li></ul>
+    <li><span>OFFICE 1</span>경기도 파주시 교하로 891-1, A동 (10880)</li><li><span>OFFICE 2</span>경기도 고양시 일산동구 정발산로 11, 5층 501-84호(장항동, 일호골든타워)</li><li><span>FACTORY</span>2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao City, China</li></ul><a class="mm-inquiry-channel" id="inquiryChatLink" href="https://pf.kakao.com/_TFUWX/chat" target="_blank" rel="noopener">카카오톡으로 문의하기 ↗</a>
         </div>
         <form class="contact-form" id="contactForm" name="consult" method="POST" data-netlify="true" netlify-honeypot="bot-field">
           <input type="hidden" name="form-name" value="consult">
           <p hidden=""><label>입력하지 마세요 <input name="bot-field"></label></p>
-          <div class="form-row">
+          <div class="mm-inquiry-context" id="inquiryCaseContext" hidden><img alt=""><div><small>이 사례를 참고해 상담합니다</small><strong></strong><p></p></div><button type="button">선택 해제</button></div><p class="mm-contact-case-status" id="inquiryCaseStatus" hidden></p><div class="form-row">
             <input type="text" id="company" name="company" placeholder="회사명" required="">
             <input type="text" id="name" name="name" placeholder="담당자 이름" required="">
           </div>
@@ -94,8 +95,8 @@
             <input type="email" id="email" name="email" placeholder="이메일" required="">
           </div>
           <div class="form-row">
-            <!-- 품목 목록은 js/data.js 의 CATEGORIES 로 자동 생성 -->
-            <select id="item" name="item" required=""><option value="">제작 품목</option><option>캐릭터·봉제</option><option>가방·파우치</option><option>유아·차량</option><option>리빙·웰니스</option><option>반려동물</option><option>아직 모르겠어요</option></select>
+            <!-- 문의 분야는 js/site.js, 선택 사례는 js/experience.js에서 연결 -->
+            <select id="item" name="item" required="" aria-label="제작 분야"><option value="">제작 분야</option><option>봉제·패브릭</option><option>브랜드 굿즈</option><option>패키지·세트</option><option>아직 모르겠어요</option></select>
             <input type="text" id="quantity" name="quantity" placeholder="예상 수량">
           </div>
           <input type="text" id="due" name="due" placeholder="희망 납기일">
@@ -118,8 +119,11 @@
     <div class="v2-bot"><span>© 2026 머치메이트. All rights reserved.</span><nav class="v2-fl"><a href="about.html">회사소개</a><a href="business.html">제작과정</a><a href="portfolio.html">제작사례</a><a href="contact.html">제작문의</a></nav></div>
   </div></footer>
 
-  <script src="js/data.js"></script>
-  <script src="js/site.js"></script>
+  <script src="js/data.js?v=20261114-flow1"></script>
+  <script src="js/catalog-data.js?v=20261114-1"></script>
+<script src="js/catalog-partners.js?v=20261114-5"></script>
+<script src="js/site.js?v=20261114-flow1"></script>
 
 
+<script src="js/experience.js?v=20261114-flow1"></script>
 </body></html>

@@ -554,8 +554,8 @@ if ($('workGrid') && !window.MERCH_CATALOG) {
 // ===== 상담 신청 폼 =====
 if ($('contactForm')) {
   const itemSelect = $('item');
-  itemSelect.innerHTML = '<option value="">제작 품목</option>'
-    + CATEGORIES.map(c => `<option>${c.name}</option>`).join('')
+  itemSelect.innerHTML = '<option value="">제작 분야</option>'
+    + ['봉제·패브릭', '브랜드 굿즈', '패키지·세트'].map(name => `<option>${name}</option>`).join('')
     + '<option>아직 모르겠어요</option>';
   $('contactInfo').innerHTML = `
     ${SITE.phone ? `<li><span>전화</span>${SITE.phone}</li>` : ''}
@@ -589,7 +589,7 @@ if ($('contactForm')) {
         });
         if (!res.ok) throw new Error(res.status);
       }
-      showStatus('상담 신청이 접수되었어요. 영업일 기준 하루 안에 연락드릴게요.', true);
+      showStatus('상담 신청이 접수되었습니다. 내용을 확인한 뒤 연락드리겠습니다.', true);
       form.reset();
     } catch {
       showStatus(`전송에 실패했어요. 잠시 후 다시 시도하거나 ${SITE.phone || SITE.email} 로 연락해 주세요.`, false);

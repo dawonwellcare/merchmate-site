@@ -83,8 +83,11 @@ const NAV = [
   },
   {
     label: 'PORTFOLIO', ko: '제작사례', href: 'portfolio.html', page: 'portfolio',
-    sub: [{ label: '전체 보기', href: 'portfolio.html' }]
-      .concat(CATEGORIES.map(c => ({ label: c.name, href: `portfolio.html#${c.id}` }))),
+    sub: [
+      { label: '봉제·패브릭', href: 'portfolio.html' },
+      { label: '브랜드 굿즈', href: 'portfolio.html#goods' },
+      { label: '패키지·세트', href: 'portfolio.html#package' },
+    ],
   },
   {
     label: 'INQUIRY', ko: '제작문의', href: 'contact.html', page: 'contact',
