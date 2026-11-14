@@ -37,7 +37,7 @@ const icon = name => `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" st
 const navOn = m => m.page === currentPage || (m.pages || []).includes(currentPage);
 $('siteHeader').innerHTML = `
   <div class="container header-inner">
-    <a href="index.html" class="logo" aria-label="${SITE.name} 홈">
+    <a href="/" class="logo" aria-label="${SITE.name} 홈">
       <img class="logo-light" src="images/logo/merchmate.svg" alt="${SITE.name} MERCHMATE" width="190" height="50">
       <img class="logo-dark" src="images/logo/merchmate-white.svg" alt="" width="190" height="50">
     </a>
@@ -151,7 +151,7 @@ $('siteFooter').innerHTML = `
 if (false) $('siteFooter').innerHTML = `
   <div class="container footer-inner">
     <div>
-      <a href="index.html" class="logo"><img src="images/logo/merchmate-white.svg" alt="${SITE.name} MERCHMATE" width="171" height="45"></a>
+      <a href="/" class="logo"><img src="images/logo/merchmate-white.svg" alt="${SITE.name} MERCHMATE" width="171" height="45"></a>
       <p>상호명 : ${SITE.name} | 대표 : ${SITE.ceo} | 사업자등록번호 : ${SITE.bizNo}</p>
       <p>${[SITE.phone && `전화 : ${SITE.phone}`, SITE.email && `이메일 : ${SITE.email}`].filter(Boolean).join(' | ')}</p>
       ${SITE.locations.map(l => `<p>${l.label} : ${l.address}</p>`).join('')}
