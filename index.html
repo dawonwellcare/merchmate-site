@@ -59,6 +59,9 @@ body.dark .hd .logo .n{opacity:0} body.dark .hd .logo .w{opacity:1}
 .slide video,.slide .img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .slide .img{background-size:cover;background-position:center;transform:scale(1.08);transition:transform 7s ease-out}
 .slide.act .img{transform:scale(1)}
+.slide .img.hero1114{background-position:right center}
+@media (max-width:900px){.slide .img.hero1114{background-position:78% center}#visual .slide:nth-child(5) .img.hero1114{background-position:60% center}#visual .slide:nth-child(1) .img.hero1114{background-position:62% center}#visual .tabs{gap:12px;left:20px;right:20px;bottom:150px}#visual .tabs button{font-size:12.5px;letter-spacing:0}}
+
 /* SINCE 1987 칸: 사진 3장이 3초씩 바뀜 */
 .slide .img.sub{opacity:0;transition:opacity 1s ease,transform 4s ease-out;transform:scale(1.06)}
 .slide .img.sub.on{opacity:1;transform:scale(1)}
@@ -314,19 +317,27 @@ button.burger{border:0;background:none;color:inherit;cursor:pointer;padding:0}
 
 
 <section class="visual" id="visual">
-  <div class="slide light act" data-dur="10">
-    <video id="vA" autoplay preload="auto" src="images/web/v2-banner-a.mp4" poster="images/web/v2-banner-a.jpg" muted playsinline></video>
+  <div class="slide light act" data-dur="6">
+    <div class="img hero1114" style="background-image:url(images/web/hero-1114-plush.jpg)"></div>
     <div class="copy"><div class="en">FROM IDEA<br>TO <em>PRODUCT</em></div><p class="ko">그림 한 장이 제품이 되기까지, 머치메이트가 함께합니다</p></div>
   </div>
-  <div class="slide light clear" data-dur="6" id="slideB">
-    <div class="img sub on" data-tone="light" style="background-image:url(images/web/v2-banner-oemodm.jpg)"></div>
+  <div class="slide light" data-dur="6">
+    <div class="img hero1114" style="background-image:url(images/web/hero-1114-oemodm.jpg)"></div>
     <div class="copy"><div class="en">OEM · <em>ODM</em></div><p class="ko">도면만 있어도, 아이디어만 있어도 머치메이트가 만듭니다</p></div>
   </div>
   <div class="slide light" data-dur="6">
-    <div class="img" style="background-image:url(images/web/v2-banner-c.jpg);background-position:65% center"></div>
+    <div class="img hero1114" style="background-image:url(images/web/hero-1114-goods.jpg)"></div>
+    <div class="copy"><div class="en">BRAND<br><em>GOODS</em></div><p class="ko">키링·뱃지·아크릴·문구까지, 다양한 소재의 굿즈를 만듭니다</p></div>
+  </div>
+  <div class="slide light" data-dur="6">
+    <div class="img hero1114" style="background-image:url(images/web/hero-1114-bag.jpg)"></div>
     <div class="copy"><div class="en">FOR YOUR<br><em>BRAND</em></div><p class="ko">브랜드가 사람에게 닿는 순간을 만듭니다</p></div>
   </div>
-  <div class="tabs" id="tabs"><button class="on">IDEA<i></i></button><button>OEM·ODM<i></i></button><button>BRAND<i></i></button></div>
+  <div class="slide light" data-dur="6">
+    <div class="img hero1114" style="background-image:url(images/web/hero-1114-package.jpg)"></div>
+    <div class="copy"><div class="en">PERFECT<br><em>PACKAGE</em></div><p class="ko">단상자부터 선물 세트 박스까지, 제품의 마지막을 완성합니다</p></div>
+  </div>
+  <div class="tabs" id="tabs"><button class="on">IDEA<i></i></button><button>OEM·ODM<i></i></button><button>GOODS<i></i></button><button>BRAND<i></i></button><button>PACKAGE<i></i></button></div>
   <div class="scroll">SCROLL</div>
 </section>
 
@@ -463,14 +474,14 @@ var go=function(i){
   B.forEach(b=>{const n=b.querySelector('i');n.style.animation='none';void n.offsetWidth;n.style.animation='';});
   B[cur].classList.add('on');
   document.body.classList.toggle('dark',S[cur].classList.contains('dark'));
-  if(cur===0){vA.currentTime=0;vA.play().catch(()=>{});}else{vA.pause();}
+  if(vA){if(cur===0){vA.currentTime=0;vA.play().catch(()=>{});}else{vA.pause();}}
   clearTimeout(timer);timer=setTimeout(()=>go((cur+1)%S.length),d*1000);
 };
 B.forEach((b,i)=>b.onclick=()=>go(i));
 /* SINCE 1987 칸 안에서 3장 넘기기 */
-const SB=document.getElementById('slideB'),subs=[...SB.querySelectorAll('.sub')];let si=0,st;
+const SB=document.getElementById('slideB'),subs=SB?[...SB.querySelectorAll('.sub')]:[];let si=0,st;
 function showSub(i){subs.forEach(s=>s.classList.remove('on'));si=i;subs[i].classList.add('on');const t=subs[i].dataset.tone;SB.classList.toggle('dark',t==='dark');SB.classList.toggle('light',t==='light');if(S[cur]===SB)document.body.classList.toggle('dark',t==='dark');}
-const _go=go;go=function(i){clearInterval(st);_go(i);if(S[i]===SB){showSub(0);st=setInterval(()=>{if(si<subs.length-1)showSub(si+1);},3000);}};
+const _go=go;go=function(i){clearInterval(st);_go(i);if(SB&&S[i]===SB){showSub(0);st=setInterval(()=>{if(si<subs.length-1)showSub(si+1);},3000);}};
 go(0);
 </script>
 
