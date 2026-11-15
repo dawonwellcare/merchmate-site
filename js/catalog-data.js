@@ -1,6 +1,6 @@
-/* 목록용 사진은 원본/연출 사진과 별도로 관리합니다. */
+/* 크림 단색 스튜디오 사진. 원본/연출 사진은 modal photos에 별도 보존. */
 window.MERCH_CATALOG = {
-  "version": "20261114-2",
+  "version": "20261115-studio1",
   "groups": [
     "봉제인형",
     "키링",
@@ -21,9 +21,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-highhow-season.webp",
       "scene": "images/web/scene-highhow-season.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w001.jpg",
+      "thumb": "images/web/studio/l/W001.jpg",
       "edited": true,
-      "index": 0
+      "index": 0,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W001_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-highhow-season.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-highhow-season.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W002",
@@ -35,9 +49,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-benz-blanket.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w002.jpg",
+      "thumb": "images/web/studio/l/W002.jpg",
       "edited": true,
-      "index": 1
+      "index": 1,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W002_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-benz-blanket.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W003",
@@ -49,9 +73,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-benz-ecobag.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w003.jpg",
+      "thumb": "images/web/studio/l/W003.jpg",
       "edited": true,
-      "index": 2
+      "index": 2,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W003_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-benz-ecobag.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W004",
@@ -63,9 +97,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-hanwha-golf.webp",
       "scene": "images/web/scene-hanwha-golf.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w004.jpg",
+      "thumb": "images/web/studio/l/W004.jpg",
       "edited": true,
-      "index": 3
+      "index": 3,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W004_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-hanwha-golf.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-hanwha-golf.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W005",
@@ -77,9 +125,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-fedora-coolseat.webp",
       "scene": "images/web/scene-fedora-coolseat.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w005.jpg",
+      "thumb": "images/web/studio/l/W005.jpg",
       "edited": true,
-      "index": 4
+      "index": 4,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W005_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-fedora-coolseat.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-fedora-coolseat.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W006",
@@ -91,9 +153,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-duksung.webp",
       "scene": "images/web/scene-duksung.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w006.jpg",
+      "thumb": "images/web/studio/l/W006.jpg",
       "edited": true,
-      "index": 5
+      "index": 5,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W006_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-duksung.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-duksung.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W007",
@@ -105,9 +181,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-spongebob-pouch.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w007.jpg",
+      "thumb": "images/web/studio/l/W007.jpg",
       "edited": true,
-      "index": 6
+      "index": 6,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W007_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-spongebob-pouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W008",
@@ -119,9 +205,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-dongduk.webp",
       "scene": "images/web/scene-dongduk.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w008.jpg",
+      "thumb": "images/web/studio/l/W008.jpg",
       "edited": true,
-      "index": 7
+      "index": 7,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W008_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-dongduk.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-dongduk.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W009",
@@ -133,9 +233,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-halla-ecobag.webp",
       "scene": "images/web/scene-halla-ecobag.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w009.jpg",
+      "thumb": "images/web/studio/l/W009.jpg",
       "edited": true,
-      "index": 8
+      "index": 8,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W009_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-halla-ecobag.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-halla-ecobag.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W010",
@@ -147,9 +261,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-swu.webp",
       "scene": "images/web/scene-swu.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w010.jpg",
+      "thumb": "images/web/studio/l/W010.jpg",
       "edited": true,
-      "index": 9
+      "index": 9,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W010_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-swu.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-swu.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W011",
@@ -161,9 +289,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-findout-bag.webp",
       "scene": "images/web/scene-findout-bag.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w011.jpg",
+      "thumb": "images/web/studio/l/W011.jpg",
       "edited": true,
-      "index": 10
+      "index": 10,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W011_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-findout-bag.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-findout-bag.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W012",
@@ -175,9 +317,27 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-grad.webp",
       "scene": "images/web/scene-sahmyook.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w012.jpg",
+      "thumb": "images/web/studio/l/W012.jpg",
       "edited": true,
-      "index": 11
+      "index": 11,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W012_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D01_o.jpg",
+          "label": "학사복 인형 크기 비교"
+        },
+        {
+          "src": "images/web/client-sahmyook-grad.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-sahmyook.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W013",
@@ -189,9 +349,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-reusable-face.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w013.jpg",
+      "thumb": "images/web/studio/l/W013.jpg",
       "edited": true,
-      "index": 12
+      "index": 12,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W013_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-reusable-face.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W014",
@@ -203,9 +373,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-keyring.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w014.jpg",
+      "thumb": "images/web/studio/l/W014.jpg",
       "edited": true,
-      "index": 13
+      "index": 13,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W014_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-sahmyook-keyring.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W015",
@@ -217,9 +397,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-reusable-pattern.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w015.jpg",
+      "thumb": "images/web/studio/l/W015.jpg",
       "edited": true,
-      "index": 14
+      "index": 14,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W015_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-reusable-pattern.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W016",
@@ -231,9 +421,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-wing.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w016.jpg",
+      "thumb": "images/web/studio/l/W016.jpg",
       "edited": true,
-      "index": 15
+      "index": 15,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W016_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-sahmyook-wing.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W017",
@@ -245,9 +445,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-padding.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w017.jpg",
+      "thumb": "images/web/studio/l/W017.jpg",
       "edited": true,
-      "index": 16
+      "index": 16,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W017_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-sahmyook-padding.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W018",
@@ -259,9 +469,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-tino-grad.webp",
       "scene": "images/web/scene-tino-grad.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w018.jpg",
+      "thumb": "images/web/studio/l/W018.jpg",
       "edited": true,
-      "index": 17
+      "index": 17,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W018_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-tino-grad.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-tino-grad.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W019",
@@ -273,9 +497,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-tino-hood.webp",
       "scene": "images/web/scene-tino.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w019.jpg",
+      "thumb": "images/web/studio/l/W019.jpg",
       "edited": true,
-      "index": 18
+      "index": 18,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W019_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-tino-hood.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-tino.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W020",
@@ -287,9 +525,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-tino-keyring.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w020.jpg",
+      "thumb": "images/web/studio/l/W020.jpg",
       "edited": true,
-      "index": 19
+      "index": 19,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W020_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-tino-keyring.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W021",
@@ -301,9 +549,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-cufs.webp",
       "scene": "images/web/scene-cufs.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w021.jpg",
+      "thumb": "images/web/studio/l/W021.jpg",
       "edited": true,
-      "index": 20
+      "index": 20,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W021_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-cufs.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-cufs.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W022",
@@ -315,9 +577,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sangsan.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w022.jpg",
+      "thumb": "images/web/studio/l/W022.jpg",
       "edited": true,
-      "index": 21
+      "index": 21,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W022_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-sangsan.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W023",
@@ -329,9 +601,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-ecorium.webp",
       "scene": "images/web/scene-ecorium.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w023.jpg",
+      "thumb": "images/web/studio/l/W023.jpg",
       "edited": true,
-      "index": 22
+      "index": 22,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W023_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-ecorium.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-ecorium.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W024",
@@ -343,9 +629,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-paju.webp",
       "scene": "images/web/scene-paju.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w024.jpg",
+      "thumb": "images/web/studio/l/W024.jpg",
       "edited": true,
-      "index": 23
+      "index": 23,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W024_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-paju.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-paju.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W025",
@@ -357,9 +657,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-junggu.webp",
       "scene": "images/web/scene-junggu.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w025.jpg",
+      "thumb": "images/web/studio/l/W025.jpg",
       "edited": true,
-      "index": 24
+      "index": 24,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W025_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-junggu.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-junggu.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W026",
@@ -371,9 +685,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-yeongdeok-keyring.webp",
       "scene": "images/web/scene-yeongdeok-keyring.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w026.jpg",
+      "thumb": "images/web/studio/l/W026.jpg",
       "edited": true,
-      "index": 25
+      "index": 25,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W026_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-yeongdeok-keyring.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-yeongdeok-keyring.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W027",
@@ -385,9 +713,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-yeongdeok-pin.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w027.jpg",
+      "thumb": "images/web/studio/l/W027.jpg",
       "edited": true,
-      "index": 26
+      "index": 26,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W027_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-yeongdeok-pin.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W028",
@@ -399,9 +737,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-highhow-tee.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w028.jpg",
+      "thumb": "images/web/studio/l/W028.jpg",
       "edited": true,
-      "index": 27
+      "index": 27,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W028_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-highhow-tee.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W029",
@@ -413,9 +761,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-benz-keyring.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w029.jpg",
+      "thumb": "images/web/studio/l/W029.jpg",
       "edited": true,
-      "index": 28
+      "index": 28,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W029_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-benz-keyring.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W030",
@@ -427,9 +785,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-blackyak-set.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w030.jpg",
+      "thumb": "images/web/studio/l/W030.jpg",
       "edited": true,
-      "index": 29
+      "index": 29,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W030_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-blackyak-set.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W031",
@@ -441,9 +809,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-mungtae.webp",
       "scene": "",
       "clean": "images/web/bg-client-mungtae.jpg",
-      "thumb": "images/web/catalog/w031.jpg",
+      "thumb": "images/web/studio/l/W031.jpg",
       "edited": true,
-      "index": 30
+      "index": 30,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W031_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-mungtae.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W032",
@@ -455,9 +833,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-stellive.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w032.jpg",
+      "thumb": "images/web/studio/l/W032.jpg",
       "edited": true,
-      "index": 31
+      "index": 31,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W032_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-stellive.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W033",
@@ -469,9 +857,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-coldwarm.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w033.jpg",
+      "thumb": "images/web/studio/l/W033.jpg",
       "edited": true,
-      "index": 32
+      "index": 32,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W033_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-coldwarm.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W034",
@@ -483,9 +881,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-findout-cap.webp",
       "scene": "images/web/scene-findout-cap.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w034.jpg",
+      "thumb": "images/web/studio/l/W034.jpg",
       "edited": true,
-      "index": 33
+      "index": 33,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W034_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-findout-cap.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-findout-cap.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W035",
@@ -497,9 +909,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-findout-cat.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w035.jpg",
+      "thumb": "images/web/studio/l/W035.jpg",
       "edited": true,
-      "index": 34
+      "index": 34,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W035_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-findout-cat.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W036",
@@ -511,9 +933,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-aone-mirror.webp",
       "scene": "images/web/scene-aone-mirror.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w036.jpg",
+      "thumb": "images/web/studio/l/W036.jpg",
       "edited": true,
-      "index": 35
+      "index": 35,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W036_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-aone-mirror.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-aone-mirror.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W037",
@@ -525,9 +961,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-geumhong-cool.webp",
       "scene": "images/web/scene-geumhong-cool.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w037.jpg",
+      "thumb": "images/web/studio/l/W037.jpg",
       "edited": true,
-      "index": 36
+      "index": 36,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W037_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-geumhong-cool.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-geumhong-cool.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W038",
@@ -539,9 +989,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-geumhong-bunny.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w038.jpg",
+      "thumb": "images/web/studio/l/W038.jpg",
       "edited": true,
-      "index": 37
+      "index": 37,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W038_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-geumhong-bunny.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W039",
@@ -553,9 +1013,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-geumhong-hairband.webp",
       "scene": "images/web/scene-geumhong-hairband.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w039.jpg",
+      "thumb": "images/web/studio/l/W039.jpg",
       "edited": true,
-      "index": 38
+      "index": 38,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W039_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-geumhong-hairband.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-geumhong-hairband.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W040",
@@ -567,9 +1041,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-tino-bagcharm.webp",
       "scene": "",
       "clean": "images/web/bg-client-tino-bagcharm.jpg",
-      "thumb": "images/web/catalog/w040.jpg",
+      "thumb": "images/web/studio/l/W040.jpg",
       "edited": true,
-      "index": 39
+      "index": 39,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W040_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-tino-bagcharm.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W041",
@@ -581,9 +1065,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-bear-woong.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w041.jpg",
+      "thumb": "images/web/studio/l/W041.jpg",
       "edited": true,
-      "index": 40
+      "index": 40,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W041_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-bear-woong.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W042",
@@ -595,9 +1089,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-voice-bunny.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w042.jpg",
+      "thumb": "images/web/studio/l/W042.jpg",
       "edited": true,
-      "index": 41
+      "index": 41,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W042_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-voice-bunny.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W043",
@@ -609,9 +1113,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-neckpillow.webp",
       "scene": "",
       "clean": "images/web/bg-sample-neckpillow.jpg",
-      "thumb": "images/web/catalog/w043.jpg",
+      "thumb": "images/web/studio/l/W043.jpg",
       "edited": true,
-      "index": 42
+      "index": 42,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W043_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-neckpillow.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W044",
@@ -623,9 +1137,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-donut-pouch.webp",
       "scene": "",
       "clean": "images/web/bg-sample-donut-pouch.jpg",
-      "thumb": "images/web/catalog/w044.jpg",
+      "thumb": "images/web/studio/l/W044.jpg",
       "edited": true,
-      "index": 43
+      "index": 43,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W044_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-donut-pouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W045",
@@ -637,9 +1161,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-bunny-glasses.webp",
       "scene": "",
       "clean": "images/web/bg-sample-bunny-glasses.jpg",
-      "thumb": "images/web/catalog/w045.jpg",
+      "thumb": "images/web/studio/l/W045.jpg",
       "edited": true,
-      "index": 44
+      "index": 44,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W045_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-bunny-glasses.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W046",
@@ -651,9 +1185,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-bear-puppy.webp",
       "scene": "",
       "clean": "images/web/bg-sample-bear-puppy.jpg",
-      "thumb": "images/web/catalog/w046.jpg",
+      "thumb": "images/web/studio/l/W046.jpg",
       "edited": true,
-      "index": 45
+      "index": 45,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W046_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-bear-puppy.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W047",
@@ -665,9 +1209,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-bear-trio.webp",
       "scene": "",
       "clean": "images/web/bg-sample-bear-trio.jpg",
-      "thumb": "images/web/catalog/w047.jpg",
+      "thumb": "images/web/studio/l/W047.jpg",
       "edited": true,
-      "index": 46
+      "index": 46,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W047_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-bear-trio.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W048",
@@ -679,9 +1233,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/sample-bear-box.webp",
       "scene": "",
       "clean": "images/web/bg-sample-bear-box.jpg",
-      "thumb": "images/web/catalog/w048.jpg",
+      "thumb": "images/web/studio/l/W048.jpg",
       "edited": true,
-      "index": 47
+      "index": 47,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W048_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/sample-bear-box.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W049",
@@ -693,9 +1257,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/why4.webp",
       "scene": "",
       "clean": "images/web/bg-why4.jpg",
-      "thumb": "images/web/catalog/w049.jpg",
+      "thumb": "images/web/studio/l/W049.jpg",
       "edited": true,
-      "index": 48
+      "index": 48,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W049_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/why4.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W050",
@@ -707,9 +1281,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/doll-denim.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w050.jpg",
+      "thumb": "images/web/studio/l/W050.jpg",
       "edited": true,
-      "index": 49
+      "index": 49,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W050_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/doll-denim.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W051",
@@ -721,9 +1305,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/doll-puppy.webp",
       "scene": "",
       "clean": "images/web/bg-doll-puppy.jpg",
-      "thumb": "images/web/catalog/w051.jpg",
+      "thumb": "images/web/studio/l/W051.jpg",
       "edited": true,
-      "index": 50
+      "index": 50,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W051_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/doll-puppy.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W052",
@@ -735,9 +1329,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/doll-pouch.webp",
       "scene": "",
       "clean": "images/web/bg-doll-pouch.jpg",
-      "thumb": "images/web/catalog/w052.jpg",
+      "thumb": "images/web/studio/l/W052.jpg",
       "edited": true,
-      "index": 51
+      "index": 51,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W052_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/doll-pouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W053",
@@ -749,9 +1353,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-carrier.webp",
       "scene": "",
       "clean": "images/web/bg-pet-carrier.jpg",
-      "thumb": "images/web/catalog/w053.jpg",
+      "thumb": "images/web/studio/l/W053.jpg",
       "edited": true,
-      "index": 52
+      "index": 52,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W053_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-carrier.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W054",
@@ -763,9 +1377,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-carseat.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w054.jpg",
+      "thumb": "images/web/studio/l/W054.jpg",
       "edited": true,
-      "index": 53
+      "index": 53,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W054_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-carseat.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W055",
@@ -777,37 +1401,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-nosework.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w055.jpg",
+      "thumb": "images/web/studio/l/W055.jpg",
       "edited": true,
-      "index": 54
-    },
-    {
-      "id": "W056",
-      "client": "애견용품",
-      "title": "파스텔 밀크 카우 인형 세트",
-      "category": "반려동물",
-      "group": "반려동물",
-      "meta": "노즈워크 인형 세트",
-      "original": "images/web/pet-milkcow.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/pet-milkcow.webp",
-      "edited": false,
-      "index": 55
-    },
-    {
-      "id": "W057",
-      "client": "피크몽",
-      "title": "내꺼유 노즈워크",
-      "category": "반려동물",
-      "group": "반려동물",
-      "meta": "노즈워크 인형 세트",
-      "original": "images/web/pet-peakmong.webp",
-      "scene": "images/web/scene-peakmong.jpg",
-      "clean": "",
-      "thumb": "images/web/pet-peakmong.webp",
-      "edited": false,
-      "index": 56
+      "index": 54,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W055_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-nosework.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W058",
@@ -819,9 +1425,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-rattle.webp",
       "scene": "",
       "clean": "images/web/bg-baby-rattle.jpg",
-      "thumb": "images/web/catalog/w058.jpg",
+      "thumb": "images/web/studio/l/W058.jpg",
       "edited": true,
-      "index": 57
+      "index": 57,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W058_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-rattle.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W059",
@@ -833,9 +1449,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-mirror.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w059.jpg",
+      "thumb": "images/web/studio/l/W059.jpg",
       "edited": true,
-      "index": 58
+      "index": 58,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W059_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-mirror.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W060",
@@ -847,37 +1473,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-headguard.webp",
       "scene": "",
       "clean": "images/web/bg-baby-headguard.jpg",
-      "thumb": "images/web/catalog/w060.jpg",
+      "thumb": "images/web/studio/l/W060.jpg",
       "edited": true,
-      "index": 59
-    },
-    {
-      "id": "W061",
-      "client": "메리본",
-      "title": "유모차 가드",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "유모차 손잡이 쿠션",
-      "original": "images/web/baby-strollerguard.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/baby-strollerguard.webp",
-      "edited": false,
-      "index": 60
-    },
-    {
-      "id": "W062",
-      "client": "메리본",
-      "title": "차량 햇빛가리개",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "프린트 햇빛가리개",
-      "original": "images/web/baby-sunshade.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/baby-sunshade.webp",
-      "edited": false,
-      "index": 61
+      "index": 59,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W060_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-headguard.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W063",
@@ -889,9 +1497,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-simone.webp",
       "scene": "images/web/scene-simone.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w063.jpg",
+      "thumb": "images/web/studio/l/W063.jpg",
       "edited": true,
-      "index": 62
+      "index": 62,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W063_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-simone.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-simone.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W064",
@@ -903,23 +1525,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-shoulder.webp",
       "scene": "",
       "clean": "images/web/bg-baby-shoulder.jpg",
-      "thumb": "images/web/catalog/w064.jpg",
+      "thumb": "images/web/studio/l/W064.jpg",
       "edited": true,
-      "index": 63
-    },
-    {
-      "id": "W065",
-      "client": "엠베이비",
-      "title": "모빌",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "봉제 바다 친구 모빌",
-      "original": "images/web/baby-mobile.webp",
-      "scene": "images/web/scene-mobile.jpg",
-      "clean": "",
-      "thumb": "images/web/baby-mobile.webp",
-      "edited": false,
-      "index": 64
+      "index": 63,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W064_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-shoulder.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W066",
@@ -931,9 +1549,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-doll.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w066.jpg",
+      "thumb": "images/web/studio/l/W066.jpg",
       "edited": true,
-      "index": 65
+      "index": 65,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W066_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-doll.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W067",
@@ -945,9 +1573,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-strollertoy.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w067.jpg",
+      "thumb": "images/web/studio/l/W067.jpg",
       "edited": true,
-      "index": 66
+      "index": 66,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W067_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-strollertoy.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W068",
@@ -959,9 +1597,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-pillow.webp",
       "scene": "",
       "clean": "images/web/bg-baby-pillow.jpg",
-      "thumb": "images/web/catalog/w068.jpg",
+      "thumb": "images/web/studio/l/W068.jpg",
       "edited": true,
-      "index": 67
+      "index": 67,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W068_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-pillow.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W069",
@@ -973,9 +1621,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/baby-aircleaner.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w069.jpg",
+      "thumb": "images/web/studio/l/W069.jpg",
       "edited": true,
-      "index": 68
+      "index": 68,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W069_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/baby-aircleaner.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W070",
@@ -987,9 +1645,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/car-kickmat.webp",
       "scene": "images/web/scene-kickmat.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w070.jpg",
+      "thumb": "images/web/studio/l/W070.jpg",
       "edited": true,
-      "index": 69
+      "index": 69,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W070_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/car-kickmat.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-kickmat.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W071",
@@ -1001,37 +1673,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/car-beltdoll.webp",
       "scene": "",
       "clean": "images/web/bg-car-beltdoll.jpg",
-      "thumb": "images/web/catalog/w071.jpg",
+      "thumb": "images/web/studio/l/W071.jpg",
       "edited": true,
-      "index": 70
-    },
-    {
-      "id": "W072",
-      "client": "차량용품",
-      "title": "자동차 수납함",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "시트 걸이형 · 태블릿 수납",
-      "original": "images/web/car-organizer.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/car-organizer.webp",
-      "edited": false,
-      "index": 71
-    },
-    {
-      "id": "W073",
-      "client": "메리본",
-      "title": "카시트 커버",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "카시트 보관 커버",
-      "original": "images/web/car-seatcover.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/car-seatcover.webp",
-      "edited": false,
-      "index": 72
+      "index": 70,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W071_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/car-beltdoll.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W074",
@@ -1043,9 +1697,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/car-seatmat.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w074.jpg",
+      "thumb": "images/web/studio/l/W074.jpg",
       "edited": true,
-      "index": 73
+      "index": 73,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W074_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/car-seatmat.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W075",
@@ -1057,9 +1721,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/car-a1beltdoll.webp",
       "scene": "",
       "clean": "images/web/bg-car-a1beltdoll.jpg",
-      "thumb": "images/web/catalog/w075.jpg",
+      "thumb": "images/web/studio/l/W075.jpg",
       "edited": true,
-      "index": 74
+      "index": 74,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W075_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/car-a1beltdoll.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W076",
@@ -1071,107 +1745,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-knu.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w076.jpg",
+      "thumb": "images/web/studio/l/W076.jpg",
       "edited": true,
-      "index": 75
-    },
-    {
-      "id": "W077",
-      "client": "범아",
-      "title": "블랭킷 슬리브",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "담요 보관 슬리브",
-      "original": "images/web/biz-blanketsleeve.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-blanketsleeve.webp",
-      "edited": false,
-      "index": 76
-    },
-    {
-      "id": "W079",
-      "client": "범아",
-      "title": "문 걸이 수납 포켓",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "현관문 걸이형 수납",
-      "original": "images/web/biz-door.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-door.webp",
-      "edited": false,
-      "index": 78
-    },
-    {
-      "id": "W080",
-      "client": "범아",
-      "title": "기내 카트 커튼",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "카트 덮개 커튼",
-      "original": "images/web/biz-cartcurtain.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-cartcurtain.webp",
-      "edited": false,
-      "index": 79
-    },
-    {
-      "id": "W081",
-      "client": "범아",
-      "title": "랩스타일 앞치마",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "앞치마 2색",
-      "original": "images/web/biz-apron.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-apron.webp",
-      "edited": false,
-      "index": 80
-    },
-    {
-      "id": "W082",
-      "client": "범아",
-      "title": "보틀 슬리브",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "와인병 슬리브 2색",
-      "original": "images/web/biz-bottlesleeve.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-bottlesleeve.webp",
-      "edited": false,
-      "index": 81
-    },
-    {
-      "id": "W083",
-      "client": "범아",
-      "title": "캐비닛 수납 포켓",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "걸이형 수납 포켓",
-      "original": "images/web/biz-cabinet.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-cabinet.webp",
-      "edited": false,
-      "index": 82
-    },
-    {
-      "id": "W084",
-      "client": "범아",
-      "title": "컵 슬리브",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "자석 여밈 컵 슬리브",
-      "original": "images/web/biz-cupsleeve.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-cupsleeve.webp",
-      "edited": false,
-      "index": 83
+      "index": 75,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W076_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-knu.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W085",
@@ -1183,9 +1769,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-coaster.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w085.jpg",
+      "thumb": "images/web/studio/l/W085.jpg",
       "edited": true,
-      "index": 84
+      "index": 84,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W085_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-coaster.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W086",
@@ -1197,23 +1793,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-cushion.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w086.jpg",
+      "thumb": "images/web/studio/l/W086.jpg",
       "edited": true,
-      "index": 85
-    },
-    {
-      "id": "W087",
-      "client": "범아",
-      "title": "테이블 커튼",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "행사용 테이블 커버",
-      "original": "images/web/biz-tablecurtain.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-tablecurtain.webp",
-      "edited": false,
-      "index": 86
+      "index": 85,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W086_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-cushion.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W088",
@@ -1225,23 +1817,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-pouch.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w088.jpg",
+      "thumb": "images/web/studio/l/W088.jpg",
       "edited": true,
-      "index": 87
-    },
-    {
-      "id": "W089",
-      "client": "범아",
-      "title": "파티션 수납 포켓",
-      "category": "리빙·웰니스",
-      "group": "리빙·웰니스",
-      "meta": "사무실 파티션 걸이형",
-      "original": "images/web/biz-partition.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-partition.webp",
-      "edited": false,
-      "index": 88
+      "index": 87,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W088_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-pouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W090",
@@ -1253,9 +1841,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-bigpouch.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w090.jpg",
+      "thumb": "images/web/studio/l/W090.jpg",
       "edited": true,
-      "index": 89
+      "index": 89,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W090_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-bigpouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W091",
@@ -1267,9 +1865,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/blog-neckpillow.webp",
       "scene": "",
       "clean": "images/web/bg-blog-neckpillow.jpg",
-      "thumb": "images/web/catalog/w091.jpg",
+      "thumb": "images/web/studio/l/W091.jpg",
       "edited": true,
-      "index": 90
+      "index": 90,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W091_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/blog-neckpillow.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W092",
@@ -1281,37 +1889,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/blog-roly.webp",
       "scene": "",
       "clean": "images/web/bg-blog-roly.jpg",
-      "thumb": "images/web/catalog/w092.jpg",
+      "thumb": "images/web/studio/l/W092.jpg",
       "edited": true,
-      "index": 91
-    },
-    {
-      "id": "W093",
-      "client": "푸딩",
-      "title": "오뚜기 인형",
-      "category": "캐릭터·봉제",
-      "group": "봉제인형",
-      "meta": "방울 소리 나는 극세사 오뚜기 3종",
-      "original": "images/web/blog-pudding-roly.webp",
-      "scene": "",
-      "clean": "images/web/bg-blog-pudding-roly.jpg",
-      "thumb": "images/web/blog-pudding-roly.webp",
-      "edited": false,
-      "index": 92
-    },
-    {
-      "id": "W094",
-      "client": "캐릭터·봉제",
-      "title": "줄무늬 곰인형 세트",
-      "category": "캐릭터·봉제",
-      "group": "봉제인형",
-      "meta": "큰 곰·작은 곰 커플 인형",
-      "original": "images/web/blog-bigbear.webp",
-      "scene": "",
-      "clean": "images/web/bg-blog-bigbear.jpg",
-      "thumb": "images/web/blog-bigbear.webp",
-      "edited": false,
-      "index": 93
+      "index": 91,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W092_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/blog-roly.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W095",
@@ -1323,51 +1913,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/blog-beltdoll.webp",
       "scene": "",
       "clean": "images/web/bg-blog-beltdoll.jpg",
-      "thumb": "images/web/catalog/w095.jpg",
+      "thumb": "images/web/studio/l/W095.jpg",
       "edited": true,
-      "index": 94
-    },
-    {
-      "id": "W096",
-      "client": "푸딩",
-      "title": "미니 안전벨트 인형",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "수납공간 있는 안전벨트 인형 3종",
-      "original": "images/web/blog-minibelt.webp",
-      "scene": "",
-      "clean": "images/web/bg-blog-minibelt.jpg",
-      "thumb": "images/web/blog-minibelt.webp",
-      "edited": false,
-      "index": 95
-    },
-    {
-      "id": "W097",
-      "client": "푸딩",
-      "title": "아기 쿨토시",
-      "category": "유아·차량",
-      "group": "유아·차량",
-      "meta": "자외선 차단 · 시험성적서 보유",
-      "original": "images/web/blog-armsleeve.webp",
-      "scene": "",
-      "clean": "images/web/bg-blog-armsleeve.jpg",
-      "thumb": "images/web/blog-armsleeve.webp",
-      "edited": false,
-      "index": 96
-    },
-    {
-      "id": "W100",
-      "client": "범아",
-      "title": "트래블 파우치 세트",
-      "category": "가방·파우치",
-      "group": "백·파우치",
-      "meta": "자석 여밈 파우치 S·M·L",
-      "original": "images/web/biz-travelpouch.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-travelpouch.webp",
-      "edited": false,
-      "index": 99
+      "index": 94,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W095_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/blog-beltdoll.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W101",
@@ -1379,9 +1937,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-slimpouch.webp",
       "scene": "",
       "clean": "images/web/bg-biz-slimpouch.jpg",
-      "thumb": "images/web/catalog/w101.jpg",
+      "thumb": "images/web/studio/l/W101.jpg",
       "edited": true,
-      "index": 100
+      "index": 100,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W101_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-slimpouch.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W102",
@@ -1393,9 +1961,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-tissue.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w102.jpg",
+      "thumb": "images/web/studio/l/W102.jpg",
       "edited": true,
-      "index": 101
+      "index": 101,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W102_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-tissue.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W103",
@@ -1407,9 +1985,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-eyemask.webp",
       "scene": "",
       "clean": "images/web/bg-biz-eyemask.jpg",
-      "thumb": "images/web/catalog/w103.jpg",
+      "thumb": "images/web/studio/l/W103.jpg",
       "edited": true,
-      "index": 102
+      "index": 102,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W103_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-eyemask.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W104",
@@ -1421,9 +2009,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/biz-bibapron.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w104.jpg",
+      "thumb": "images/web/studio/l/W104.jpg",
       "edited": true,
-      "index": 103
+      "index": 103,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W104_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/biz-bibapron.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W105",
@@ -1435,9 +2033,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/mt-bandana.webp",
       "scene": "",
       "clean": "images/web/bg-mt-bandana.jpg",
-      "thumb": "images/web/catalog/w105.jpg",
+      "thumb": "images/web/studio/l/W105.jpg",
       "edited": true,
-      "index": 104
+      "index": 104,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W105_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/mt-bandana.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W106",
@@ -1449,9 +2057,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/mt-hanbok.webp",
       "scene": "images/web/scene-mt-hanbok.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w106.jpg",
+      "thumb": "images/web/studio/l/W106.jpg",
       "edited": true,
-      "index": 105
+      "index": 105,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W106_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/mt-hanbok.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-mt-hanbok.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W107",
@@ -1463,9 +2085,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/mt-vest.webp",
       "scene": "",
       "clean": "images/web/bg-mt-vest.jpg",
-      "thumb": "images/web/catalog/w107.jpg",
+      "thumb": "images/web/studio/l/W107.jpg",
       "edited": true,
-      "index": 106
+      "index": 106,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W107_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/mt-vest.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W108",
@@ -1477,9 +2109,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/mt-lying.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w108.jpg",
+      "thumb": "images/web/studio/l/W108.jpg",
       "edited": true,
-      "index": 107
+      "index": 107,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W108_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/mt-lying.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W109",
@@ -1491,9 +2133,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-holder-square.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w109.jpg",
+      "thumb": "images/web/studio/l/W109.jpg",
       "edited": true,
-      "index": 108
+      "index": 108,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W109_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-holder-square.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W110",
@@ -1505,9 +2157,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-holder-ears.webp",
       "scene": "images/web/scene-pompora-ears.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w110.jpg",
+      "thumb": "images/web/studio/l/W110.jpg",
       "edited": true,
-      "index": 109
+      "index": 109,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W110_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-holder-ears.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-pompora-ears.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W111",
@@ -1519,9 +2185,19 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-holder-firstaid.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w111.jpg",
+      "thumb": "images/web/studio/l/W111.jpg",
       "edited": true,
-      "index": 110
+      "index": 110,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W111_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-holder-firstaid.webp",
+          "label": "원본사진"
+        }
+      ]
     },
     {
       "id": "W112",
@@ -1533,9 +2209,843 @@ window.MERCH_CATALOG = {
       "original": "images/web/pet-holder-bone.webp",
       "scene": "",
       "clean": "",
-      "thumb": "images/web/catalog/w112.jpg",
+      "thumb": "images/web/studio/l/W112.jpg",
       "edited": true,
-      "index": 111
+      "index": 111,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W112_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/pet-holder-bone.webp",
+          "label": "원본사진"
+        }
+      ]
+    },
+    {
+      "id": "W114",
+      "client": "머치메이트",
+      "title": "체크 조끼 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P01_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P01.jpg",
+      "edited": true,
+      "index": 112,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P01_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W115",
+      "client": "머치메이트",
+      "title": "레드 조끼 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P02_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P02.jpg",
+      "edited": true,
+      "index": 113,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P02_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W116",
+      "client": "머치메이트",
+      "title": "핑크 리본 곰 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P03_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P03.jpg",
+      "edited": true,
+      "index": 114,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P03_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D03_o.jpg",
+          "label": "곰 키링 컬렉션"
+        },
+        {
+          "src": "images/web/studio/o/D05_o.jpg",
+          "label": "가방에 단 곰 키링"
+        }
+      ]
+    },
+    {
+      "id": "W117",
+      "client": "머치메이트",
+      "title": "알파카 봉제인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P06_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P06.jpg",
+      "edited": true,
+      "index": 115,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P06_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W118",
+      "client": "머치메이트",
+      "title": "실버 유니콘 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P07_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P07.jpg",
+      "edited": true,
+      "index": 116,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P07_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D02_o.jpg",
+          "label": "유니콘 컬렉션"
+        }
+      ]
+    },
+    {
+      "id": "W119",
+      "client": "머치메이트",
+      "title": "핑크 유니콘 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P08_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P08.jpg",
+      "edited": true,
+      "index": 117,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P08_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W120",
+      "client": "머치메이트",
+      "title": "퍼플 유니콘 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P09_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P09.jpg",
+      "edited": true,
+      "index": 118,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P09_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W121",
+      "client": "머치메이트",
+      "title": "민트 유니콘 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P10_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P10.jpg",
+      "edited": true,
+      "index": 119,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P10_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W122",
+      "client": "머치메이트",
+      "title": "블루 유니콘 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P11_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P11.jpg",
+      "edited": true,
+      "index": 120,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P11_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W123",
+      "client": "머치메이트",
+      "title": "케이프 곰 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P12_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P12.jpg",
+      "edited": true,
+      "index": 121,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P12_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W124",
+      "client": "머치메이트",
+      "title": "골드 리본 곰 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P13_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P13.jpg",
+      "edited": true,
+      "index": 122,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P13_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W125",
+      "client": "머치메이트",
+      "title": "네이비 볼캡 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P14_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P14.jpg",
+      "edited": true,
+      "index": 123,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P14_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D04_o.jpg",
+          "label": "볼캡 강아지 키링 세트"
+        }
+      ]
+    },
+    {
+      "id": "W126",
+      "client": "머치메이트",
+      "title": "공룡 후드 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P15_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P15.jpg",
+      "edited": true,
+      "index": 124,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P15_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W127",
+      "client": "머치메이트",
+      "title": "골드 리본 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P16_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P16.jpg",
+      "edited": true,
+      "index": 125,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P16_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W128",
+      "client": "머치메이트",
+      "title": "핑크 볼캡 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P17_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P17.jpg",
+      "edited": true,
+      "index": 126,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P17_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D06_o.jpg",
+          "label": "골프 파우치와 강아지 키링"
+        }
+      ]
+    },
+    {
+      "id": "W129",
+      "client": "머치메이트",
+      "title": "화이트 리본 동물 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P18_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P18.jpg",
+      "edited": true,
+      "index": 127,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P18_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W130",
+      "client": "머치메이트",
+      "title": "도라에몽 봉제인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P19_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P19.jpg",
+      "edited": true,
+      "index": 128,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P19_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W131",
+      "client": "머치메이트",
+      "title": "모자와 보타이 강아지 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P20_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P20.jpg",
+      "edited": true,
+      "index": 129,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P20_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W132",
+      "client": "머치메이트",
+      "title": "화이트 미니 파우치",
+      "category": "가방·파우치",
+      "group": "백·파우치",
+      "meta": "",
+      "original": "images/web/studio/o/P21_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P21.jpg",
+      "edited": true,
+      "index": 130,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P21_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W133",
+      "client": "머치메이트",
+      "title": "그레이 리본 곰 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P22_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P22.jpg",
+      "edited": true,
+      "index": 131,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P22_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D07_o.jpg",
+          "label": "리본 곰 인형 컬렉션"
+        }
+      ]
+    },
+    {
+      "id": "W134",
+      "client": "머치메이트",
+      "title": "와인 리본 곰 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P23_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P23.jpg",
+      "edited": true,
+      "index": 132,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P23_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W135",
+      "client": "머치메이트",
+      "title": "블루 리본 곰 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P24_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P24.jpg",
+      "edited": true,
+      "index": 133,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P24_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W136",
+      "client": "머치메이트",
+      "title": "솜솜이 학사복 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P25_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P25.jpg",
+      "edited": true,
+      "index": 134,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P25_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W137",
+      "client": "머치메이트",
+      "title": "볼캡 푸들 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P26_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P26.jpg",
+      "edited": true,
+      "index": 135,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P26_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W138",
+      "client": "머치메이트",
+      "title": "야구점퍼 소 캐릭터 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P28_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P28.jpg",
+      "edited": true,
+      "index": 136,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P28_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W139",
+      "client": "머치메이트",
+      "title": "네이비 후드 곰 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P29_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P29.jpg",
+      "edited": true,
+      "index": 137,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P29_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W140",
+      "client": "머치메이트",
+      "title": "블루 사슴 캐릭터 인형",
+      "category": "캐릭터·봉제",
+      "group": "봉제인형",
+      "meta": "",
+      "original": "images/web/studio/o/P30_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P30.jpg",
+      "edited": true,
+      "index": 138,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P30_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W141",
+      "client": "머치메이트",
+      "title": "블루 후드 야구점퍼 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P31_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P31.jpg",
+      "edited": true,
+      "index": 139,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P31_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W142",
+      "client": "머치메이트",
+      "title": "그린 야구점퍼 곰 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P32_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P32.jpg",
+      "edited": true,
+      "index": 140,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P32_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W143",
+      "client": "머치메이트",
+      "title": "퍼플 티셔츠 캥거루 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P33_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P33.jpg",
+      "edited": true,
+      "index": 141,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P33_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W144",
+      "client": "머치메이트",
+      "title": "도트 리본 토끼 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P34_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P34.jpg",
+      "edited": true,
+      "index": 142,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P34_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W145",
+      "client": "머치메이트",
+      "title": "블루 후드 캐릭터 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P35_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P35.jpg",
+      "edited": true,
+      "index": 143,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P35_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W146",
+      "client": "머치메이트",
+      "title": "옐로 파우치 곰 인형",
+      "category": "가방·파우치",
+      "group": "백·파우치",
+      "meta": "",
+      "original": "images/web/studio/o/P36_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P36.jpg",
+      "edited": true,
+      "index": 144,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P36_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W147",
+      "client": "머치메이트",
+      "title": "네이비 유니폼 곰 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P37_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P37.jpg",
+      "edited": true,
+      "index": 145,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P37_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W148",
+      "client": "머치메이트",
+      "title": "야구점퍼 새 캐릭터 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P38_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P38.jpg",
+      "edited": true,
+      "index": 146,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P38_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W149",
+      "client": "머치메이트",
+      "title": "블루 야구점퍼 캐릭터 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P40_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P40.jpg",
+      "edited": true,
+      "index": 147,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P40_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W150",
+      "client": "머치메이트",
+      "title": "핑크 곰 캐릭터 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P41_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P41.jpg",
+      "edited": true,
+      "index": 148,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P41_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W151",
+      "client": "머치메이트",
+      "title": "레드 머플러 토끼 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P42_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P42.jpg",
+      "edited": true,
+      "index": 149,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P42_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W152",
+      "client": "머치메이트",
+      "title": "블루 체크 동물 키링",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P43_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P43.jpg",
+      "edited": true,
+      "index": 150,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P43_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W153",
+      "client": "머치메이트",
+      "title": "글리터 강아지 키링 세트",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "",
+      "original": "images/web/studio/o/P44_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P44.jpg",
+      "edited": true,
+      "index": 151,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P44_o.jpg",
+          "label": "제품사진"
+        }
+      ]
     }
   ],
   "home": [
