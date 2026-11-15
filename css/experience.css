@@ -41,3 +41,44 @@
 /* close dropdown after same-page submenu click */
 .nav-item.mm-menu-closed .sub-menu{opacity:0!important;visibility:hidden!important;pointer-events:none!important}
 .mm-home-nav-group.mm-menu-closed>ul{display:none!important}
+
+
+/* 2026-11-16: flat full-width navigation, no floating box */
+.mm-band-header .mm-nav-band[hidden],.mm-mobile-sub[hidden]{display:none!important}
+.mm-band-header .mm-nav-band{position:absolute;top:100%;left:0;right:0;width:100%;margin:0;padding:0;background:#fff;color:#16213e;border:0;border-top:1px solid #e5e8ed;border-bottom:1px solid #e5e8ed;border-radius:0;box-shadow:none;z-index:110;text-align:left}
+.mm-band-inner{max-width:1440px;margin:0 auto;padding:0 60px}
+.mm-band-tabs{display:flex;align-items:center;gap:26px;border-bottom:1px solid #edf0f3;min-height:40px}
+.mm-band-tab{appearance:none;border:0;border-radius:0;background:none;box-shadow:none;font:600 13px/1.4 'Pretendard Variable',sans-serif;color:#7a8495;padding:11px 0 10px;cursor:pointer;position:relative;white-space:nowrap}
+.mm-band-tab[aria-pressed="true"]{color:#16213e}
+.mm-band-tab[aria-pressed="true"]:after{content:'';position:absolute;left:0;right:0;bottom:-1px;height:2px;background:#16213e}
+.mm-band-links{display:flex;flex-wrap:wrap;align-items:center;gap:0 30px;min-height:56px;padding:4px 0}
+.mm-nav-band .mm-band-links a{display:block!important;width:auto;flex:none;border:0;border-radius:0;padding:12px 0;background:none;font:500 15px/1.5 'Pretendard Variable',sans-serif;color:#42506a;text-decoration:none;white-space:nowrap;letter-spacing:-.02em}
+.mm-nav-band .mm-band-links a:hover{color:#16213e;text-decoration:underline;text-underline-offset:5px}
+.mm-nav-band a:focus-visible,.mm-band-tab:focus-visible,.mm-mobile-toggle:focus-visible{outline:2px solid #16213e;outline-offset:4px}
+.mm-mobile-toggle,.mm-mobile-sub{display:none}
+@media(min-width:901px){
+.mm-band-header .mm-band-trigger{position:relative}
+.mm-band-header .mm-band-trigger:after{content:'';position:absolute;right:-14px;bottom:5px;width:5px;height:5px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+.header.mm-band-header .mm-band-trigger:after{bottom:34px}
+.mm-band-header .mm-band-trigger[aria-expanded="true"]:after{transform:rotate(225deg);bottom:3px}
+.header.mm-band-header .mm-band-trigger[aria-expanded="true"]:after{bottom:32px}
+.mm-band-header .nav-item .sub-menu{display:none!important}
+}
+@media(min-width:901px) and (max-width:1280px){.mm-band-inner{padding:0 36px}.mm-band-links{gap:0 23px}.mm-nav-band .mm-band-links a{font-size:14px}}
+@media(max-width:900px){
+.mm-band-header .mm-nav-band{display:none!important}
+.mm-mobile-group{position:relative}
+.mm-mobile-toggle{display:flex;position:absolute;right:0;top:4px;width:44px;height:44px;align-items:center;justify-content:center;padding:0;border:0;border-radius:0;background:none;color:#16213e;cursor:pointer}
+.mm-mobile-toggle span{width:8px;height:8px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg)}
+.mm-mobile-toggle[aria-expanded="true"] span{transform:rotate(225deg)}
+.mm-mobile-sub:not([hidden]){display:block;padding:0 0 16px 14px;border-bottom:1px solid #e5e8ed}
+.mm-mobile-sub section+section{margin-top:14px}
+.mm-mobile-sub strong{display:block;font-size:12px;font-weight:600;color:#7a8495;padding:8px 0 4px}
+.mnav .mm-mobile-group>.mm-band-trigger{display:block;font-size:20px;font-weight:700;padding:13px 48px 13px 0;border-bottom:1px solid #e5e8ed}
+.mnav .mm-mobile-group>.mm-band-trigger .ko{font-size:13px;font-weight:500;color:#8a90a0;margin-left:8px}
+.mnav .mm-mobile-sub a,.header .mm-mobile-sub a{display:block!important;padding:9px 0!important;margin:0;border:0;border-radius:0;background:none;text-align:left;font-size:14px!important;font-weight:500!important;line-height:1.5;color:#47546b!important;white-space:normal;word-break:keep-all}
+.header .mm-mobile-group>.mm-band-trigger{padding-right:48px}
+.header .mm-mobile-toggle{top:4px}
+.header .nav.open{max-height:calc(100dvh - 126px);overflow-y:auto;overscroll-behavior:contain}
+.mnav .mm-mobile-groups{margin-bottom:18px}
+}
