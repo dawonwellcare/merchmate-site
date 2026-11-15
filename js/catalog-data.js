@@ -1,6 +1,6 @@
 /* 크림 단색 스튜디오 사진. 원본/연출 사진은 modal photos에 별도 보존. */
 window.MERCH_CATALOG = {
-  "version": "20261115-studio2",
+  "version": "20261115-studio3",
   "groups": [
     "봉제인형",
     "키링",
@@ -205,9 +205,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-dongduk.webp",
       "scene": "images/web/scene-dongduk.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w008.jpg",
+      "thumb": "images/web/studio/l/W008b.jpg",
       "edited": true,
-      "index": 7
+      "index": 7,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W008b_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-dongduk.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-dongduk.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W009",
@@ -303,9 +317,23 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-grad.webp",
       "scene": "images/web/scene-sahmyook.jpg",
       "clean": "",
-      "thumb": "images/web/catalog/w012.jpg",
+      "thumb": "images/web/studio/l/W012b.jpg",
       "edited": true,
-      "index": 11
+      "index": 11,
+      "photos": [
+        {
+          "src": "images/web/studio/o/W012b_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/client-sahmyook-grad.webp",
+          "label": "원본사진"
+        },
+        {
+          "src": "images/web/scene-sahmyook.jpg",
+          "label": "AI 연출사진"
+        }
+      ]
     },
     {
       "id": "W013",
