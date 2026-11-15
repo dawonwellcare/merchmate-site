@@ -1090,20 +1090,6 @@ window.MERCH_CATALOG = {
       "index": 76
     },
     {
-      "id": "W078",
-      "client": "게임 굿즈",
-      "title": "패브릭 포스터",
-      "category": "캐릭터·봉제",
-      "group": "기타",
-      "meta": "캐릭터 패브릭 포스터",
-      "original": "images/web/biz-poster.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/biz-poster.webp",
-      "edited": false,
-      "index": 77
-    },
-    {
       "id": "W079",
       "client": "범아",
       "title": "문 걸이 수납 포켓",
