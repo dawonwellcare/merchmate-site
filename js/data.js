@@ -15,7 +15,7 @@ const SITE = {
   locations: [
     { label: 'OFFICE 1', address: '경기도 파주시 교하로 891-1, A동 (10880)' }, // 대표 주소 (실제 사용)
     { label: 'OFFICE 2', address: '경기도 고양시 일산동구 정발산로 11, 5층 501-84호(장항동, 일호골든타워)' },
-    { label: 'FACTORY', address: '2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao City, China' },
+    { label: 'FACTORY', address: '2F, Puiihanhua Building, Zhong Village Industry Park, Chengyang District, Qingdao, China' },
   ],
 };
 
