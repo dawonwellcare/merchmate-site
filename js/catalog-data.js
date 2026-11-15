@@ -1,6 +1,6 @@
 /* 크림 단색 스튜디오 사진. 원본/연출 사진은 modal photos에 별도 보존. */
 window.MERCH_CATALOG = {
-  "version": "20261115-studio1",
+  "version": "20261115-studio2",
   "groups": [
     "봉제인형",
     "키링",
@@ -205,23 +205,9 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-dongduk.webp",
       "scene": "images/web/scene-dongduk.jpg",
       "clean": "",
-      "thumb": "images/web/studio/l/W008.jpg",
+      "thumb": "images/web/catalog/w008.jpg",
       "edited": true,
-      "index": 7,
-      "photos": [
-        {
-          "src": "images/web/studio/o/W008_o.jpg",
-          "label": "제품사진"
-        },
-        {
-          "src": "images/web/client-dongduk.webp",
-          "label": "원본사진"
-        },
-        {
-          "src": "images/web/scene-dongduk.jpg",
-          "label": "AI 연출사진"
-        }
-      ]
+      "index": 7
     },
     {
       "id": "W009",
@@ -317,27 +303,9 @@ window.MERCH_CATALOG = {
       "original": "images/web/client-sahmyook-grad.webp",
       "scene": "images/web/scene-sahmyook.jpg",
       "clean": "",
-      "thumb": "images/web/studio/l/W012.jpg",
+      "thumb": "images/web/catalog/w012.jpg",
       "edited": true,
-      "index": 11,
-      "photos": [
-        {
-          "src": "images/web/studio/o/W012_o.jpg",
-          "label": "제품사진"
-        },
-        {
-          "src": "images/web/studio/o/D01_o.jpg",
-          "label": "학사복 인형 크기 비교"
-        },
-        {
-          "src": "images/web/client-sahmyook-grad.webp",
-          "label": "원본사진"
-        },
-        {
-          "src": "images/web/scene-sahmyook.jpg",
-          "label": "AI 연출사진"
-        }
-      ]
+      "index": 11
     },
     {
       "id": "W013",
@@ -1075,30 +1043,6 @@ window.MERCH_CATALOG = {
         },
         {
           "src": "images/web/client-bear-woong.webp",
-          "label": "원본사진"
-        }
-      ]
-    },
-    {
-      "id": "W042",
-      "client": "공장 샘플",
-      "title": "녹음 토끼 인형",
-      "category": "캐릭터·봉제",
-      "group": "봉제인형",
-      "meta": "발바닥 버튼으로 녹음 · 재생",
-      "original": "images/web/sample-voice-bunny.webp",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/studio/l/W042.jpg",
-      "edited": true,
-      "index": 41,
-      "photos": [
-        {
-          "src": "images/web/studio/o/W042_o.jpg",
-          "label": "제품사진"
-        },
-        {
-          "src": "images/web/sample-voice-bunny.webp",
           "label": "원본사진"
         }
       ]
@@ -3044,6 +2988,50 @@ window.MERCH_CATALOG = {
         {
           "src": "images/web/studio/o/P44_o.jpg",
           "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W154",
+      "client": "동덕여자대학교",
+      "title": "솜솜이 키링 인형",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "야구 점퍼를 입힌 마스코트 키링 인형",
+      "original": "images/web/studio/o/P04_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P04.jpg",
+      "edited": true,
+      "index": 9.5,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P04_o.jpg",
+          "label": "제품사진"
+        }
+      ]
+    },
+    {
+      "id": "W155",
+      "client": "삼육대학교",
+      "title": "수야 학사복 키링 인형",
+      "category": "캐릭터·봉제",
+      "group": "키링",
+      "meta": "학사복을 입힌 마스코트 키링 인형",
+      "original": "images/web/studio/o/P05_o.jpg",
+      "scene": "",
+      "clean": "",
+      "thumb": "images/web/studio/l/P05.jpg",
+      "edited": true,
+      "index": 15.5,
+      "photos": [
+        {
+          "src": "images/web/studio/o/P05_o.jpg",
+          "label": "제품사진"
+        },
+        {
+          "src": "images/web/studio/o/D01_o.jpg",
+          "label": "키링 2종"
         }
       ]
     }
