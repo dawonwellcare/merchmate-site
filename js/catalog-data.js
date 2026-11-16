@@ -977,7 +977,7 @@ window.MERCH_CATALOG = {
     },
     {
       "id": "W038",
-      "client": "금홍",
+      "client": "미피",
       "title": "토끼 얼굴 인형",
       "category": "캐릭터·봉제",
       "group": "봉제인형",
@@ -2516,26 +2516,6 @@ window.MERCH_CATALOG = {
       ]
     },
     {
-      "id": "W129",
-      "client": "머치메이트",
-      "title": "화이트 리본 동물 키링",
-      "category": "캐릭터·봉제",
-      "group": "키링",
-      "meta": "",
-      "original": "images/web/studio-g/o/P18_o.jpg",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/studio-g/l/P18.jpg",
-      "edited": true,
-      "index": 127,
-      "photos": [
-        {
-          "src": "images/web/studio-g/o/P18_o.jpg",
-          "label": "제품사진"
-        }
-      ]
-    },
-    {
       "id": "W130",
       "client": "머치메이트",
       "title": "도라에몽 봉제인형",
@@ -2551,26 +2531,6 @@ window.MERCH_CATALOG = {
       "photos": [
         {
           "src": "images/web/studio-g/o/P19_o.jpg",
-          "label": "제품사진"
-        }
-      ]
-    },
-    {
-      "id": "W131",
-      "client": "머치메이트",
-      "title": "모자와 보타이 강아지 키링",
-      "category": "캐릭터·봉제",
-      "group": "키링",
-      "meta": "",
-      "original": "images/web/studio-g/o/P20_o.jpg",
-      "scene": "",
-      "clean": "",
-      "thumb": "images/web/studio-g/l/P20.jpg",
-      "edited": true,
-      "index": 129,
-      "photos": [
-        {
-          "src": "images/web/studio-g/o/P20_o.jpg",
           "label": "제품사진"
         }
       ]
