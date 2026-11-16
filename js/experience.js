@@ -100,9 +100,14 @@
     band.innerHTML = `<div class="mm-band-inner"><div class="mm-band-links">${linkMarkup(m.groups[0].links)}</div>${m.groups.length > 1 ? `<div class="mm-band-more"><button type="button" aria-expanded="false" aria-controls="mm-guide-flyout">품목별 제작 안내 <span aria-hidden="true">›</span></button><div id="mm-guide-flyout" class="mm-guide-flyout" role="group" aria-label="품목별 제작 안내" hidden>${linkMarkup(m.groups[1].links)}</div></div>` : ''}</div>`;
     const h = header.getBoundingClientRect();
     const t = triggers[i].getBoundingClientRect();
-    const left = Math.max(16, Math.min(t.left - h.left, h.width - 196));
+    const panelWidth = 200;
+    const flyoutWidth = 252;
+    const left = Math.max(16, Math.min(t.left - h.left + (t.width - panelWidth) / 2, h.width - panelWidth - 16));
+    const roomLeft = left - 16;
+    const roomRight = h.width - left - panelWidth - 16;
     band.style.left = left + 'px';
-    band.classList.toggle('mm-flyout-left', left + 400 > h.width - 16);
+    const openLeft = (Boolean(subNav) && roomLeft >= flyoutWidth) || (roomRight < flyoutWidth && roomLeft >= flyoutWidth);
+    band.classList.toggle('mm-flyout-left', openLeft);
     const more = band.querySelector('.mm-band-more');
     if (more) {
       const button = more.querySelector('button');

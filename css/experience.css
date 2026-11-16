@@ -83,3 +83,19 @@
 .header .nav.open{max-height:calc(100dvh - 126px);overflow-y:auto;overscroll-behavior:contain}
 .mnav .mm-mobile-groups{margin-bottom:18px}
 }
+
+/* 2026-11-16: compact white dropdown for readability */
+@media(min-width:901px){
+.mm-band-header .mm-nav-band{width:200px;background:#fff;color:#16213e;border:1px solid rgba(22,33,62,.10);border-radius:4px;box-shadow:0 8px 20px rgba(22,33,62,.16)}
+.mm-nav-band .mm-band-inner{width:198px;padding:10px 16px}
+.mm-nav-band .mm-band-links a,.mm-nav-band .mm-guide-flyout a{color:#16213e;padding:7px 8px;margin:0 -8px;border-radius:2px;font-weight:500;text-decoration:none}
+.mm-nav-band .mm-band-links a:hover,.mm-nav-band .mm-guide-flyout a:hover{color:#16213e;background:rgba(22,33,62,.10);text-decoration:none}
+.mm-band-more{margin-top:5px;border-top:1px solid rgba(22,33,62,.14);padding-top:4px}
+.mm-band-more>button{width:100%;color:#16213e;padding:9px 0 5px;font-weight:500;text-decoration:none}
+.mm-band-more>button:hover{color:#16213e;text-decoration:none}
+.mm-nav-band .mm-guide-flyout{top:-1px;left:100%;width:252px;padding:10px 16px;background:#fff;border:1px solid rgba(22,33,62,.10);border-radius:4px;box-shadow:0 8px 20px rgba(22,33,62,.16)}
+.mm-nav-band.mm-flyout-left .mm-guide-flyout{left:auto;right:100%;padding:10px 16px}
+.mm-nav-band a:focus-visible,.mm-nav-band .mm-band-more>button:focus-visible{outline:2px solid #16213e;outline-offset:2px}
+}
+
+@media(min-width:901px){.mm-nav-band.mm-flyout-left .mm-band-more>button span{transform:rotate(180deg)}}
